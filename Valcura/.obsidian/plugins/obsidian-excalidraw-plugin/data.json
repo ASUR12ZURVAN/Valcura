@@ -134,7 +134,7 @@
   "scriptEngineSettings": {},
   "previousRelease": "2.25.3",
   "showReleaseNotes": true,
-  "excalidrawMasteryPromoCollapsed": false,
+  "excalidrawMasteryPromoCollapsed": true,
   "compareManifestToPluginVersion": true,
   "showNewVersionNotification": true,
   "latexBoilerplate": "\\color{green}e=mc^2",

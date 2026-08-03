@@ -17,9 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from user_request.views import chat_rag
+from user_request.views import chat_rag, whatsapp_webhook, missed_call_webhook, message_list, dashboard
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/chat-rag/', chat_rag, name='chat-rag'),
+    path('api/whatsapp/webhook/', whatsapp_webhook, name='whatsapp-webhook'),
+    path('api/missed-call/webhook/', missed_call_webhook, name='missed-call-webhook'),
+    
+    # JWT Auth Endpoints
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    
+    # Analytics / Dashboard API
+    path('api/messages/', message_list, name='message-list'),
+    
+    # Frontend Template
+    path('dashboard/', dashboard, name='dashboard'),
 ]

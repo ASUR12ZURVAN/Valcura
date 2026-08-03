@@ -1,6 +1,7 @@
 import os
 from typing import Optional
 
+# pyrefly: ignore [missing-import]
 from .knowledge import retrieve_context
 
 
@@ -53,3 +54,37 @@ class GroqChatService:
                 f"I found the following local guidance:\n\n{context}\n\n"
                 "The live Groq request failed, so this response is using the local retrieval fallback."
             )
+
+
+class WhatsAppService:
+    def __init__(self) -> None:
+        self.access_token = os.getenv("WHATSAPP_ACCESS_TOKEN")
+        self.phone_number_id = os.getenv("WHATSAPP_PHONE_NUMBER_ID")
+        self.api_version = os.getenv("WHATSAPP_API_VERSION", "v18.0")
+
+    def send_message(self, to_number: str, message: str) -> bool:
+        if not self.access_token or not self.phone_number_id:
+            print("WhatsApp credentials not set. Cannot send message.")
+            return False
+
+        try:
+            import requests
+
+            url = f"https://graph.facebook.com/{self.api_version}/{self.phone_number_id}/messages"
+            headers = {
+                "Authorization": f"Bearer {self.access_token}",
+                "Content-Type": "application/json",
+            }
+            payload = {
+                "messaging_product": "whatsapp",
+                "to": to_number,
+                "type": "text",
+                "text": {"body": message},
+            }
+
+            response = requests.post(url, headers=headers, json=payload, timeout=20)
+            response.raise_for_status()
+            return True
+        except Exception as e:
+            print(f"Failed to send WhatsApp message: {e}")
+            return False
