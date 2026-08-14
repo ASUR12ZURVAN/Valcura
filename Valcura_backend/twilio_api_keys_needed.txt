@@ -13,3 +13,9 @@ To successfully integrate Twilio for tracking incoming and missed calls, you wil
    - Where to find it: Twilio Console -> Phone Numbers -> Manage -> Active Numbers.
 
 (Note: You will need to configure your Twilio phone number's "A CALL COMES IN" webhook URL or "Call Status Changes" webhook URL to point to your backend's Twilio endpoint).
+
+
+
+valcura_admin
+operations@valcura.in
+valcura2026
