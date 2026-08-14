@@ -1,0 +1,15 @@
+
+
+1. WHATSAPP_ACCESS_TOKEN
+   - What it is: A temporary or permanent system user token generated from the Meta App Dashboard.
+   - Where to find it: Meta for Developers -> Your App -> WhatsApp -> API Setup -> "Temporary access token" (or create a permanent one via System Users in Business Settings).
+
+2. WHATSAPP_PHONE_NUMBER_ID
+   - What it is: The unique identifier for the phone number sending the messages.
+   - Where to find it: Meta for Developers -> Your App -> WhatsApp -> API Setup -> "Phone number ID".
+
+3. WHATSAPP_API_VERSION (Optional)
+   - What it is: The version of the Meta Graph API you are targeting.
+   - Default: The code defaults to "v18.0" if not provided, but you can set it to newer versions like "v19.0" or "v20.0".
+
+

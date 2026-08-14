@@ -108,3 +108,16 @@ Major Challenges:
 
 
 
+Further additions 
+1. Google sheet integration - form filled by receptionist , data input and workflow modifications
+2. Remainder to the receptionist, and remainder through whatsapp , 
+		1. Example - patient pricing issue, remainder to the patient and the issue
+			1. option - Advice:
+				1. Updated Issue - pricing/ family dependency + sheet updation 
+				2. Updating the google sheet, in the google sheet from whatsapp response 
+				3. Reply from whatsapp ---> google sheet should be updated 
+
+
+
+
+

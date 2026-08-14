@@ -1,0 +1,15 @@
+To successfully integrate Twilio for tracking incoming and missed calls, you will need the following API keys and identifiers in your environment (e.g., in your .env file):
+
+1. TWILIO_ACCOUNT_SID
+   - What it is: The unique identifier for your Twilio account, which acts as a username for API requests.
+   - Where to find it: Twilio Console Dashboard -> Account Info -> "Account SID".
+
+2. TWILIO_AUTH_TOKEN
+   - What it is: The secret key used to authenticate your API requests to Twilio.
+   - Where to find it: Twilio Console Dashboard -> Account Info -> "Auth Token" (you need to click to reveal it).
+
+3. TWILIO_PHONE_NUMBER
+   - What it is: The Twilio phone number purchased or provided in your account to receive incoming calls.
+   - Where to find it: Twilio Console -> Phone Numbers -> Manage -> Active Numbers.
+
+(Note: You will need to configure your Twilio phone number's "A CALL COMES IN" webhook URL or "Call Status Changes" webhook URL to point to your backend's Twilio endpoint).

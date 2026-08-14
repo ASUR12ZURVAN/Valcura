@@ -1,0 +1,89 @@
+================================================================================
+           GOOGLE SHEETS & WHATSAPP INTEGRATION - REQUIRED API KEYS & ENV SETUP
+================================================================================
+
+To connect your MacroDroid and WhatsApp API responses to Google Sheets, you need
+to configure the following environment variables in your backend `.env` file.
+
+You can choose either METHOD A (Google Cloud Service Account) or METHOD B (Google Apps Script Webhook).
+
+--------------------------------------------------------------------------------
+1. GOOGLE_SHEETS_SPREADSHEET_ID
+--------------------------------------------------------------------------------
+- What it is: The unique identifier for your Google Sheet.
+- How to get it: Open your target Google Sheet in a web browser. Look at the URL:
+  https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+  The ID is the long text between "/d/" and "/edit":
+  GOOGLE_SHEETS_SPREADSHEET_ID="1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+
+--------------------------------------------------------------------------------
+2. METHOD A: GOOGLE CLOUD SERVICE ACCOUNT (Recommended for standard API integration)
+--------------------------------------------------------------------------------
+Keys Needed in `.env`:
+- GOOGLE_SERVICE_ACCOUNT_FILE="google_credentials.json"
+  (OR GOOGLE_SERVICE_ACCOUNT_JSON='{"type": "service_account", ...}')
+
+How to set up:
+1. Go to Google Cloud Console: https://console.cloud.google.com/
+2. Create a new project (e.g., "Valcura-Sheets-Sync").
+3. In the API Library, search for and ENABLE both:
+   - Google Sheets API
+   - Google Drive API
+4. Go to "Credentials" -> "Create Credentials" -> "Service Account".
+5. Fill in the name and click "Create and Continue".
+6. Go to the created Service Account -> "Keys" tab -> "Add Key" -> "Create new key" -> Select JSON.
+7. Save the downloaded `.json` file inside your project (e.g. `d:\MY REPO\Valcura\Valcura_backend\google_credentials.json`).
+8. CRITICAL STEP: Copy the service account email (e.g., `valcura-sync@project-id.iam.gserviceaccount.com`).
+   Open your Google Sheet -> Click "Share" -> Paste the service account email -> Give "Editor" access -> Click Share.
+
+--------------------------------------------------------------------------------
+3. METHOD B: GOOGLE APPS SCRIPT WEBHOOK URL (Lightweight, No GCP setup required!)
+--------------------------------------------------------------------------------
+Key Needed in `.env`:
+- GOOGLE_SHEETS_WEBHOOK_URL="https://script.google.com/macros/s/AKfycbx.../exec"
+
+How to set up:
+1. Open your Google Sheet.
+2. Go to Extensions -> Apps Script.
+3. Replace existing code with:
+   function doPost(e) {
+     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+     var data = JSON.parse(e.postData.contents);
+     sheet.appendRow([
+       data.timestamp || new Date().toISOString(),
+       data.phone_number || '',
+       data.source || 'Webhook',
+       data.user_message || '',
+       data.ai_response || '',
+       data.status || 'Received'
+     ]);
+     return ContentService.createTextOutput(JSON.stringify({"result":"success"}))
+                          .setMimeType(ContentService.MimeType.JSON);
+   }
+4. Click Deploy -> New Deployment -> Select "Web app".
+5. Set "Execute as": "Me". Set "Who has access": "Anyone".
+6. Click Deploy, grant permissions, and copy the Web App URL into your `.env`.
+
+--------------------------------------------------------------------------------
+4. WHATSAPP WEBHOOK VERIFICATION TOKEN (For Meta WhatsApp API Inbound Webhooks)
+--------------------------------------------------------------------------------
+Key Needed in `.env`:
+- WHATSAPP_VERIFY_TOKEN="valcura_secure_webhook_token_2026"
+
+How to set up:
+1. Choose any strong secret string (e.g., `valcura_secure_webhook_token_2026`).
+2. Add `WHATSAPP_VERIFY_TOKEN=valcura_secure_webhook_token_2026` to `.env`.
+3. In Meta Developer Console -> WhatsApp -> Configuration -> Webhook:
+   - Callback URL: `https://your-domain.com/api/whatsapp/webhook/`
+   - Verify Token: `valcura_secure_webhook_token_2026`
+   - Subscribe to field: `messages`.
+
+================================================================================
+SUMMARY OF ALL `.env` VARIABLES FOR GOOGLE SHEETS & WEBHOOKS
+================================================================================
+GOOGLE_SHEETS_SPREADSHEET_ID=your_sheet_id_here
+GOOGLE_SERVICE_ACCOUNT_FILE=google_credentials.json
+GOOGLE_SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/.../exec
+WHATSAPP_VERIFY_TOKEN=valcura_secure_webhook_token_2026
+WHATSAPP_ACCESS_TOKEN=your_whatsapp_access_token
+WHATSAPP_PHONE_NUMBER_ID=your_whatsapp_phone_number_id

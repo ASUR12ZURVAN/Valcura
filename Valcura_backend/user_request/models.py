@@ -11,7 +11,10 @@ class MessageLog(models.Model):
     user_message = models.TextField(null=True, blank=True)
     ai_response = models.TextField()
     is_missed_call = models.BooleanField(default=False)
+    source = models.CharField(max_length=50, default="WhatsApp")
+    status = models.CharField(max_length=50, default="Received")
+    sheet_synced = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.phone_number} - {self.created_at.strftime('%Y-%m-%d %H:%M')}"
+        return f"[{self.source}] {self.phone_number} - {self.status} ({self.created_at.strftime('%Y-%m-%d %H:%M')})"

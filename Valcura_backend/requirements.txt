@@ -3,3 +3,5 @@ djangorestframework
 djangorestframework-simplejwt
 requests
 python-dotenv
+gspread
+google-auth

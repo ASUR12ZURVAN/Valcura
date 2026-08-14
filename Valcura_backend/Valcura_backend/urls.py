@@ -17,14 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from user_request.views import chat_rag, whatsapp_webhook, missed_call_webhook, message_list, dashboard
+from user_request.views import macrodroid_webhook, whatsapp_webhook, sync_sheets_view, message_list, dashboard
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/chat-rag/', chat_rag, name='chat-rag'),
+    path('api/macrodroid/webhook/', macrodroid_webhook, name='macrodroid-webhook'),
     path('api/whatsapp/webhook/', whatsapp_webhook, name='whatsapp-webhook'),
-    path('api/missed-call/webhook/', missed_call_webhook, name='missed-call-webhook'),
+    path('api/sheets/sync/', sync_sheets_view, name='sync-sheets'),
     
     # JWT Auth Endpoints
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

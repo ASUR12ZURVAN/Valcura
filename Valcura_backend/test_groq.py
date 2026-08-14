@@ -10,7 +10,7 @@ if not api_key:
     print("GROQ_API_KEY is not set.")
     exit(1)
 
-prompt = "A user just called our business number and we missed it. Write a brief, polite SMS/WhatsApp message saying we missed their call and asking how we can help them. Keep it very short."
+prompt = "A user just called our business number and we missed it.Write a message asking them what medical field do the need help with from 1. Eyecare, 2.Diabetic Retinopathy, 3.Heredtiary Diseases"
 
 print(f"Using API Key: {api_key[:5]}...{api_key[-5:]}")
 print(f"Prompt: {prompt}\n")
