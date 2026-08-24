@@ -39,12 +39,14 @@
             "id": "6c14fb1f2b8df9d7",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Drawing 2026-08-01 15.45.40.excalidraw.md"
+                "file": "Project Setup - Phase 1.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "Drawing 2026-08-01 15.45.40.excalidraw"
+              "icon": "lucide-file",
+              "title": "Project Setup - Phase 1"
             }
           }
         ],
@@ -123,7 +125,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/Drawing 2026-08-01 15.45.40.excalidraw.md",
+                "file": "Project Setup - Phase 1.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -214,9 +216,9 @@
   },
   "active": "6c14fb1f2b8df9d7",
   "lastOpenFiles": [
+    "Excalidraw/Drawing 2026-08-01 15.45.40.excalidraw.md",
     "Welcome.md",
     "Project Setup - Phase 1.md",
-    "Excalidraw/Drawing 2026-08-01 15.45.40.excalidraw.md",
     "Excalidraw",
     "Untitled",
     "create a link.md",
