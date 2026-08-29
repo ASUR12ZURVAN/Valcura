@@ -1,0 +1,3038 @@
+,,,,,,,,,,,,,,,,,,,,,,,
+Template ID,Meta Template Name,Library,Message Name,Category,Treatment,Objection,Trigger,Day,Header Type,Header Text,Meta Approved Body,CTA Type,CTA Value,Media Type,Media Asset ID,Variable Mapping,Objective,AI Personalization Inputs,AI Writing Rules,Workflow Exit Condition,Internal Notes,Meta Templates,Meta Mapping
+UTL-L1-01,utl_l1_missed_call_callback_v1,Library 1,Missed Call Apology & Callback,Utility,General,,Missed Call,0,Image,,"Thank you for reaching out to {{1}}. 
+
+We are sorry that we couldn't connect with you when you called us a little while ago. 
+
+If you are still looking for help with your dental concern, simply reply to this message or call us on {{3}}, whichever is more convenient for you. 
+
+We are here whenever you need us, and we will be happy to assist you.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-01,{{1}} = Clinic Name{{2}} = Reception Number{{3}} = Doctor Name,Recover the missed inquiry while making the patient feel acknowledged and valued.,"Clinic Name, Reception Number, Doctor Name","Fixed wording. Keep warm, premium and conversational. No sales language. Do not modify sentence structure.",Stop if patient replies or appointment is booked.,Send 30 seconds after the missed call. First touchpoint in workflow.,"Thank you for reaching out to {{1}}. 
+
+We are sorry that we couldn't connect with you when you called us a little while ago. 
+
+If you are still looking for help with your dental concern, simply reply to this message or call us on {{2}}, whichever is more convenient for you. 
+
+We are here whenever you need us, and we will be happy to assist you.
+
+Team {{3}}
+Dr. {{4}}","[1,3,1,2]"
+MKT-L1-02,mkt_l1_clinic_credibility_v1,Library 1,Clinic & Doctor Credibility,Marketing,General,,Missed Call – No Response,Day 1,Image,,"Thank you once again for reaching out to {{1}}.
+
+Choosing a dental clinic is an important decision, and we believe every patient deserves honest advice and treatment that is genuinely needed.
+
+That's why every advise at {{1}} is made with your long term oral health in mind, supported by experienced doctors, modern technology and the trust of many happy patients.
+
+There's no pressure. Our role is simply to help you make the right decision for your oral health.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-02,{{1}} = Clinic Name{{2}} = Doctor Name,Build trust and reduce uncertainty before asking the patient to reconnect.,"Clinic Name, Doctor Name","Fixed wording. Never exaggerate claims. Maintain a reassuring, confidence-building tone.",Stop if patient replies or appointment is booked.,Send only if there is no reply or any conversation after Message 1.,"Thank you once again for reaching out to {{1}}.
+
+Choosing a dental clinic is an important decision, and we believe every patient deserves honest advice and treatment that is genuinely needed.
+
+That's why every advise at {{2}} is made with your long term oral health in mind, supported by experienced doctors, modern technology and the trust of many happy patients.
+
+There's no pressure. Our role is simply to help you make the right decision for your oral health.
+
+Team {{3}}
+Dr. {{4}}","[1,1,1,2]"
+MKT-L1-03,mkt_l1_gentle_followup_v1,Library 1,Gentle Follow-up,Marketing,General,,No Response,Day 3,None,,"Since you had reached out to us recently, we just wanted to check if your dental concern still needs attention.
+
+If you have any questions or would simply like to understand your options better, we would be glad to help.You can call us on {{3}} whenever it's convenient for you.
+
+Take your time, our role is simply to help you make an informed decision for your oral health.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Text,NA,{{1}} = Clinic Name{{2}} = Reception Number{{3}} = Doctor Name,Reopen the conversation respectfully without creating pressure.,"Clinic Name, Reception Number, Doctor Name","Fixed wording. Keep empathetic. Avoid fear, urgency or aggressive follow-up language.",Stop if patient replies or appointment is booked.,Send only if there is no reply and no appointment booking after Message 2.,"Since you had reached out to us recently, we just wanted to check if your dental concern still needs attention.
+
+If you have any questions or would simply like to understand your options better, we would be glad to help.You can call us on {{1}} whenever it's convenient for you.
+
+Take your time, our role is simply to help you make an informed decision for your oral health.
+
+Team {{2}}
+Dr. {{3}}","[3,1,2]"
+MKT-L1-04,mkt_l1_final_followup_v1,Library 1,Final Opportunity to Connect,Marketing,General,,No Response,Day 6,Video,,"We thought we would check in one last time regarding your enquiry with {{1}}.
+
+If your dental concern is still bothering you, we would be happy to help you understand the right treatment options whenever you're ready. You can simply reply to this message or call us on {{2}}.
+
+Whether you choose us or not, we hope you don't ignore your oral health. Wishing you good oral health.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-01,{{1}} = Clinic Name{{2}} = Reception Number{{3}} = Doctor Name,Respectfully conclude the follow-up journey while leaving a positive brand impression.,"Clinic Name, Reception Number, Doctor Name","Fixed wording. Warm, respectful and confidence-building. Never sound desperate or sales-oriented.",End workflow if there is still no response.,Final follow-up. No further messages from Library 1 after this.,"We thought we would check in one last time regarding your enquiry with {{1}}.
+
+If your dental concern is still bothering you, we would be happy to help you understand the right treatment options whenever you're ready. You can simply reply to this message or call us on {{2}}.
+
+Whether you choose us or not, we hope you don't ignore your oral health. Wishing you good oral health.
+
+Team {{3}}
+Dr. {{4}}","[1,2,1,2]"
+MKT-L2-01,mkt_l2_thank_you_after_call_v1,Library 2,Thank You for Speaking with Our Team,Utility,General,,Call Completed – No Appointment,0,None,,"Every treatment begins with understanding your concern.
+
+Hi {{4}},
+
+Thank you for speaking with our team today about {{6}}.
+
+We hope your initial questions were answered. If anything else comes to mind, reply to this message, we will be happy to help.
+
+We are here whenever you need us.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Text,NA,{{1}} = Clinic Name{{2}} = Doctor Name{{6}} = Dental Concern,Appreciate the enquiry and keep the conversation open.,"Clinic Name, Doctor Name, Dental Concern","Fixed wording. Warm, appreciative and conversational. No CTA.",Stop if appointment is booked. Continue only if no booking.,Send immediately after the receptionist call ends.,"Every treatment begins with understanding your concern.
+
+Hi {{1}},
+
+Thank you for speaking with our team today about {{2}}.
+
+We hope your initial questions were answered. If anything else comes to mind, reply to this message, we will be happy to help.
+
+We are here whenever you need us.
+
+Team {{3}}
+Dr. {{4}}","[4,6,1,2]"
+MKT-L2-02,mkt_l2_clinic_doctor_intro_v1,Library 2,Clinic & Doctor Introduction,Marketing,Dynamic ({{5}}),,No Appointment After Call,Day 1,Image,,"The right advice is just as important as the right treatment.
+
+Hi {{4}},
+
+We understand your concern about {{6}}.
+
+At {{1}}, every recommendation for {{5}} is made only when it's genuinely needed, using modern technology and a patient-first approach.
+
+Call us on {{3}} if you would like to discuss your concern further. 
+
+The right decision begins with the right understanding.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-02,{{1}} = Clinic Name{{2}} = Doctor Name{{3}} = Reception Number{{5}} = Treatment Name{{6}} = Dental Concern,Build confidence in the clinic and doctor.,"Clinic Name, Doctor Name, Reception Number, Treatment, Dental Concern",Keep reassuring. Never exaggerate claims or compare with competitors.,Stop if patient replies or appointment is booked.,Uses the same credibility image as Library 1.,"The right advice is just as important as the right treatment.
+
+Hi {{1}},
+
+We understand your concern about {{2}}.
+
+At {{3}}, every recommendation for {{4}} is made only when it's genuinely needed, using modern technology and a patient-first approach.
+
+Call us on {{5}} if you would like to discuss your concern further. 
+
+The right decision begins with the right understanding.
+
+Team {{6}}
+Dr. {{7}}","[4,6,1,5,3,1,2]"
+MKT-L2-03,mkt_l2_treatment_intro_v1,Library 2,Treatment Introduction,Marketing,Dynamic ({{5}}),,No Appointment After Message 2,Day 3,Image,,"The more you understand your treatment, the more confident you'll feel.
+
+Hi {{4}},
+
+Based on what you shared about {{6}}, {{5}} may be one of the suitable treatment options.
+
+We've attached a simple overview explaining what it is, how it helps and why timely care matters.
+
+Call us on {{3}} if you'd like to know more.
+
+Take your time, we arre here to answer your questions.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,Dynamic (Treatment Image),{{1}} = Clinic Name{{2}} = Doctor Name{{3}} = Reception Number{{5}} = Treatment Name{{6}} = Dental Concern,Educate the patient about the suggested treatment.,"Clinic Name, Doctor Name, Reception Number, Treatment, Dental Concern","Keep educational. Avoid creating fear. Introduce treatment as a possible recommendation, not a confirmed diagnosis.",Stop if patient replies or appointment is booked.,Uses one of the six treatment overview images.,"The more you understand your treatment, the more confident you'll feel.
+
+Hi {{1}},
+
+Based on what you shared about {{2}}, {{3}} may be one of the suitable treatment options.
+
+We've attached a simple overview explaining what it is, how it helps and why timely care matters.
+
+Call us on {{4}} if you'd like to know more.
+
+Take your time, we arre here to answer your questions.
+
+Team {{5}}
+Dr. {{6}}","[4,6,5,3,1,2]"
+MKT-L2-04,mkt_l2_consultation_encouragement_v1,Library 2,Consultation Encouragement,Marketing,Dynamic ({{5}}),,No Appointment After Message 3,Day 6,Video,,"A consultation isn't about starting treatment, it's about getting clarity.
+
+Hi {{4}},
+
+If {{6}} is still bothering you, we'd be happy to answer your questions and help you understand whether {{5}} is the right option.
+
+Reply to this message or call us on {{3}} whenever you're ready.
+
+Our goal is to help you decide with confidence.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-01,{{1}} = Clinic Name{{2}} = Doctor Name{{3}} = Reception Number{{5}} = Treatment Name{{6}} = Dental Concern,Encourage consultation without creating pressure.,"Clinic Name, Doctor Name, Reception Number, Treatment, Dental Concern","Warm, confidence-building and non-pushy. Focus on clarity, not selling treatment.",End Library 2 workflow if there is still no response.,Uses the same clinic video as Library 1.,"A consultation isn't about starting treatment, it's about getting clarity.
+
+Hi {{1}},
+
+If {{2}} is still bothering you, we'd be happy to answer your questions and help you understand whether {{3}} is the right option.
+
+Reply to this message or call us on {{4}} whenever you're ready.
+
+Our goal is to help you decide with confidence.
+
+Team {{5}}
+Dr. {{6}}","[4,6,5,3,1,2]"
+MKT-L3-01,mkt_l3_appointment_confirmation_v1,Library 3,Appointment Confirmation,Utility,General,,Appointment Booked,Immediately,None,,"Your appointment is confirmed. We look forward to meeting you.
+
+Hi {{4}},
+
+Your appointment with Dr. {{2}} has been scheduled for {{10}} at {{11}}.
+
+📍 {{1}}
+Directions: {{16}}
+
+If you need any assistance before your visit, please call us on {{3}}.
+
+We are looking forward to welcoming you.
+
+Team {{1}}",Phone,{{3}},Text,NA,{{1}} = Clinic Name{{2}} = Doctor Name{{3}} = Reception Number{{4}} = Patient Name{{10}} = Appointment Date{{11}} = Appointment Time{{16}} = Google Maps Link,Confirm appointment and provide complete visit details.,"Clinic Name, Doctor Name, Reception Number, Patient Name, Appointment Date, Appointment Time, Google Maps Link","Friendly, reassuring and operational. No promotional language.",Stop if appointment is cancelled or rescheduled.,Send immediately after appointment confirmation.,"Your appointment is confirmed. We look forward to meeting you.
+
+Hi {{1}},
+
+Your appointment with Dr. {{2}} has been scheduled for {{3}} at {{4}}.
+
+📍 {{5}}
+Directions: {{6}}
+
+If you need any assistance before your visit, please call us on {{7}}.
+
+We are looking forward to welcoming you.
+
+Team {{8}}","[4,2,10,11,1,16,3,1]"
+UTL-L3-02,utl_l3_24hr_reminder_v1,Library 3,24-Hour Appointment Reminder,Utility,General,,24 Hours Before Appointment,-1 Day,None,,"Just a friendly reminder about your appointment tomorrow.
+
+Hi {{4}},
+
+We're looking forward to seeing you tomorrow ({{10}}) at {{11}}.
+
+If you need help with directions or wish to reschedule, please call us on {{3}}.
+
+Safe travels. We'll see you tomorrow.
+
+Team {{1}}",Phone,{{3}},Text,NA,{{1}} = Clinic Name{{3}} = Reception Number{{4}} = Patient Name{{10}} = Appointment Date{{11}} = Appointment Time,Reduce no-shows and remind the patient of the appointment.,"Clinic Name, Reception Number, Patient Name, Appointment Date, Appointment Time","Keep concise, warm and reassuring.",Stop if appointment is cancelled or rescheduled.,Automatically send 24 hours before appointment.,"Just a friendly reminder about your appointment tomorrow.
+
+Hi {{1}},
+
+We're looking forward to seeing you tomorrow for appointment with Dr. ({{2}}) at {{3}}.
+
+If you need help with directions or wish to reschedule, please call us on {{4}}.
+
+Safe travels. We'll see you tomorrow.
+
+Team {{5}}","[4,10,11,3,1]"
+UTL-L3-03,utl_l3_6hr_reminder_v1,Library 3,6-Hour Appointment Reminder,Utility,General,,6 Hours Before Appointment,Same Day,None,,"We'll be seeing you in a few hours.
+
+Hi {{4}},
+
+This is a reminder that your appointment with Dr. {{2}} is today at {{11}}.
+
+📍 {{1}}
+Directions: {{16}}
+
+If you need any assistance, feel free to call {{3}}.
+
+We wish you a comfortable visit.
+
+Team {{1}}",Phone,{{3}},Text,NA,{{1}} = Clinic Name{{2}} = Doctor Name{{3}} = Reception Number{{4}} = Patient Name{{11}} = Appointment Time{{16}} = Google Maps Link,Ensure the patient remembers the appointment and reaches the clinic easily.,"Clinic Name, Doctor Name, Reception Number, Patient Name, Appointment Time, Google Maps Link","Keep calm, welcoming and operational. Avoid promotional wording.",End Library 3 workflow after appointment time.,Automatically send 6 hours before the appointment.,"We'll be seeing you in a few hours.
+
+Hi {{1}},
+
+This is a reminder that your appointment with Dr. {{2}} is today at {{3}}.
+
+📍 {{4}}
+Directions: {{5}}
+
+If you need any assistance, feel free to call {{6}}.
+
+We wish you a comfortable visit.
+
+Team {{7}}","[4,2,11,1,16,3,1]"
+MKT-L4-01,mkt_l4_visit_summary_ready_v1,Library 4,Visit Summary Ready,Utility,Dynamic ({{5}}),,Consultation Completed,Immediately,None,Blank,"Your Visit Summary is Ready.
+
+Hi {{4}},
+
+Thank you for visiting {{1}} today.
+
+We have prepared a personalised summary of today's discussion, including the recommended treatment and suggested next steps, so you can refer to it later or discuss it with your family.
+
+Reply ""Yes"" to receive your Visit Summary.
+
+Team {{1}}
+Dr. {{2}}",Quick Reply,Yes,Text,NA,{{1}} = Clinic Name{{2}} = Doctor Name{{4}} = Patient Name,Obtain patient consent before sending the personalized Visit Summary.,"Clinic Name, Doctor Name, Patient Name",Fixed wording. No AI-generated clinical content. No diagnosis. No treatment explanation.,"Continue only if patient replies ""Yes"".",Opens a fresh 24-hour WhatsApp customer service window before sending the personalized summary.,"Your Visit Summary is Ready.
+
+Hi {{1}},
+
+Thank you for visiting {{2}} today.
+
+We have prepared a personalised summary of today's discussion, including the recommended treatment and suggested next steps, so you can refer to it later or discuss it with your family.
+
+Reply ""Yes"" to receive your Visit Summary.
+
+Team {{3}}
+Dr. {{4}}","[4,1,1,2]"
+MKT-L4-02,mkt_l4_visit_summary_v1,Library 4,Personalized Visit Summary,Utility,Dynamic ({{5}}),,"Patient Replied ""Yes""",Immediate,Image,Blank,"Your Visit Summary
+
+Hi {{4}},
+
+Thank you for visiting {{1}} today.
+
+Visit Highlights
+{{7}}
+
+Why This Treatment Was Recommended
+{{8}}
+
+Suggested Next Steps
+{{9}}
+
+This summary has been prepared to help you remember the key points discussed during today's visit. It is not a substitute for your complete clinical records or professional dental advice.
+
+It's our pleasure to help you review this summary with your family before making any decision. If you have any questions, simply reply to this message.
+
+The right decision begins with complete understanding.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-L4-{{5}},{{1}} = Clinic Name{{2}} = Doctor Name{{4}} = Patient Name{{7}} = Visit Highlights{{8}} = Doctor's Clinical Explanation & Why Treatment Recommended{{9}} = Treatment Plan,"Deliver a structured, patient-friendly recap of the visit that reinforces the doctor's recommendations without creating medico-legal risk.","Clinic Name, Doctor Name, Patient Name, Visit Highlights, Doctor's Clinical Explanation & Why Treatment Recommended, Treatment Plan","AI may only rewrite and organize information explicitly provided in the doctor's form. AI must never infer diagnoses, severity, prognosis, symptoms, risks, or new clinical findings. Maintain simple, patient-friendly language.",End Library 4 workflow after successful delivery.,Attach the treatment-specific Visit Summary image (6 variants). This is the only library where AI-generated variables are used. Follow the fixed AI safeguards.,"Your Visit Summary
+
+Hi {{1}},
+
+Thank you for visiting {{2}} today.
+
+Visit Highlights
+{{3}}
+
+Why This Treatment Was Recommended
+{{4}}
+
+Suggested Next Steps
+{{5}}
+
+This summary has been prepared to help you remember the key points discussed during today's visit. It is not a substitute for your complete clinical records or professional dental advice.
+
+It's our pleasure to help you review this summary with your family before making any decision. If you have any questions, simply reply to this message.
+
+The right decision begins with complete understanding.
+
+Team {{6}}
+Dr. {{7}}","[4,1,7,8,9,1,2]"
+MKT-L5-RCT-COST-01,mkt_l5_rct_cost_value_v1,Library 5,Value Before Price,Marketing,Root Canal Treatment,Cost,Primary Objection = Cost,Day 2,Image,Blank,"Is a Root Canal really worth the cost?
+
+Hi {{4}},
+
+It's completely natural to think carefully before making a financial decision about your treatment.
+
+During your visit, Dr. {{2}} recommended a Root Canal Treatment to help save your natural tooth. Whenever possible, preserving a natural tooth is usually a healthier and simpler option than replacing it later.
+
+The goal isn't just treating today's problem, but it's protecting your smile for the future.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-RCT-COST-01,"{{1}}, {{2}}, {{4}}",Shift the patient's mindset from treatment cost to the value of preserving their natural tooth.,"• Always mention patient name.• Mention ""Root Canal Treatment"" naturally.• Never justify pricing.• Never compare fees.• Never mention discounts, EMI or offers.• Keep tone empathetic and educational.",Image should visually compare saving a natural tooth vs replacing it later. No pricing or offers should appear in the creative.,,,"Is a Root Canal really worth the cost?
+
+Hi {{1}},
+
+It's completely natural to think carefully before making a financial decision about your treatment.
+
+During your visit, Dr. {{2}} recommended a Root Canal Treatment to help save your natural tooth. Whenever possible, preserving a natural tooth is usually a healthier and simpler option than replacing it later.
+
+The goal isn't just treating today's problem, but it's protecting your smile for the future.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-RCT-COST-02,mkt_l5_rct_cost_affordability_v1,Library 5,Financial Flexibility,Marketing,Root Canal Treatment,Cost,No Response After Message 1,Day 5,Video,Blank,"""I know the Root Canal Treatment is important... I just wasn't prepared for this expense.""
+
+Hi {{4}},
+
+If this is how you're feeling, you're not alone. Many patients need a little time to plan for an unexpected dental expense, and that's completely understandable.
+
+If finances are making the decision difficult, we would be happy to discuss the payment options available at {{1}}, so you can choose what feels comfortable for you.
+
+Call us on {{3}} whenever you'd like to know more.
+
+Our role is to help you find the option that's right for both your oral and financial health.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-RCT-MASTER-COST,"{{1}}, {{2}}, {{3}}, {{4}}",Normalize financial hesitation and gently introduce payment flexibility.,"• Always mention patient name.• Mention ""Root Canal Treatment"".• Never assume affordability is the only concern.• Introduce payment options only as supportive information.• Never use words like ""discount"", ""cheap"", ""limited offer"" or similar marketing language.",Use the Cost segment of the Root Canal master video. Video should explain payment flexibility without sounding like financing or sales.,,,"""I know the Root Canal Treatment is important... I just wasn't prepared for this expense.""
+
+Hi {{1}},
+
+If this is how you're feeling, you're not alone. Many patients need a little time to plan for an unexpected dental expense, and that's completely understandable.
+
+If finances are making the decision difficult, we would be happy to discuss the payment options available at {{2}}, so you can choose what feels comfortable for you.
+
+Call us on {{3}} whenever you'd like to know more.
+
+Our role is to help you find the option that's right for both your oral and financial health.
+
+Team {{4}}
+Dr. {{5}}","[4,1,3,1,2]"
+MKT-L5-RCT-COST-03,mkt_l5_rct_cost_delay_v1,Library 5,Cost of Delay,Marketing,Root Canal Treatment,Cost,No Response After Message 2,Day 8,Image,Blank,"Many patients wish they had started their Root Canal Treatment a little earlier.
+
+Hi {{4}},
+
+Taking time before making a treatment decision is completely understandable.
+
+However, delaying a Root Canal Treatment for too long may sometimes reduce the treatment options available later and lead to more extensive care than originally recommended.
+
+If you'd like to understand your options before deciding, we're always happy to answer your questions.
+
+Looking after your oral health today often makes tomorrow much simpler.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-RCT-COST-02,"{{1}}, {{2}}, {{3}}, {{4}}",Create gentle urgency through anticipated regret rather than fear.,"• Always mention patient name.• Mention ""Root Canal Treatment"".• Never exaggerate consequences.• Never create fear.• Keep urgency educational and balanced.• Invite further discussion rather than pressure the patient.",Image should visually reinforce timely treatment and saving the natural tooth. Avoid alarming visuals.,,,"Many patients wish they had started their Root Canal Treatment a little earlier.
+
+Hi {{1}},
+
+Taking time before making a treatment decision is completely understandable.
+
+However, delaying a Root Canal Treatment for too long may sometimes reduce the treatment options available later and lead to more extensive care than originally recommended.
+
+If you'd like to understand your options before deciding, we're always happy to answer your questions.
+
+Looking after your oral health today often makes tomorrow much simpler.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-RCT-TRUST-01,mkt_l5_rct_trust_necessity_v1,Library 5,Why Root Canal?,Marketing,Root Canal Treatment,Trust,Primary Objection = Trust,Day 2,Image,Blank,"""Do I really need a Root Canal?"" It's one of the most common questions we hear.
+
+Hi {{4}},
+
+It's completely natural to want confidence before making an important healthcare decision.
+
+At {{1}}, a Root Canal Treatment is recommended only after carefully assessing your tooth and discussing the findings with you.
+
+If your tooth can be managed without a Root Canal Treatment, we won't recommend one.
+
+The right treatment begins with the right diagnosis.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-RCT-TRUST-01,"{{1}}, {{2}}, {{4}}",Build confidence that the recommendation is based on clinical findings rather than routine treatment.,"• Always mention patient name.• Mention ""Root Canal Treatment"" naturally.• Never compare with another clinic or dentist.• Never make superiority claims.• Keep the tone transparent, educational and reassuring.","Creative should show the doctor explaining the X-ray/clinical findings to a patient, reinforcing transparency and trust.",,,"""Do I really need a Root Canal?"" It's one of the most common questions we hear.
+
+Hi {{1}},
+
+It's completely natural to want confidence before making an important healthcare decision.
+
+At {{2}}, a Root Canal Treatment is recommended only after carefully assessing your tooth and discussing the findings with you.
+
+If your tooth can be managed without a Root Canal Treatment, we won't recommend one.
+
+The right treatment begins with the right diagnosis.
+
+Team {{3}}
+Dr. {{4}}","[4,1,1,2]"
+MKT-L5-RCT-TRUST-02,mkt_l5_rct_trust_explanation_v1,Library 5,Understanding the Recommendation,Marketing,Root Canal Treatment,Trust,No Response After Message 1,Day 5,Video,Blank,"""Why has a Root Canal Treatment been recommended for my tooth?""
+
+Hi {{4}},
+
+Every patient deserves to understand why a treatment has been recommended, and not just what treatment is needed.
+
+That's why Dr. {{2}} takes time to explain the condition of your tooth, answer your questions and discuss the available treatment options before you decide.
+
+When you understand the reason behind a recommendation, making the decision becomes much easier.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-RCT-MASTER-TRUST,"{{1}}, {{2}}, {{4}}",Build trust by educating the patient on the reasoning behind the recommendation.,• Always mention patient name.• Keep the message educational.• Never oversell the treatment.• Never imply that other opinions are incorrect.• Reinforce informed decision-making.,Use the Trust section from the Root Canal master video. The doctor should explain how treatment decisions are made based on clinical findings.,,,"""Why has a Root Canal Treatment been recommended for my tooth?""
+
+Hi {{1}},
+
+Every patient deserves to understand why a treatment has been recommended, and not just what treatment is needed.
+
+That's why Dr. {{2}} takes time to explain the condition of your tooth, answer your questions and discuss the available treatment options before you decide.
+
+When you understand the reason behind a recommendation, making the decision becomes much easier.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-RCT-TRUST-03,mkt_l5_rct_trust_second_opinion_v1,Library 5,Confidence Before Decision,Marketing,Root Canal Treatment,Trust,No Response After Message 2,Day 8,Image,Blank,"Thinking about taking another opinion before your Root Canal Treatment? That's completely okay.
+
+Hi {{4}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing opinions, try to understand why a Root Canal Treatment has been recommended, and not just whether it has been recommended.
+
+Our priority is helping you make the decision that's best for your oral health.
+
+Confidence comes from understanding, not pressure.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-RCT-TRUST-02,"{{1}}, {{2}}, {{4}}",Reinforce confidence while respecting the patient's autonomy and decision-making process.,• Always mention patient name.• Respect second opinions.• Never discourage comparison.• Never pressure the patient to choose {{1}}.• Keep the tone patient-first and ethical.,"Creative should reinforce patient choice and transparent healthcare, avoiding any competitive or promotional visuals.",,,"Thinking about taking another opinion before your Root Canal Treatment? That's completely okay.
+
+Hi {{1}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing opinions, try to understand why a Root Canal Treatment has been recommended, and not just whether it has been recommended.
+
+Our priority is helping you make the decision that's best for your oral health.
+
+Confidence comes from understanding, not pressure.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-RCT-FEAR-01,mkt_l5_rct_fear_pain_v1,Library 5,Pain Concern,Marketing,Root Canal Treatment,Fear,Primary Objection = Fear,Day 2,Image,Blank,"""I've heard Root Canal Treatment is painful."" Is that true?
+
+Hi {{4}},
+
+You're not alone. This is one of the most common concerns patients have before a Root Canal Treatment.
+
+Modern Root Canal Treatment is performed using local anaesthesia, with the aim of making the procedure as comfortable as possible while treating the source of the problem.
+
+Before starting, Dr. {{2}} will ensure you're comfortable and answer any questions you may have.
+
+Understanding the treatment is often the first step towards feeling more confident.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-RCT-FEAR-01,"{{1}}, {{2}}, {{4}}",Reduce anxiety by correcting common misconceptions.,"• Always mention patient name.• Mention ""Root Canal Treatment"" naturally.• Never use ""pain-free"" or ""painless"".• Never guarantee comfort.• Keep the tone reassuring and educational.",Creative should show a calm patient interacting comfortably with the dentist before treatment.,,,"""I've heard Root Canal Treatment is painful."" Is that true?
+
+Hi {{1}},
+
+You're not alone. This is one of the most common concerns patients have before a Root Canal Treatment.
+
+Modern Root Canal Treatment is performed using local anaesthesia, with the aim of making the procedure as comfortable as possible while treating the source of the problem.
+
+Before starting, Dr. {{2}} will ensure you're comfortable and answer any questions you may have.
+
+Understanding the treatment is often the first step towards feeling more confident.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-RCT-FEAR-02,mkt_l5_rct_fear_process_v1,Library 5,Knowing What to Expect,Marketing,Root Canal Treatment,Fear,No Response After Message 1,Day 5,Video,Blank,"""What actually happens during a Root Canal Treatment?""
+
+Hi {{4}},
+
+For many patients, it's not the treatment itself that feels stressful, but it's not knowing what to expect.
+
+Before beginning your Root Canal Treatment, Dr. {{2}} will explain every step, make sure you're comfortable and answer every question before proceeding.
+
+Knowing what will happen often helps patients feel much more relaxed and confident.
+
+We are here to make every step as comfortable and predictable as possible.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-RCT-MASTER-FEAR,"{{1}}, {{2}}, {{4}}",Replace fear of the unknown with clarity and confidence.,• Always mention patient name.• Explain the process in simple language.• Never use technical jargon.• Never overpromise treatment comfort.• Reinforce patient communication.,"Use the ""Fear"" segment from the Master Root Canal video. The doctor should explain the procedure in simple language while reassuring the patient.",,,"""What actually happens during a Root Canal Treatment?""
+
+Hi {{1}},
+
+For many patients, it's not the treatment itself that feels stressful, but it's not knowing what to expect.
+
+Before beginning your Root Canal Treatment, Dr. {{2}} will explain every step, make sure you're comfortable and answer every question before proceeding.
+
+Knowing what will happen often helps patients feel much more relaxed and confident.
+
+We are here to make every step as comfortable and predictable as possible.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-RCT-FEAR-03,mkt_l5_rct_fear_reassurance_v1,Library 5,Reassurance Before Decision,Marketing,Root Canal Treatment,Fear,No Response After Message 2,Day 8,Image,Blank,"Most patients tell us their Root Canal Treatment was much easier than they expected.
+
+Hi {{4}},
+
+Feeling nervous before a dental procedure is completely normal.
+
+Many patients later share that the experience was far more comfortable than they had imagined because they knew what to expect and felt supported throughout the treatment.
+
+If fear is the only thing stopping you, we'd be happy to answer your questions before you decide.
+
+Sometimes a simple conversation is all it takes to feel more confident.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-RCT-FEAR-02,"{{1}}, {{2}}, {{3}}, {{4}}",Give final reassurance and encourage conversation before treatment.,"• Never promise outcomes.• Avoid exaggerated claims.• Invite discussion rather than persuasion.• Maintain a warm, supportive tone.","Creative should show a smiling patient after treatment, reinforcing relief and confidence rather than pain.",,,"Most patients tell us their Root Canal Treatment was much easier than they expected.
+
+Hi {{1}},
+
+Feeling nervous before a dental procedure is completely normal.
+
+Many patients later share that the experience was far more comfortable than they had imagined because they knew what to expect and felt supported throughout the treatment.
+
+If fear is the only thing stopping you, we'd be happy to answer your questions before you decide.
+
+Sometimes a simple conversation is all it takes to feel more confident.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-RCT-URGENCY-01,mkt_l5_rct_urgency_symptoms_v1,Library 5,Symptoms vs Problem,Marketing,Root Canal Treatment,No Urgency,Primary Objection = No Urgency,Day 2,Image,Blank,"""The pain has reduced... do I still need a Root Canal Treatment?""
+
+Hi {{4}},
+
+It's quite common for tooth pain to reduce or even stop for some time. However, that doesn't always mean the underlying problem has healed.
+
+That's why the Root Canal Treatment discussed during your visit is still important to consider.
+
+Pain can change over time. The condition inside the tooth may not.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-RCT-URG-01,"{{1}}, {{2}}, {{4}}",Help patients understand that symptom relief doesn't always mean recovery.,• Never create fear.• Focus on education.• Mention treatment naturally.• Keep tone calm and informative.,Creative should explain pain vs underlying infection using a simple illustration.,,,"""The pain has reduced... do I still need a Root Canal Treatment?""
+
+Hi {{1}},
+
+It's quite common for tooth pain to reduce or even stop for some time. However, that doesn't always mean the underlying problem has healed.
+
+That's why the Root Canal Treatment discussed during your visit is still important to consider.
+
+Pain can change over time. The condition inside the tooth may not.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-RCT-URGENCY-02,mkt_l5_rct_urgency_timing_v1,Library 5,Why Timing Matters,Marketing,Root Canal Treatment,No Urgency,No Response After Message 1,Day 5,Video,Blank,"""Can I wait a little longer before getting my Root Canal Treatment?""
+
+Hi {{4}},
+
+Many patients ask this question, and the answer depends on the condition of the tooth.
+
+Starting the recommended Root Canal Treatment at the right time often helps preserve more treatment options and may reduce the chances of needing more extensive procedures later.
+
+If you're unsure about the timing, we'd be happy to discuss it with you.
+
+Choosing the right time can make a meaningful difference.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-RCT-MASTER-URGENCY,"{{1}}, {{2}}, {{3}}, {{4}}",Encourage timely decision-making without creating panic.,• Educational tone only.• Never exaggerate future consequences.• Invite discussion if unsure.,Video explains why dentists recommend timely treatment.,,,"""Can I wait a little longer before getting my Root Canal Treatment?""
+
+Hi {{1}},
+
+Many patients ask this question, and the answer depends on the condition of the tooth.
+
+Starting the recommended Root Canal Treatment at the right time often helps preserve more treatment options and may reduce the chances of needing more extensive procedures later.
+
+If you're unsure about the timing, we'd be happy to discuss it with you.
+
+Choosing the right time can make a meaningful difference.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-RCT-URGENCY-03,mkt_l5_rct_urgency_delay_v1,Library 5,Timely Care Reminder,Marketing,Root Canal Treatment,No Urgency,No Response After Message 2,Day 8,Image,Blank,"Many patients wish they hadn't waited so long before starting their Root Canal Treatment.
+
+Hi {{4}},
+
+Delaying treatment can sometimes mean that the options discussed during your consultation may no longer remain the most suitable ones.
+
+If you'd like to review your treatment plan before making a decision, we're always happy to help.
+
+Timely care often keeps treatment simpler and more predictable.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-RCT-URG-02,"{{1}}, {{2}}, {{3}}, {{4}}",Create urgency through future thinking rather than fear.,• Avoid scare tactics.• Encourage informed action.• Keep tone supportive.,Creative reinforces the benefits of timely treatment without using fear-based imagery.,,,"Many patients wish they hadn't waited so long before starting their Root Canal Treatment.
+
+Hi {{1}},
+
+Delaying treatment can sometimes mean that the options discussed during your consultation may no longer remain the most suitable ones.
+
+If you'd like to review your treatment plan before making a decision, we're always happy to help.
+
+Timely care often keeps treatment simpler and more predictable.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-RCT-SO-01,mkt_l5_rct_so_second_opinion_v1,Library 5,Considering Another Opinion,Marketing,Root Canal Treatment,Second Opinion,Primary Objection = Second Opinion,Day 2,Image,Blank,"""Should I take another opinion before getting a Root Canal Treatment?""
+
+Hi {{4}},
+
+That's a completely reasonable question, and we respect patients who take time to make informed healthcare decisions.
+
+If another opinion helps you feel more confident, we fully support that decision.
+
+Our only suggestion is to compare the reasons behind the recommendation, and not just the treatment name itself.
+
+A confident decision is always a better decision.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-RCT-SO-01,"{{1}}, {{2}}, {{4}}",Build confidence while respecting the patient's autonomy.,• Never discourage second opinions.• Never criticize another dentist.• Maintain complete neutrality.,Creative should reinforce informed decision-making and patient empowerment.,,,"""Should I take another opinion before getting a Root Canal Treatment?""
+
+Hi {{1}},
+
+That's a completely reasonable question, and we respect patients who take time to make informed healthcare decisions.
+
+If another opinion helps you feel more confident, we fully support that decision.
+
+Our only suggestion is to compare the reasons behind the recommendation, and not just the treatment name itself.
+
+A confident decision is always a better decision.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-RCT-SO-02,mkt_l5_rct_so_compare_v1,Library 5,Understanding Different Opinions,Marketing,Root Canal Treatment,Second Opinion,No Response After Message 1,Day 5,Video,Blank,"""Why would two dentists recommend different treatments for the same tooth?""
+
+Hi {{4}},
+
+Different dentists may recommend different approaches based on their clinical findings, experience and treatment philosophy.
+
+When comparing opinions, don't hesitate to ask why a Root Canal Treatment has been recommended and what alternatives may be appropriate in your situation.
+
+Understanding the reason behind the recommendation is just as important as understanding the treatment itself.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-RCT-MASTER-SO,"{{1}}, {{2}}, {{4}}",Educate patients on how to compare opinions meaningfully.,• Stay neutral.• Never imply another opinion is wrong.• Focus on clinical reasoning.,Video explains why different treatment plans can exist for the same case.,,,"""Why would two dentists recommend different treatments for the same tooth?""
+
+Hi {{1}},
+
+Different dentists may recommend different approaches based on their clinical findings, experience and treatment philosophy.
+
+When comparing opinions, don't hesitate to ask why a Root Canal Treatment has been recommended and what alternatives may be appropriate in your situation.
+
+Understanding the reason behind the recommendation is just as important as understanding the treatment itself.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-RCT-SO-03,mkt_l5_rct_so_confidence_v1,Library 5,Decide with Confidence,Marketing,Root Canal Treatment,Second Opinion,No Response After Message 2,Day 8,Image,Blank,"Choose the dentist you trust, not just the treatment you hear about.
+
+Hi {{4}},
+
+The best healthcare decision is the one you understand and feel confident about.
+
+Whether you choose {{1}} or another clinic, our hope is that you receive the treatment that's right for your oral health.
+
+Thank you for giving us the opportunity to be part of your care.
+
+Your confidence matters more than anything else.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-RCT-SO-02,"{{1}}, {{2}}, {{4}}",End the journey by reinforcing confidence without pressure.,"• Respect the patient's final decision.• Never create pressure to choose the clinic.• Maintain a premium, ethical tone.","Creative should communicate trust, confidence and patient-first care.",,,"Choose the dentist you trust, not just the treatment you hear about.
+
+Hi {{1}},
+
+The best healthcare decision is the one you understand and feel confident about.
+
+Whether you choose {{2}} or another clinic, our hope is that you receive the treatment that's right for your oral health.
+
+Thank you for giving us the opportunity to be part of your care.
+
+Your confidence matters more than anything else.
+
+Team {{3}}
+Dr. {{4}}","[4,1,1,2]"
+MKT-L5-IMP-COST-01,mkt_l5_imp_cost_value_v1,Library 5,Long-Term Value,Marketing,Dental Implant,Cost,Primary Objection = Cost,Day 2,Image,Blank,"""A Dental Implant is a big investment... is it really worth it?""
+
+Hi {{4}},
+
+It's completely natural to think carefully before making a decision about a long-term treatment like a Dental Implant.
+
+A Dental Implant is recommended to replace a missing tooth in a way that looks, feels and functions much like a natural tooth.
+
+The investment isn't just for today. It's for your comfort, confidence and oral health for years to come.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-IMP-COST-01,"{{1}}, {{2}}, {{4}}",Shift the patient's focus from price to the long-term value of replacing a missing tooth.,"• Always mention patient name.• Mention ""Dental Implant"" naturally.• Never justify pricing.• Never compare costs.• Keep the tone educational and reassuring.",Creative should compare living with a missing tooth versus restoring it with a Dental Implant. Focus on confidence and function rather than price.,,,"""A Dental Implant is a big investment... is it really worth it?""
+
+Hi {{1}},
+
+It's completely natural to think carefully before making a decision about a long-term treatment like a Dental Implant.
+
+A Dental Implant is recommended to replace a missing tooth in a way that looks, feels and functions much like a natural tooth.
+
+The investment isn't just for today. It's for your comfort, confidence and oral health for years to come.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-COST-02,mkt_l5_imp_cost_affordability_v1,Library 5,Financial Flexibility,Marketing,Dental Implant,Cost,No Response After Message 1,Day 5,Video,Blank,"""I know I want a Dental Implant... I just wasn't planning for this expense.""
+
+Hi {{4}},
+
+If this thought has crossed your mind, you're not alone. Many patients need a little time to plan for an unexpected dental investment, and that's completely understandable.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{1}}, so you can choose what feels comfortable for you.
+
+Call us on {{3}} whenever you'd like to know more.
+
+Our role is to help you make the right long-term decision, not to pressure you into one.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-IMP-MASTER-COST,"{{1}}, {{2}}, {{3}}, {{4}}",Normalize financial hesitation and introduce supportive payment options.,"• Mention patient name.• Never use words like ""discount"", ""offer"", ""cheap"" or ""limited period"".• Introduce payment options only as supportive information.• Maintain a premium healthcare tone.",Video should focus on planning for a long-term investment rather than promoting financing.,,,"""I know I want a Dental Implant... I just wasn't planning for this expense.""
+
+Hi {{1}},
+
+If this thought has crossed your mind, you're not alone. Many patients need a little time to plan for an unexpected dental investment, and that's completely understandable.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{2}}, so you can choose what feels comfortable for you.
+
+Call us on {{3}} whenever you'd like to know more.
+
+Our role is to help you make the right long-term decision, not to pressure you into one.
+
+Team {{4}}
+Dr. {{5}}","[4,1,3,1,2]"
+MKT-L5-IMP-COST-03,mkt_l5_imp_cost_delay_v1,Library 5,Cost of Waiting,Marketing,Dental Implant,Cost,No Response After Message 2,Day 8,Image,Blank,"Many patients wish they hadn't waited so long before replacing their missing tooth.
+
+Hi {{4}},
+
+Taking time before making a treatment decision is completely understandable.
+
+However, delaying a Dental Implant for too long may sometimes lead to changes in the surrounding teeth or jawbone, which could make future treatment more complex.
+
+If you'd like to understand your options before deciding, we're always happy to answer your questions.
+
+Taking the right step at the right time often makes treatment simpler.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-IMP-COST-02,"{{1}}, {{2}}, {{3}}, {{4}}",Create gentle urgency by highlighting the long-term implications of delaying tooth replacement.,• Mention patient name.• Avoid fear-based language.• Keep urgency educational.• Never exaggerate outcomes.,"Creative should illustrate how timely replacement helps preserve long-term oral health, without using alarming visuals.",,,"Many patients wish they hadn't waited so long before replacing their missing tooth.
+
+Hi {{1}},
+
+Taking time before making a treatment decision is completely understandable.
+
+However, delaying a Dental Implant for too long may sometimes lead to changes in the surrounding teeth or jawbone, which could make future treatment more complex.
+
+If you'd like to understand your options before deciding, we're always happy to answer your questions.
+
+Taking the right step at the right time often makes treatment simpler.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-TRUST-01,mkt_l5_imp_trust_necessity_v1,Library 5,Why Dental Implant?,Marketing,Dental Implant,Trust,Primary Objection = Trust,Day 2,Image,Blank,"""Do I really need a Dental Implant?"" It's one of the most common questions we hear.
+
+Hi {{4}},
+
+Choosing the right way to replace a missing tooth is an important decision, and it's natural to want complete confidence before moving forward.
+
+At {{1}}, a Dental Implant is recommended only after carefully evaluating your oral condition and discussing the findings with you.
+
+If another treatment is more suitable for your case, we'll explain that too.
+
+The right treatment always begins with the right diagnosis.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-IMP-TRUST-01,"{{1}}, {{2}}, {{4}}",Build confidence that the recommendation is based on clinical findings rather than routine treatment.,• Mention patient name.• Mention Dental Implant naturally.• Never compare with competitors.• Never oversell implants.• Maintain complete transparency.,Doctor discussing X-ray/CBCT scan with patient.,,,"""Do I really need a Dental Implant?"" It's one of the most common questions we hear.
+
+Hi {{1}},
+
+Choosing the right way to replace a missing tooth is an important decision, and it's natural to want complete confidence before moving forward.
+
+At {{2}}, a Dental Implant is recommended only after carefully evaluating your oral condition and discussing the findings with you.
+
+If another treatment is more suitable for your case, we'll explain that too.
+
+The right treatment always begins with the right diagnosis.
+
+Team {{3}}
+Dr. {{4}}","[4,1,1,2]"
+MKT-L5-IMP-TRUST-02,mkt_l5_imp_trust_explanation_v1,Library 5,Understanding the Recommendation,Marketing,Dental Implant,Trust,No Response After Message 1,Day 5,Video,Blank,"""Why has a Dental Implant been recommended instead of another treatment?""
+
+Hi {{4}},
+
+Every patient deserves to understand why a Dental Implant has been recommended, and not just what treatment has been suggested.
+
+That's why Dr. {{2}} explains the condition of your teeth, discusses suitable alternatives wherever applicable and answers every question before you decide.
+
+Understanding the reason behind a recommendation makes every decision easier.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-IMP-MASTER-TRUST,"{{1}}, {{2}}, {{4}}",Build trust through education and explanation.,• Stay educational.• Never imply implants are the only solution.• Reinforce informed decisions.,Doctor explaining why Implant vs Bridge vs Denture.,,,"""Why has a Dental Implant been recommended instead of another treatment?""
+
+Hi {{1}},
+
+Every patient deserves to understand why a Dental Implant has been recommended, and not just what treatment has been suggested.
+
+That's why Dr. {{2}} explains the condition of your teeth, discusses suitable alternatives wherever applicable and answers every question before you decide.
+
+Understanding the reason behind a recommendation makes every decision easier.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-IMP-TRUST-03,mkt_l5_imp_trust_second_opinion_v1,Library 5,Confidence Before Decision,Marketing,Dental Implant,Trust,No Response After Message 2,Day 8,Image,Blank,"Thinking about taking another opinion before getting a Dental Implant? That's completely okay.
+
+Hi {{4}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing opinions, try to understand why a Dental Implant has been recommended, what alternatives are available and which option best supports your long-term oral health.
+
+Confidence comes from understanding, and not pressure.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-IMP-TRUST-02,"{{1}}, {{2}}, {{4}}",Reinforce confidence without sounding defensive.,• Respect second opinions.• Never discourage comparison.• Keep patient-first tone.,Trust and transparency creative.,,,"Thinking about taking another opinion before getting a Dental Implant? That's completely okay.
+
+Hi {{1}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing opinions, try to understand why a Dental Implant has been recommended, what alternatives are available and which option best supports your long-term oral health.
+
+Confidence comes from understanding, and not pressure.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-FEAR-01,mkt_l5_imp_fear_surgery_v1,Library 5,Surgery Concern,Marketing,Dental Implant,Fear,Primary Objection = Fear,Day 2,Image,Blank,"""Is getting a Dental Implant a major surgery?""
+
+Hi {{4}},
+
+Many patients imagine a Dental Implant procedure to be much more complicated than it actually is.
+
+Before treatment, Dr. {{2}} will explain the entire procedure, answer your questions and make sure you're comfortable before moving ahead.
+
+Understanding the process often makes it feel much less intimidating.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-IMP-FEAR-01,"{{1}}, {{2}}, {{4}}",Reduce anxiety by addressing fear of surgery.,• Never promise painless treatment.• Never guarantee outcomes.• Focus on reassurance.,Calm consultation before implant surgery.,,,"""Is getting a Dental Implant a major surgery?""
+
+Hi {{1}},
+
+Many patients imagine a Dental Implant procedure to be much more complicated than it actually is.
+
+Before treatment, Dr. {{2}} will explain the entire procedure, answer your questions and make sure you're comfortable before moving ahead.
+
+Understanding the process often makes it feel much less intimidating.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-IMP-FEAR-02,mkt_l5_imp_fear_process_v1,Library 5,What to Expect,Marketing,Dental Implant,Fear,No Response After Message 1,Day 5,Video,Blank,"""What actually happens during a Dental Implant procedure?""
+
+Hi {{4}},
+
+For many patients, uncertainty creates more anxiety than the treatment itself.
+
+Before beginning your Dental Implant procedure, every step is explained so you know exactly what to expect throughout your visit.
+
+Knowing what's ahead often helps patients feel much more relaxed and confident.
+
+Confidence begins with understanding the journey.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-IMP-MASTER-FEAR,"{{1}}, {{2}}, {{4}}",Replace uncertainty with confidence.,• Explain simply.• Avoid technical language.• Reinforce communication.,Procedure walkthrough video.,,,"""What actually happens during a Dental Implant procedure?""
+
+Hi {{1}},
+
+For many patients, uncertainty creates more anxiety than the treatment itself.
+
+Before beginning your Dental Implant procedure, every step is explained so you know exactly what to expect throughout your visit.
+
+Knowing what's ahead often helps patients feel much more relaxed and confident.
+
+Confidence begins with understanding the journey.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-FEAR-03,mkt_l5_imp_fear_reassurance_v1,Library 5,Reassurance Before Decision,Marketing,Dental Implant,Fear,No Response After Message 2,Day 8,Image,Blank,"Most patients tell us their Dental Implant procedure was much easier than they expected.
+
+Hi {{4}},
+
+Feeling nervous before any dental procedure is completely normal.
+
+Many patients later share that the experience felt far more comfortable than they had imagined because they understood the procedure and felt supported throughout.
+
+If surgery is the only thing holding you back, we'd be happy to answer your questions before you decide.
+
+Sometimes a simple conversation is all it takes to feel more confident.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-IMP-FEAR-02,"{{1}}, {{2}}, {{3}}, {{4}}",Give final reassurance.,• Avoid exaggerated claims.• Invite discussion.• Maintain supportive tone.,Happy patient after implant treatment.,,,"Most patients tell us their Dental Implant procedure was much easier than they expected.
+
+Hi {{1}},
+
+Feeling nervous before any dental procedure is completely normal.
+
+Many patients later share that the experience felt far more comfortable than they had imagined because they understood the procedure and felt supported throughout.
+
+If surgery is the only thing holding you back, we'd be happy to answer your questions before you decide.
+
+Sometimes a simple conversation is all it takes to feel more confident.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-URG-01,mkt_l5_imp_urg_missing_tooth_v1,Library 5,Living With a Missing Tooth,Marketing,Dental Implant,No Urgency,Primary Objection = No Urgency,Day 2,Image,Blank,"""I'm managing without that tooth... do I really need to replace it now?""
+
+Hi {{4}},
+
+It's common to adapt to a missing tooth over time, especially if it isn't causing pain.
+
+However, replacing a missing tooth isn't only about appearance, it also helps support chewing, neighbouring teeth and long-term oral health.
+
+Replacing a tooth isn't just about today. It's about protecting tomorrow.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-IMP-URG-01,"{{1}}, {{2}}, {{4}}",Shift thinking from comfort today to long-term health.,• Educational tone.• Avoid fear.• Mention implant naturally.,Missing tooth impact infographic.,,,"""I'm managing without that tooth... do I really need to replace it now?""
+
+Hi {{1}},
+
+It's common to adapt to a missing tooth over time, especially if it isn't causing pain.
+
+However, replacing a missing tooth isn't only about appearance, it also helps support chewing, neighbouring teeth and long-term oral health.
+
+Replacing a tooth isn't just about today. It's about protecting tomorrow.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-URG-02,mkt_l5_imp_urg_timing_v1,Library 5,Why Timing Matters,Marketing,Dental Implant,No Urgency,No Response After Message 1,Day 5,Video,Blank,"""Can I wait a few more months before getting a Dental Implant?""
+
+Hi {{4}},
+
+Many patients ask this question.
+
+Waiting may sometimes result in changes to the jawbone or surrounding teeth, which could influence future treatment planning.
+
+If you're unsure about the recommended timing, we'd be happy to discuss it with you.
+
+The right timing can make treatment simpler and more predictable.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-IMP-MASTER-URG,"{{1}}, {{2}}, {{3}}, {{4}}",Explain why timing matters.,• Avoid creating panic.• Keep message balanced.• Invite discussion.,Bone preservation explanation video.,,,"""Can I wait a few more months before getting a Dental Implant?""
+
+Hi {{1}},
+
+Many patients ask this question.
+
+Waiting may sometimes result in changes to the jawbone or surrounding teeth, which could influence future treatment planning.
+
+If you're unsure about the recommended timing, we'd be happy to discuss it with you.
+
+The right timing can make treatment simpler and more predictable.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-URG-03,mkt_l5_imp_urg_delay_v1,Library 5,Timely Replacement,Marketing,Dental Implant,No Urgency,No Response After Message 2,Day 8,Image,Blank,"Many patients don't realise that replacing a missing tooth becomes more difficult the longer it's delayed.
+
+Hi {{4}},
+
+Delaying treatment may sometimes change the treatment options available later.
+
+If you'd like to review your treatment plan before deciding, we'd be happy to help.
+
+Timely care often keeps treatment simpler and helps preserve more options.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-IMP-URG-02,"{{1}}, {{2}}, {{3}}, {{4}}",Encourage timely action through education.,• No fear tactics.• Maintain supportive tone.,Timeline creative showing early vs delayed replacement.,,,"Many patients don't realise that replacing a missing tooth becomes more difficult the longer it's delayed.
+
+Hi {{1}},
+
+Delaying treatment may sometimes change the treatment options available later.
+
+If you'd like to review your treatment plan before deciding, we'd be happy to help.
+
+Timely care often keeps treatment simpler and helps preserve more options.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-SO-01,mkt_l5_imp_so_second_opinion_v1,Library 5,Considering Another Opinion,Marketing,Dental Implant,Second Opinion,Primary Objection = Second Opinion,Day 2,Image,Blank,"""Should I compare Dental Implant options before deciding?""
+
+Hi {{4}},
+
+That's a completely reasonable question, and we respect patients who want to make informed healthcare decisions.
+
+If another opinion helps you feel more confident, we fully support that decision.
+
+Our only suggestion is to compare the reasons behind the recommendation, and not just the treatment name itself.
+
+A confident decision is always a better decision.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-IMP-SO-01,"{{1}}, {{2}}, {{4}}",Encourage informed comparison.,• Never discourage second opinions.• Maintain neutrality.• Focus on education.,Patient comparing treatment plans.,,,"""Should I compare Dental Implant options before deciding?""
+
+Hi {{1}},
+
+That's a completely reasonable question, and we respect patients who want to make informed healthcare decisions.
+
+If another opinion helps you feel more confident, we fully support that decision.
+
+Our only suggestion is to compare the reasons behind the recommendation, and not just the treatment name itself.
+
+A confident decision is always a better decision.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-SO-02,mkt_l5_imp_so_compare_v1,Library 5,Comparing Recommendations,Marketing,Dental Implant,Second Opinion,No Response After Message 1,Day 5,Video,Blank,"""Why do different dentists recommend different Implant treatments?""
+
+Hi {{4}},
+
+Different dentists may recommend different approaches depending on clinical findings, experience and treatment philosophy.
+
+When comparing opinions, ask why a Dental Implant has been recommended and what alternatives may be suitable for your case.
+
+Understanding the reason behind a recommendation is just as important as understanding the treatment itself.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-IMP-MASTER-SO,"{{1}}, {{2}}, {{4}}",Explain why treatment plans may differ.,• Stay neutral.• Never imply other dentists are wrong.• Focus on informed comparison.,Educational comparison video.,,,"""Why do different dentists recommend different Implant treatments?""
+
+Hi {{1}},
+
+Different dentists may recommend different approaches depending on clinical findings, experience and treatment philosophy.
+
+When comparing opinions, ask why a Dental Implant has been recommended and what alternatives may be suitable for your case.
+
+Understanding the reason behind a recommendation is just as important as understanding the treatment itself.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-IMP-SO-03,mkt_l5_imp_so_confidence_v1,Library 5,Decide With Confidence,Marketing,Dental Implant,Second Opinion,No Response After Message 2,Day 8,Image,Blank,"Choose the treatment that's right for your long-term oral health, and not simply the one with the lowest quote.
+
+Hi {{4}},
+
+The best healthcare decision is the one you understand and feel confident about.
+
+Whether you choose {{1}} or another clinic, our hope is that you receive the treatment that's right for your long-term oral health.
+
+Thank you for giving us the opportunity to be part of your care.
+
+Your confidence matters more than your convenience.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-IMP-SO-02,"{{1}}, {{2}}, {{4}}",End the journey with confidence and patient-first care.,• Never pressure the patient.• Respect the patient's choice.• Keep the tone premium and ethical.,Confidence and trust creative.,,,"Choose the treatment that's right for your long-term oral health, and not simply the one with the lowest quote.
+
+Hi {{1}},
+
+The best healthcare decision is the one you understand and feel confident about.
+
+Whether you choose {{2}} or another clinic, our hope is that you receive the treatment that's right for your long-term oral health.
+
+Thank you for giving us the opportunity to be part of your care.
+
+Your confidence matters more than your convenience.
+
+Team {{3}}
+Dr. {{4}}","[4,1,1,2]"
+MKT-L5-ORT-COST-01,mkt_l5_ort_cost_value_v1,Library 5,Long-Term Smile Value,Marketing,Braces / Aligners,Cost,Primary Objection = Cost,Day 2,Image,Blank,"""Will {{5}} really be worth the investment?""
+
+Hi {{4}},
+
+It's completely natural to think carefully before investing in a treatment that takes time.
+
+{{5}} isn't just about straighter teeth. It's about improving your smile, bite and long-term oral health.
+
+For many patients, the confidence they gain lasts far longer than the treatment itself.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-ORT-COST-01,"{{1}}, {{2}}, {{4}}, {{5}}",Shift focus from treatment cost to long-term confidence and oral health.,"• Always mention patient name.• Use {{5}} naturally.• Never justify pricing.• Never compare costs.• Maintain a premium, reassuring tone.",Creative should compare current smile vs confident future smile. Avoid mentioning pricing.,,,"""Will {{1}} really be worth the investment?""
+
+Hi {{2}},
+
+It's completely natural to think carefully before investing in a treatment that takes time.
+
+{{3}} isn't just about straighter teeth. It's about improving your smile, bite and long-term oral health.
+
+For many patients, the confidence they gain lasts far longer than the treatment itself.
+
+Team {{4}}
+Dr. {{5}}","[5,4,5,1,2]"
+MKT-L5-ORT-COST-02,mkt_l5_ort_cost_affordability_v1,Library 5,Financial Flexibility,Marketing,Braces / Aligners,Cost,No Response After Message 1,Day 5,Video,Blank,"""I really want {{5}}... I just wasn't expecting this expense.""
+
+Hi {{4}},
+
+If that's how you're feeling, you're not alone. Many patients need a little time to plan for orthodontic treatment, and that's completely understandable.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{1}}, so you can choose what feels comfortable for you.
+
+Call us on {{3}} whenever you'd like to know more.
+
+We're here to help you plan your smile journey, not to rush your decision.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-ORT-MASTER-COST,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Normalize financial hesitation and introduce payment flexibility.,• Never mention discounts.• Introduce payment options only when applicable.• Maintain premium positioning.,Use Cost section from Orthodontic master video.,,,"""I really want {{1}}... I just wasn't expecting this expense.""
+
+Hi {{2}},
+
+If that's how you're feeling, you're not alone. Many patients need a little time to plan for orthodontic treatment, and that's completely understandable.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{3}}, so you can choose what feels comfortable for you.
+
+Call us on {{4}} whenever you'd like to know more.
+
+We're here to help you plan your smile journey, not to rush your decision.
+
+Team {{5}}
+Dr. {{6}}","[5,4,1,3,1,2]"
+MKT-L5-ORT-COST-03,mkt_l5_ort_cost_delay_v1,Library 5,Smile Journey Delay,Marketing,Braces / Aligners,Cost,No Response After Message 2,Day 8,Image,Blank,"Many people wish they had started {{5}} a little earlier.
+
+Hi {{4}},
+
+Taking time before starting treatment is completely understandable.
+
+However, delaying treatment often means spending more time living with a smile you've already decided you'd like to improve.
+
+If you'd like to review your options before deciding, we're always happy to help.
+
+The sooner the journey begins, the sooner you enjoy the results.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-ORT-COST-02,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Encourage earlier treatment without creating pressure.,• Never use fear-based urgency.• Keep tone encouraging and aspirational.,Creative should focus on smile transformation timeline.,,,"Many people wish they had started {{1}} a little earlier.
+
+Hi {{2}},
+
+Taking time before starting treatment is completely understandable.
+
+However, delaying treatment often means spending more time living with a smile you've already decided you'd like to improve.
+
+If you'd like to review your options before deciding, we're always happy to help.
+
+The sooner the journey begins, the sooner you enjoy the results.
+
+Team {{3}}
+Dr. {{4}}","[5,4,1,2]"
+MKT-L5-ORT-TRUST-01,mkt_l5_ort_trust_necessity_v1,Library 5,Why {{5}}?,Marketing,Braces / Aligners,Trust,Primary Objection = Trust,Day 2,Image,Blank,"""Do I really need {{5}}?""
+
+Hi {{4}},
+
+Choosing orthodontic treatment is an important decision, and it's natural to want complete confidence before starting.
+
+At {{1}}, {{5}} is recommended only after carefully assessing your teeth, bite and smile.
+
+If another treatment would be more suitable, we'll explain that as well.
+
+The right smile always begins with the right diagnosis.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-ORT-TRUST-01,"{{1}}, {{2}}, {{4}}, {{5}}",Build confidence in treatment recommendation.,• Never compare with competitors.• Focus on transparency.• Mention {{5}} naturally.,Doctor explaining digital smile assessment.,,,"""Do I really need {{1}}?""
+
+Hi {{2}},
+
+Choosing orthodontic treatment is an important decision, and it's natural to want complete confidence before starting.
+
+At {{3}}, {{4}} is recommended only after carefully assessing your teeth, bite and smile.
+
+If another treatment would be more suitable, we'll explain that as well.
+
+The right smile always begins with the right diagnosis.
+
+Team {{5}}
+Dr. {{6}}","[5,4,1,5,1,2]"
+MKT-L5-ORT-TRUST-02,mkt_l5_ort_trust_explanation_v1,Library 5,Understanding the Recommendation,Marketing,Braces / Aligners,Trust,No Response After Message 1,Day 5,Video,Blank,"""Why has {{5}} been recommended for me?""
+
+Hi {{4}},
+
+Every smile is unique, so every treatment plan should be too.
+
+That's why Dr. {{2}} explains your current alignment, discusses the available treatment options and answers every question before you decide.
+
+When you understand the plan, the journey feels much more comfortable.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-ORT-MASTER-TRUST,"{{1}}, {{2}}, {{4}}, {{5}}",Build trust through explanation and transparency.,• Stay educational.• Never oversell treatment.• Reinforce informed decisions.,Doctor explaining treatment planning.,,,"""Why has {{1}} been recommended for me?""
+
+Hi {{2}},
+
+Every smile is unique, so every treatment plan should be too.
+
+That's why Dr. {{3}} explains your current alignment, discusses the available treatment options and answers every question before you decide.
+
+When you understand the plan, the journey feels much more comfortable.
+
+Team {{4}}
+Dr. {{5}}","[5,4,2,1,2]"
+MKT-L5-ORT-TRUST-03,mkt_l5_ort_trust_second_opinion_v1,Library 5,Confidence Before Decision,Marketing,Braces / Aligners,Trust,No Response After Message 2,Day 8,Image,Blank,"Thinking about taking another opinion before starting {{5}}? That's completely okay.
+
+Hi {{4}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing opinions, try to understand the reason behind the recommendation, expected results and treatment timeline, and not just whether {{5}} has been suggested.
+
+Confidence comes from understanding, not pressure.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-ORT-TRUST-02,"{{1}}, {{2}}, {{4}}, {{5}}",Encourage informed decisions while respecting patient autonomy.,• Respect second opinions.• Never pressure the patient.• Patient-first tone.,Transparency-focused creative.,,,"Thinking about taking another opinion before starting {{1}}? That's completely okay.
+
+Hi {{2}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing opinions, try to understand the reason behind the recommendation, expected results and treatment timeline, and not just whether {{3}} has been suggested.
+
+Confidence comes from understanding, not pressure.
+
+Team {{4}}
+Dr. {{5}}","[5,4,5,1,2]"
+MKT-L5-ORT-FEAR-01,mkt_l5_ort_fear_appearance_v1,Library 5,Appearance Concern,Marketing,Braces / Aligners,Fear,Primary Objection = Fear,Day 2,Image,Blank,"""Will {{5}} change how I look every day?""
+
+Hi {{4}},
+
+This is one of the first questions many patients ask before starting {{5}}.
+
+Dr. {{2}} will explain what to expect, how your smile will gradually change and how {{5}} fits into your daily routine.
+
+Knowing what to expect often makes the decision much easier.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-ORT-FEAR-01,"{{1}}, {{2}}, {{4}}, {{5}}",Reduce concerns about appearance and lifestyle.,• Mention {{5}} naturally.• Never dismiss the patient's concern.• Focus on reassurance and education.,Creative should show confident patients wearing braces and clear aligners in daily life.,,,"""Will {{1}} change how I look every day?""
+
+Hi {{2}},
+
+This is one of the first questions many patients ask before starting {{3}}.
+
+Dr. {{4}} will explain what to expect, how your smile will gradually change and how {{5}} fits into your daily routine.
+
+Knowing what to expect often makes the decision much easier.
+
+Team {{6}}
+Dr. {{7}}","[5,4,5,2,5,1,2]"
+MKT-L5-ORT-FEAR-02,mkt_l5_ort_fear_lifestyle_v1,Library 5,Daily Life With {{5}},Marketing,Braces / Aligners,Fear,No Response After Message 1,Day 5,Video,Blank,"""Will {{5}} affect my daily routine?""
+
+Hi {{4}},
+
+Starting {{5}} is a new experience, so it's natural to have questions.
+
+Before treatment begins, we'll explain eating, brushing, appointments and everyday care, so you know exactly what to expect.
+
+A little preparation often makes the journey feel much easier.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-ORT-MASTER-FEAR,"{{1}}, {{2}}, {{4}}, {{5}}",Reduce uncertainty about daily life.,• Keep language simple.• Focus on practical reassurance.• Avoid technical explanations.,Video shows daily routine with braces/aligners.,,,"""Will {{1}} affect my daily routine?""
+
+Hi {{2}},
+
+Starting {{3}} is a new experience, so it's natural to have questions.
+
+Before treatment begins, we'll explain eating, brushing, appointments and everyday care, so you know exactly what to expect.
+
+A little preparation often makes the journey feel much easier.
+
+Team {{4}}
+Dr. {{5}}","[5,4,5,1,2]"
+MKT-L5-ORT-FEAR-03,mkt_l5_ort_fear_reassurance_v1,Library 5,Confidence to Begin,Marketing,Braces / Aligners,Fear,No Response After Message 2,Day 8,Image,Blank,"Most patients adapt to {{5}} much faster than they expected.
+
+Hi {{4}},
+
+Almost every patient feels a little uncertain before starting orthodontic treatment.
+
+Many later tell us they became comfortable with their new routine much sooner than they expected.
+
+If hesitation is the only thing holding you back, we'd be happy to answer your questions.
+
+Every confident smile begins with a first step.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-ORT-FEAR-02,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Give reassurance and encourage discussion.,"• Never promise specific outcomes.• Maintain a warm, encouraging tone.",Before-and-after confidence focused creative.,,,"Most patients adapt to {{1}} much faster than they expected.
+
+Hi {{2}},
+
+Almost every patient feels a little uncertain before starting orthodontic treatment.
+
+Many later tell us they became comfortable with their new routine much sooner than they expected.
+
+If hesitation is the only thing holding you back, we'd be happy to answer your questions.
+
+Every confident smile begins with a first step.
+
+Team {{3}}
+Dr. {{4}}","[5,4,1,2]"
+MKT-L5-ORT-URG-01,mkt_l5_ort_urg_start_now_v1,Library 5,Why Start Now?,Marketing,Braces / Aligners,No Urgency,Primary Objection = No Urgency,Day 2,Image,Blank,"""My teeth have always been like this... why should I start {{5}} now?""
+
+Hi {{4}},
+
+It's common to get used to the way our teeth look over time.
+
+{{5}} isn't only about appearance. It can also improve your bite, make cleaning easier and support long-term oral health.
+
+Starting today simply means enjoying the benefits sooner.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-ORT-URG-01,"{{1}}, {{2}}, {{4}}, {{5}}",Shift focus from postponing to long-term benefits.,• Never use fear tactics.• Keep message educational.• Mention treatment naturally.,"Creative showing smile, bite and oral health benefits.",,,"""My teeth have always been like this... why should I start {{1}} now?""
+
+Hi {{2}},
+
+It's common to get used to the way our teeth look over time.
+
+{{3}} isn't only about appearance. It can also improve your bite, make cleaning easier and support long-term oral health.
+
+Starting today simply means enjoying the benefits sooner.
+
+Team {{4}}
+Dr. {{5}}","[5,4,5,1,2]"
+MKT-L5-ORT-URG-02,mkt_l5_ort_urg_timing_v1,Library 5,Why Timing Matters,Marketing,Braces / Aligners,No Urgency,No Response After Message 1,Day 5,Video,Blank,"""Can I wait another year before starting {{5}}?""
+
+Hi {{4}},
+
+Many patients ask this question.
+
+Depending on your dental condition, delaying treatment may sometimes increase the time needed to achieve the desired result.
+
+If you're unsure about the recommended timing, we'd be happy to discuss it with you.
+
+The right timing can make your smile journey smoother.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-ORT-MASTER-URG,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Explain why delaying treatment may extend treatment time.,• Never exaggerate consequences.• Encourage discussion rather than urgency.,Doctor explaining treatment timeline.,,,"""Can I wait another year before starting {{1}}?""
+
+Hi {{2}},
+
+Many patients ask this question.
+
+Depending on your dental condition, delaying treatment may sometimes increase the time needed to achieve the desired result.
+
+If you're unsure about the recommended timing, we'd be happy to discuss it with you.
+
+The right timing can make your smile journey smoother.
+
+Team {{3}}
+Dr. {{4}}","[5,4,1,2]"
+MKT-L5-ORT-URG-03,mkt_l5_ort_urg_future_smile_v1,Library 5,Future Smile,Marketing,Braces / Aligners,No Urgency,No Response After Message 2,Day 8,Image,Blank,"Many patients wish they had started improving their smile earlier.
+
+Hi {{4}},
+
+Taking time to decide is completely understandable.
+
+If you'd like to review your treatment plan or ask more questions before making your decision, we're always happy to help.
+
+Your future smile is built by the decisions you make today.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-ORT-URG-02,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Inspire action through future visualization.,• Aspirational tone.• No fear or guilt.• Encourage informed action.,Smile transformation timeline creative.,,,"Many patients wish they had started improving their smile earlier.
+
+Hi {{1}},
+
+Taking time to decide is completely understandable.
+
+If you'd like to review your treatment plan or ask more questions before making your decision, we're always happy to help.
+
+Your future smile is built by the decisions you make today.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-ORT-SO-01,mkt_l5_ort_so_compare_options_v1,Library 5,Comparing Treatment Options,Marketing,Braces / Aligners,Second Opinion,Primary Objection = Second Opinion,Day 2,Image,Blank,"""Should I compare different options before choosing {{5}}?""
+
+Hi {{4}},
+
+That's a thoughtful approach.If another opinion helps you feel more confident, we fully support it.
+
+Our suggestion is to compare the recommendation based on your smile, bite, expected results and long-term outcome, and not only on convenience or cost.
+
+A confident decision is always a better decision.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-ORT-SO-01,"{{1}}, {{2}}, {{4}}, {{5}}",Encourage meaningful comparison between treatment plans.,• Never discourage second opinions.• Stay completely neutral.• Patient-first tone.,"Compare treatment planning, not pricing.",,,"""Should I compare different options before choosing {{1}}?""
+
+Hi {{2}},
+
+That's a thoughtful approach.If another opinion helps you feel more confident, we fully support it.
+
+Our suggestion is to compare the recommendation based on your smile, bite, expected results and long-term outcome, and not only on convenience or cost.
+
+A confident decision is always a better decision.
+
+Team {{3}}
+Dr. {{4}}","[5,4,1,2]"
+MKT-L5-ORT-SO-02,mkt_l5_ort_so_different_plans_v1,Library 5,Why Recommendations Differ,Marketing,Braces / Aligners,Second Opinion,No Response After Message 1,Day 5,Video,Blank,"""Why have different dentists suggested different treatments for my smile?""
+
+Hi {{4}},
+
+Different orthodontists may recommend different approaches based on your bite, alignment and treatment goals.
+
+Don't hesitate to ask why {{5}} has been recommended and how it compares with the alternatives available for your case.
+
+Understanding the reason behind a recommendation is just as important as understanding the treatment itself.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-ORT-MASTER-SO,"{{1}}, {{2}}, {{4}}, {{5}}",Explain why treatment plans can vary.,• Educational tone.• Never imply another recommendation is wrong.,Video explaining orthodontic planning differences.,,,"""Why have different dentists suggested different treatments for my smile?""
+
+Hi {{1}},
+
+Different orthodontists may recommend different approaches based on your bite, alignment and treatment goals.
+
+Don't hesitate to ask why {{2}} has been recommended and how it compares with the alternatives available for your case.
+
+Understanding the reason behind a recommendation is just as important as understanding the treatment itself.
+
+Team {{3}}
+Dr. {{4}}","[4,5,1,2]"
+MKT-L5-ORT-SO-03,mkt_l5_ort_so_confidence_v1,Library 5,Decide With Confidence,Marketing,Braces / Aligners,Second Opinion,No Response After Message 2,Day 8,Image,Blank,"Choose the treatment that's right for your smile, not simply the one that's quickest.
+
+Hi {{4}},
+
+The best orthodontic treatment is the one that's tailored to your smile and long-term oral health.
+
+Whether you choose {{1}} or another clinic, our hope is that you make a decision you'll feel confident about for years to come.
+
+Thank you for giving us the opportunity to be part of your smile journey.
+
+Your confidence in the decision matters just as much as the result.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-ORT-SO-02,"{{1}}, {{2}}, {{4}}, {{5}}",End the journey with confidence and respect for patient choice.,• Respect the patient's final decision.• Never pressure or create FOMO.• Maintain premium healthcare tone.,"Creative should focus on trust, confidence and the final smile outcome.",,,"Choose the treatment that's right for your smile, not simply the one that's quickest.
+
+Hi {{1}},
+
+The best orthodontic treatment is the one that's tailored to your smile and long-term oral health.
+
+Whether you choose {{2}} or another clinic, our hope is that you make a decision you'll feel confident about for years to come.
+
+Thank you for giving us the opportunity to be part of your smile journey.
+
+Your confidence in the decision matters just as much as the result.
+
+Team {{3}}
+Dr. {{4}}","[4,1,1,2]"
+MKT-L5-CB-COST-01,mkt_l5_cb_cost_value_v1,Library 5,Understanding the Value,Marketing,Crowns / Bridges,Cost,Primary Objection = Cost,Day 2,Image,Blank,"""It's just a cap... why does it cost this much?""
+
+Hi {{4}},
+
+That's a question many patients ask, and it's completely understandable.
+
+{{5}} isn't simply placed to cover a tooth. It's carefully designed to restore its strength, fit comfortably with your bite and help it function naturally during everyday eating and speaking.
+
+A well-planned restoration is designed to protect your tooth every time you eat, smile and speak.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-CB-COST-01,"{{1}}, {{2}}, {{4}}, {{5}}",Increase perceived value by explaining what patients are actually investing in rather than discussing cost.,• Always mention patient name.• Use {{5}} naturally (Crown/Bridge).• Never mention pricing or discounts.• Never compare materials or competitors.• Keep explanation simple and premium.,Creative should show the internal structure of a damaged tooth being strengthened by a crown/bridge rather than simply covered.,,,"""It's just a cap... why does it cost this much?""
+
+Hi {{1}},
+
+That's a question many patients ask, and it's completely understandable.
+
+{{2}} isn't simply placed to cover a tooth. It's carefully designed to restore its strength, fit comfortably with your bite and help it function naturally during everyday eating and speaking.
+
+A well-planned restoration is designed to protect your tooth every time you eat, smile and speak.
+
+Team {{3}}
+Dr. {{4}}","[4,5,1,2]"
+MKT-L5-CB-COST-02,mkt_l5_cb_cost_payment_v1,Library 5,Planning the Treatment,Marketing,Crowns / Bridges,Cost,No Response After Message 1,Day 5,Video,Blank,"""I understand why {{5}} has been advised... I just wasn't prepared for this dental expense.""
+
+Hi {{4}},
+
+Many patients feel exactly the same, especially when dental treatment isn't something they had planned for.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{1}}, so you can choose an option that feels comfortable for you.
+
+Call us on {{3}} whenever you'd like to know more.
+
+We're here to help you protect your tooth, not to pressure you into a decision.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-CB-MASTER-COST,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Normalize financial hesitation while introducing payment flexibility in a premium manner.,"• Mention payment options only if available.• Never use ""discount"", ""offer"", ""cheap"" or similar words.• Maintain supportive, healthcare-focused tone.","Cost segment of Crown & Bridge master video. Doctor explains why protecting the tooth is the final goal, not selling the restoration.",,,"""I understand why {{1}} has been advised... I just wasn't prepared for this dental expense.""
+
+Hi {{2}},
+
+Many patients feel exactly the same, especially when dental treatment isn't something they had planned for.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{3}}, so you can choose an option that feels comfortable for you.
+
+Call us on {{4}} whenever you'd like to know more.
+
+We're here to help you protect your tooth, not to pressure you into a decision.
+
+Team {{5}}
+Dr. {{6}}","[5,4,1,3,1,2]"
+MKT-L5-CB-COST-03,mkt_l5_cb_cost_longterm_v1,Library 5,Long-Term Protection,Marketing,Crowns / Bridges,Cost,No Response After Message 2,Day 8,Image,Blank,"""Choosing only by price today can sometimes cost more later.""
+
+Hi {{4}},
+
+When restoring a tooth, the objective isn't simply placing {{5}}.
+
+It's making sure the restoration fits well, functions comfortably and helps protect your tooth over the long term.
+
+If you'd like to better understand the treatment options available for your case before deciding, we'd be happy to explain them.
+
+The right restoration is an investment in the long-term health of your tooth, and not just today's treatment.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-CB-COST-02,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Reinforce long-term value over short-term price comparison without creating pressure.,• Never criticize lower-cost alternatives.• Never create fear.• Encourage informed decision-making.• Keep tone educational.,"Creative should compare ""short-term thinking"" vs ""long-term tooth protection"" using illustrations rather than pricing graphics.",,,"""Choosing only by price today can sometimes cost more later.""
+
+Hi {{1}},
+
+When restoring a tooth, the objective isn't simply placing {{2}}.
+
+It's making sure the restoration fits well, functions comfortably and helps protect your tooth over the long term.
+
+If you'd like to better understand the treatment options available for your case before deciding, we'd be happy to explain them.
+
+The right restoration is an investment in the long-term health of your tooth, and not just today's treatment.
+
+Team {{3}}
+Dr. {{4}}","[4,5,1,2]"
+MKT-L5-CB-TRUST-01,mkt_l5_cb_trust_necessity_v1,Library 5,Why {{5}}?,Marketing,Crowns / Bridges,Trust,Primary Objection = Trust,Day 2,Image,Blank,"""Why has {{5}} been recommended for my tooth?""
+
+Hi {{4}},
+
+Every tooth is different, which is why treatment recommendations are based on its current condition rather than a standard approach.
+
+During your consultation, Dr. {{2}} explained:
+
+{{8}}
+
+The recommendation is made to help preserve your natural tooth for as long as possible.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-CB-TRUST-01,"{{1}}, {{2}}, {{4}}, {{5}}, {{8}}",Build confidence in the clinical recommendation through personalization.,• Always insert {{8}} exactly as generated by AI.• Never add unsupported clinical claims.• Do not compare with other clinics.• Keep explanation under 70 words.,Creative should show the dentist explaining the tooth condition using a scan or model.,,,"""Why has {{1}} been recommended for my tooth?""
+
+Hi {{2}},
+
+Every tooth is different, which is why treatment recommendations are based on its current condition rather than a standard approach.
+
+During your consultation, Dr. {{3}} explained:
+
+{{4}}
+
+The recommendation is made to help preserve your natural tooth for as long as possible.
+
+Team {{5}}
+Dr. {{6}}","[5,4,2,8,1,2]"
+MKT-L5-CB-TRUST-02,mkt_l5_cb_trust_options_v1,Library 5,Understanding the Recommendation,Marketing,Crowns / Bridges,Trust,No Response After Message 1,Day 5,Video,Blank,"""Could my tooth be treated another way?""
+
+Hi {{4}},
+
+That's an important question to ask.Whenever more than one suitable treatment option is available, Dr. {{2}} will explain the advantages and limitations of each before you decide.
+
+The recommendation for {{5}} is based on helping your tooth function comfortably while supporting its long-term health.
+
+The best treatment is the one that's most appropriate for your tooth, not the same treatment for everyone.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-CB-MASTER-TRUST,"{{1}}, {{2}}, {{4}}, {{5}}",Reinforce trust through transparency and informed choice.,• Never imply {{5}} is always the only option.• Reinforce patient education.• Stay neutral.,Doctor explains why different restorative options exist.,,,"""Could my tooth be treated another way?""
+
+Hi {{1}},
+
+That's an important question to ask.Whenever more than one suitable treatment option is available, Dr. {{2}} will explain the advantages and limitations of each before you decide.
+
+The recommendation for {{3}} is based on helping your tooth function comfortably while supporting its long-term health.
+
+The best treatment is the one that's most appropriate for your tooth, not the same treatment for everyone.
+
+Team {{4}}
+Dr. {{5}}","[4,2,5,1,2]"
+MKT-L5-CB-TRUST-03,mkt_l5_cb_trust_secondopinion_v1,Library 5,Confidence Before Decision,Marketing,Crowns / Bridges,Trust,No Response After Message 2,Day 8,Image,Blank,"""It's perfectly okay to take another opinion before making your decision.""
+
+Hi {{4}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing treatment plans, try to understand why {{5}} has been recommended, what it is intended to protect and how it supports the long-term health of your tooth.
+
+The best decision is always the one you fully understand.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-CB-TRUST-02,"{{1}}, {{2}}, {{4}}, {{5}}",Encourage informed decisions while respecting patient autonomy.,• Respect second opinions.• Never pressure the patient.• Patient-first communication.,Creative should reinforce transparency and informed decision-making.,,,"""It's perfectly okay to take another opinion before making your decision.""
+
+Hi {{1}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing treatment plans, try to understand why {{2}} has been recommended, what it is intended to protect and how it supports the long-term health of your tooth.
+
+The best decision is always the one you fully understand.
+
+Team {{3}}
+Dr. {{4}}","[4,5,1,2]"
+MKT-L5-CB-FEAR-01,mkt_l5_cb_fear_function_v1,Library 5,Eating Comfort,Marketing,Crowns / Bridges,Fear,Primary Objection = Fear,Day 2,Image,Blank,"""Will I be able to eat normally after getting {{5}}?""
+
+Hi {{4}},
+
+This is one of the most common concerns patients have.
+
+{{5}} is recommended to restore the strength and function of your tooth so you can return to comfortable everyday chewing once your dentist advises normal use.
+
+The goal is for your tooth to feel dependable during everyday life.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-CB-FEAR-01,"{{1}}, {{2}}, {{4}}, {{5}}",Address the biggest functional concern after treatment.,"• Never promise immediate results.• Avoid words like ""perfect"" or ""guaranteed"".• Keep expectations realistic.",Creative should show a patient comfortably eating after treatment.,,,"""Will I be able to eat normally after getting {{1}}?""
+
+Hi {{2}},
+
+This is one of the most common concerns patients have.
+
+{{3}} is recommended to restore the strength and function of your tooth so you can return to comfortable everyday chewing once your dentist advises normal use.
+
+The goal is for your tooth to feel dependable during everyday life.
+
+Team {{4}}
+Dr. {{5}}","[5,4,5,1,2]"
+MKT-L5-CB-FEAR-02,mkt_l5_cb_fear_durability_v1,Library 5,Will It Last?,Marketing,Crowns / Bridges,Fear,No Response After Message 1,Day 5,Video,Blank,"""What if my {{5}} comes off or breaks?""
+
+Hi {{4}},
+
+Many patients wonder about this before treatment.
+
+During your visit, Dr. {{2}} will explain how your restoration is planned, fitted and cared for, along with the factors that help it perform well over time.
+
+Understanding how to care for your restoration is just as important as receiving it.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-CB-MASTER-FEAR,"{{1}}, {{2}}, {{4}}, {{5}}",Reduce fear about durability and longevity.,• Never guarantee lifespan.• Encourage proper care.• Avoid exaggerated claims.,Video should explain restoration placement and maintenance.,,,"""What if my {{1}} comes off or breaks?""
+
+Hi {{2}},
+
+Many patients wonder about this before treatment.
+
+During your visit, Dr. {{3}} will explain how your restoration is planned, fitted and cared for, along with the factors that help it perform well over time.
+
+Understanding how to care for your restoration is just as important as receiving it.
+
+Team {{4}}
+Dr. {{5}}","[5,4,2,1,2]"
+MKT-L5-CB-FEAR-03,mkt_l5_cb_fear_naturalfeel_v1,Library 5,Feeling Natural,Marketing,Crowns / Bridges,Fear,No Response After Message 2,Day 8,Image,Blank,"""Will my restored tooth feel like my own tooth again?""
+
+Hi {{4}},
+
+It's natural to wonder how your restored tooth will feel after treatment.
+
+Many patients tell us they gradually stop noticing the restored tooth because it becomes a comfortable part of their everyday routine.
+
+If you still have questions before deciding, we'd be happy to answer them.
+
+The best restorations quietly become part of your everyday smile.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-CB-FEAR-02,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Reassure patients about comfort and adaptation.,• Never promise identical sensation to a natural tooth.• Keep tone realistic and reassuring.,Creative should show a confident patient smiling and eating naturally.,,,"""Will my restored tooth feel like my own tooth again?""
+
+Hi {{1}},
+
+It's natural to wonder how your restored tooth will feel after treatment.
+
+Many patients tell us they gradually stop noticing the restored tooth because it becomes a comfortable part of their everyday routine.
+
+If you still have questions before deciding, we'd be happy to answer them.
+
+The best restorations quietly become part of your everyday smile.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-CB-URG-01,mkt_l5_cb_urg_now_v1,Library 5,Tooth Feels Fine,Marketing,Crowns / Bridges,No Urgency,Primary Objection = No Urgency,Day 2,Image,Blank,"""The tooth isn't bothering me anymore... can it wait?""
+
+Hi {{4}},
+
+Many damaged teeth become comfortable after the initial problem settles.
+
+However, feeling comfortable doesn't always mean the tooth has regained its strength.
+
+{{5}} has been recommended to help protect the tooth according to its current condition.
+
+Protecting a tooth before it weakens further often keeps treatment much simpler.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-CB-URG-01,"{{1}}, {{2}}, {{4}}, {{5}}",Explain why symptom relief doesn't always remove the need for treatment.,• Avoid fear tactics.• Educational tone only.• Mention treatment naturally.,Illustration of a tooth that appears fine externally but is structurally weakened.,,,"""The tooth isn't bothering me anymore... can it wait?""
+
+Hi {{1}},
+
+Many damaged teeth become comfortable after the initial problem settles.
+
+However, feeling comfortable doesn't always mean the tooth has regained its strength.
+
+{{2}} has been recommended to help protect the tooth according to its current condition.
+
+Protecting a tooth before it weakens further often keeps treatment much simpler.
+
+Team {{3}}
+Dr. {{4}}","[4,5,1,2]"
+MKT-L5-CB-URG-02,mkt_l5_cb_urg_delay_v1,Library 5,Why Timing Matters,Marketing,Crowns / Bridges,No Urgency,No Response After Message 1,Day 5,Video,Blank,"""Does waiting a few months really make a difference?""
+
+Hi {{4}},
+
+Many patients ask this question.
+
+Depending on the condition of your tooth, delaying {{5}} may increase the amount of treatment needed later.
+
+If you're unsure about the recommended timing, we'd be happy to discuss it with you.
+
+The right timing often helps preserve your natural tooth for longer.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-CB-MASTER-URG,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Encourage timely treatment through education rather than pressure.,• Never exaggerate future consequences.• Invite discussion.,Video explaining why timely protection matters.,,,"""Does waiting a few months really make a difference?""
+
+Hi {{1}},
+
+Many patients ask this question.
+
+Depending on the condition of your tooth, delaying {{2}} may increase the amount of treatment needed later.
+
+If you're unsure about the recommended timing, we'd be happy to discuss it with you.
+
+The right timing often helps preserve your natural tooth for longer.
+
+Team {{3}}
+Dr. {{4}}","[4,5,1,2]"
+MKT-L5-CB-URG-03,mkt_l5_cb_urg_preserve_v1,Library 5,Protect Before It Weakens,Marketing,Crowns / Bridges,No Urgency,No Response After Message 2,Day 8,Image,Blank,"""A healthy tooth is always easier to protect than to rebuild.""
+
+Hi {{4}},
+
+Taking time before making a decision is completely understandable.
+
+If you'd like to review your treatment plan or ask more questions before deciding, we're always happy to help.
+
+Small decisions today often help preserve your smile for years to come.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-CB-URG-02,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Encourage timely action with a supportive tone.,"• Aspirational, not fear-based.• Encourage informed decisions.",Creative focused on long-term tooth preservation.,,,"""A healthy tooth is always easier to protect than to rebuild.""
+
+Hi {{1}},
+
+Taking time before making a decision is completely understandable.
+
+If you'd like to review your treatment plan or ask more questions before deciding, we're always happy to help.
+
+Small decisions today often help preserve your smile for years to come.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-CB-SO-01,mkt_l5_cb_so_compare_v1,Library 5,Is {{5}} the Right Choice?,Marketing,Crowns / Bridges,Second Opinion,Primary Objection = Second Opinion,Day 2,Image,Blank,"""Is {{5}} really the right way to protect my tooth?""
+
+Hi {{4}},
+
+That's a thoughtful question.
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing treatment options, try to understand how each one protects your tooth, restores function and supports long-term oral health not just how it looks today.
+
+The best decision is always an informed decision.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-CB-SO-01,"{{1}}, {{2}}, {{4}}, {{5}}",Encourage informed comparison of treatment options.,• Respect second opinions.• Stay neutral.• Never discourage comparison.,Creative comparing treatment planning rather than pricing.,,,"""Is {{1}} really the right way to protect my tooth?""
+
+Hi {{2}},
+
+That's a thoughtful question.
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing treatment options, try to understand how each one protects your tooth, restores function and supports long-term oral health not just how it looks today.
+
+The best decision is always an informed decision.
+
+Team {{3}}
+Dr. {{4}}","[5,4,1,2]"
+MKT-L5-CB-SO-02,mkt_l5_cb_so_options_v1,Library 5,Why Recommendations Differ,Marketing,Crowns / Bridges,Second Opinion,No Response After Message 1,Day 5,Video,Blank,"""Why have different dentists suggested different ways to restore my tooth?""
+
+Hi {{4}},
+
+Different dentists may recommend different restorative options depending on the amount of healthy tooth remaining, your bite and your long-term oral health.
+
+Don't hesitate to ask why {{5}} has been recommended and how it compares with the alternatives for your specific situation.
+
+Understanding the reasoning behind the recommendation is just as important as understanding the treatment itself.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-CB-MASTER-SO,"{{1}}, {{2}}, {{4}}, {{5}}",Explain why different treatment plans may exist.,• Never imply other dentists are wrong.• Educational tone.,Doctor explaining Crown vs Bridge vs other restorative options.,,,"""Why have different dentists suggested different ways to restore my tooth?""
+
+Hi {{1}},
+
+Different dentists may recommend different restorative options depending on the amount of healthy tooth remaining, your bite and your long-term oral health.
+
+Don't hesitate to ask why {{2}} has been recommended and how it compares with the alternatives for your specific situation.
+
+Understanding the reasoning behind the recommendation is just as important as understanding the treatment itself.
+
+Team {{3}}
+Dr. {{4}}","[4,5,1,2]"
+MKT-L5-CB-SO-03,mkt_l5_cb_so_confidence_v1,Library 5,Decide With Confidence,Marketing,Crowns / Bridges,Second Opinion,No Response After Message 2,Day 8,Image,Blank,"""Choose the treatment that protects your tooth, not simply the one that feels easiest today.""
+
+Hi {{4}},
+
+Whether you choose {{1}} or another clinic, our hope is that you make a decision based on what's best for the long-term health of your tooth.
+
+Thank you for giving us the opportunity to be part of your care.
+
+The strongest smiles are built by protecting the teeth you already have.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-CB-SO-02,"{{1}}, {{2}}, {{4}}, {{5}}",End the journey with confidence and respect for patient choice.,"• Never pressure the patient.• Respect their final decision.• Maintain a premium, ethical tone.",Creative emphasizing preservation of natural teeth and confident decision-making.,,,"""Choose the treatment that protects your tooth, not simply the one that feels easiest today.""
+
+Hi {{1}},
+
+Whether you choose {{2}} or another clinic, our hope is that you make a decision based on what's best for the long-term health of your tooth.
+
+Thank you for giving us the opportunity to be part of your care.
+
+The strongest smiles are built by protecting the teeth you already have.
+
+Team {{3}}
+Dr. {{4}}","[4,1,1,2]"
+MKT-L5-VEN-COST-01,mkt_l5_ven_cost_value_v1,Library 5,Confidence is an Investment,Marketing,Veneers,Cost,Primary Objection = Cost,Day 2,Image,Blank,"""Will Veneers really make that much of a difference to my smile?""
+
+Hi {{4}},
+
+That's a question many patients ask before choosing Veneers.
+
+For most people, Veneers aren't about changing who they are. They are about feeling more confident every time they smile, speak or pose for a photograph.
+
+Sometimes a small change in your smile creates a big change in your confidence.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-VEN-COST-01,"{{1}}, {{2}}, {{4}}",Shift the patient's thinking from cost to the long-term value of confidence.,• Never justify pricing.• Never mention discounts.• Focus on confidence and self-image.• Premium conversational tone.,Creative should show genuine confidence before glamour.,,,"""Will Veneers really make that much of a difference to my smile?""
+
+Hi {{1}},
+
+That's a question many patients ask before choosing Veneers.
+
+For most people, Veneers aren't about changing who they are. They are about feeling more confident every time they smile, speak or pose for a photograph.
+
+Sometimes a small change in your smile creates a big change in your confidence.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-COST-02,mkt_l5_ven_cost_payment_v1,Library 5,Planning Your Smile Journey,Marketing,Veneers,Cost,No Response After Message 1,Day 5,Video,Blank,"""I've wanted a better smile for years... I just wasn't prepared for this investment.""
+
+Hi {{4}},
+
+Many patients spend months or even years, thinking about improving their smile before taking the first step.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{1}}, so you can plan your smile transformation comfortably.
+
+Call us on {{3}} whenever you'd like to know more.
+
+A confident smile is something you'll carry with you every single day.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-VEN-MASTER-COST,"{{1}}, {{2}}, {{3}}, {{4}}",Normalize financial hesitation and introduce payment flexibility.,• Mention payment options only if offered.• Never use promotional language.• Premium tone.,Doctor explaining smile transformation journey.,,,"""I've wanted a better smile for years... I just wasn't prepared for this investment.""
+
+Hi {{1}},
+
+Many patients spend months or even years, thinking about improving their smile before taking the first step.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{2}}, so you can plan your smile transformation comfortably.
+
+Call us on {{3}} whenever you'd like to know more.
+
+A confident smile is something you'll carry with you every single day.
+
+Team {{4}}
+Dr. {{5}}","[4,1,3,1,2]"
+MKT-L5-VEN-COST-03,mkt_l5_ven_cost_regret_v1,Library 5,Investing in Yourself,Marketing,Veneers,Cost,No Response After Message 2,Day 8,Image,Blank,"""People rarely regret improving their smile, but many regret waiting too long.""
+
+Hi {{4}},
+
+Taking time before making a cosmetic decision is completely understandable.
+
+If you'd like to understand your treatment options again before deciding, we'd be happy to guide you.
+
+The best time to feel confident about your smile is when you're ready, and not when you wish you'd started earlier.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-VEN-COST-02,"{{1}}, {{2}}, {{3}}, {{4}}",Encourage action without pressure.,• No FOMO.• Inspirational tone.• Avoid urgency tactics.,Lifestyle-focused creative showing increased confidence.,,,"""People rarely regret improving their smile, but many regret waiting too long.""
+
+Hi {{1}},
+
+Taking time before making a cosmetic decision is completely understandable.
+
+If you'd like to understand your treatment options again before deciding, we'd be happy to guide you.
+
+The best time to feel confident about your smile is when you're ready, and not when you wish you'd started earlier.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-TRUST-01,mkt_l5_ven_trust_smile_v1,Library 5,"Your Smile, Your Decision",Marketing,Veneers,Trust,Primary Objection = Trust,Day 2,Image,Blank,"""How do I know I'll actually like my new smile?""
+
+Hi {{4}},
+
+Choosing Veneers is a personal decision because your smile is unique to you.
+
+Before recommending treatment, Dr. {{2}} takes time to understand what you'd like to improve and discusses the smile that best suits your face, not someone else's.
+
+The best smile isn't the most dramatic one. It's the one that still feels like you.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-VEN-TRUST-01,"{{1}}, {{2}}, {{4}}",Build trust by emphasizing personalized smile design rather than a one-size-fits-all cosmetic approach.,"• Mention patient name.• Never promise a ""perfect"" smile.• Avoid exaggerated cosmetic claims.• Keep tone premium and personal.","Creative should show the dentist discussing smile goals with the patient, not just before/after images.",,,"""How do I know I'll actually like my new smile?""
+
+Hi {{1}},
+
+Choosing Veneers is a personal decision because your smile is unique to you.
+
+Before recommending treatment, Dr. {{2}} takes time to understand what you'd like to improve and discusses the smile that best suits your face, not someone else's.
+
+The best smile isn't the most dramatic one. It's the one that still feels like you.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-VEN-TRUST-02,mkt_l5_ven_trust_expectation_v1,Library 5,Planning Together,Marketing,Veneers,Trust,No Response After Message 1,Day 5,Video,Blank,"""What if the smile I imagine isn't the smile I get?""
+
+Hi {{4}},
+
+That's one of the biggest concerns patients have before starting Veneer treatment.
+
+Before any treatment begins, Dr. {{2}} discusses your expectations, explains what's realistically achievable and plans your smile with you, not for you.
+
+The best smile transformations happen when the dentist and patient share the same vision.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-VEN-MASTER-TRUST,"{{1}}, {{2}}, {{4}}",Build confidence through collaborative treatment planning.,• Never promise exact cosmetic outcomes.• Focus on consultation and planning.• Keep expectations realistic.,Video should show digital smile planning and patient discussion.,,,"""What if the smile I imagine isn't the smile I get?""
+
+Hi {{1}},
+
+That's one of the biggest concerns patients have before starting Veneer treatment.
+
+Before any treatment begins, Dr. {{2}} discusses your expectations, explains what's realistically achievable and plans your smile with you, not for you.
+
+The best smile transformations happen when the dentist and patient share the same vision.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-VEN-TRUST-03,mkt_l5_ven_trust_design_v1,Library 5,Choosing the Right Smile,Marketing,Veneers,Trust,No Response After Message 2,Day 8,Image,Blank,"""Your smile should reflect your personality, not someone else's.""
+
+Hi {{4}},
+
+If you're comparing clinics before making a decision, that's completely understandable.
+
+When choosing a dentist for Veneers, look beyond before-and-after photos. Ask how your smile will be planned, how your expectations will be understood and how natural the final result is intended to look.
+
+A beautiful smile should never look copied. It should look like you.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-VEN-TRUST-02,"{{1}}, {{2}}, {{4}}",Position the clinic as thoughtful and personalized rather than trend-driven.,• Encourage informed comparison.• Never criticize competitors.• Reinforce natural-looking results.,"Creative comparing a ""template smile"" vs a personalized smile design.",,,"""Your smile should reflect your personality, not someone else's.""
+
+Hi {{1}},
+
+If you're comparing clinics before making a decision, that's completely understandable.
+
+When choosing a dentist for Veneers, look beyond before-and-after photos. Ask how your smile will be planned, how your expectations will be understood and how natural the final result is intended to look.
+
+A beautiful smile should never look copied. It should look like you.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-FEAR-01,mkt_l5_ven_fear_result_v1,Library 5,Fear of the Final Result,Marketing,Veneers,Fear,Primary Objection = Fear,Day 2,Image,Blank,"""What if my smile looks different... but not better?""
+
+Hi {{4}},
+
+It's completely natural to wonder how your smile will look after Veneer treatment.
+
+The goal isn't to create a completely new smile. It's to enhance your natural smile while keeping it balanced and suited to your face.
+
+The best smile transformations are the ones that still feel like you.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-VEN-FEAR-01,"{{1}}, {{2}}, {{4}}",Reduce fear of an unnatural-looking result.,"• Never use words like ""perfect smile"".• Emphasize natural enhancement.• Avoid exaggerated cosmetic promises.","Creative should show subtle, natural smile enhancement.",,,"""What if my smile looks different... but not better?""
+
+Hi {{1}},
+
+It's completely natural to wonder how your smile will look after Veneer treatment.
+
+The goal isn't to create a completely new smile. It's to enhance your natural smile while keeping it balanced and suited to your face.
+
+The best smile transformations are the ones that still feel like you.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-FEAR-02,mkt_l5_ven_fear_identity_v1,Library 5,Staying True to Yourself,Marketing,Veneers,Fear,No Response After Message 1,Day 5,Video,Blank,"""Will I still feel like myself after getting Veneers?""
+
+Hi {{4}},
+
+Many patients worry that cosmetic treatment might change their appearance too much.
+
+Before treatment begins, Dr. {{2}} explains the proposed smile design, discusses every step with you and ensures you're comfortable before moving ahead.
+
+Confidence comes from knowing exactly what to expect.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-VEN-MASTER-FEAR,"{{1}}, {{2}}, {{4}}",Reduce fear through transparency and planning.,• Never promise exact cosmetic outcomes.• Focus on patient involvement.• Encourage questions.,Video should explain smile design approval before treatment.,,,"""Will I still feel like myself after getting Veneers?""
+
+Hi {{1}},
+
+Many patients worry that cosmetic treatment might change their appearance too much.
+
+Before treatment begins, Dr. {{2}} explains the proposed smile design, discusses every step with you and ensures you're comfortable before moving ahead.
+
+Confidence comes from knowing exactly what to expect.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-VEN-FEAR-03,mkt_l5_ven_fear_natural_v1,Library 5,Natural-Looking Smile,Marketing,Veneers,Fear,No Response After Message 2,Day 8,Header Type,Blank,"""The best Veneers are usually the ones nobody notices.""
+
+Hi {{4}},
+
+Feeling unsure before changing your smile is completely normal.
+
+Many patients later tell us that friends noticed they looked happier or more confident, without realising they'd had Veneers.
+
+If you still have questions before deciding, we'd be happy to answer them.
+
+The most natural smiles are often the ones people simply admire.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-VEN-FEAR-02,"{{1}}, {{2}}, {{3}}, {{4}}",Reassure patients that natural results are the goal.,• Never claim results are undetectable.• Use realistic language.• Invite discussion if needed.,Creative should show subtle confidence rather than dramatic cosmetic changes.,,,"""The best Veneers are usually the ones nobody notices.""
+
+Hi {{1}},
+
+Feeling unsure before changing your smile is completely normal.
+
+Many patients later tell us that friends noticed they looked happier or more confident, without realising they'd had Veneers.
+
+If you still have questions before deciding, we'd be happy to answer them.
+
+The most natural smiles are often the ones people simply admire.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-URG-01,mkt_l5_ven_urg_why_now_v1,Library 5,Why Change Now?,Marketing,Veneers,No Urgency,Primary Objection = No Urgency,Day 2,Image,Blank,"""I've lived with my smile for years... why change it now?""
+
+Hi {{4}},
+
+That's something many patients ask themselves.
+
+Often, it isn't about changing your smile. It's about finally feeling as confident on the outside as you already are on the inside.
+
+You don't have to change who you are, just how confidently you share your smile.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-VEN-URG-01,"{{1}}, {{2}}, {{4}}",Shift mindset from postponement to self-confidence.,"• Never create cosmetic insecurity.• Positive, confidence-focused language only.• Avoid pressure.",Creative showing confidence in everyday situations.,,,"""I've lived with my smile for years... why change it now?""
+
+Hi {{1}},
+
+That's something many patients ask themselves.
+
+Often, it isn't about changing your smile. It's about finally feeling as confident on the outside as you already are on the inside.
+
+You don't have to change who you are, just how confidently you share your smile.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-URG-02,mkt_l5_ven_urg_later_v1,Library 5,Maybe Later?,Marketing,Veneers,No Urgency,No Response After Message 1,Day 5,Video,Blank,"""Maybe I'll think about Veneers next year.""
+
+Hi {{4}},
+
+Many people delay cosmetic treatment because life gets busy, and that's understandable.
+
+If you're still exploring your options, we're always happy to answer your questions whenever you're ready.
+
+The right time is when you feel ready to invest in your own confidence.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-VEN-MASTER-URG,"{{1}}, {{2}}, {{4}}",Keep the clinic top-of-mind without creating urgency.,• Never pressure patients.• Reinforce patient choice.• Warm and supportive tone.,"Doctor discussing smile planning, not selling treatment.",,,"""Maybe I'll think about Veneers next year.""
+
+Hi {{1}},
+
+Many people delay cosmetic treatment because life gets busy, and that's understandable.
+
+If you're still exploring your options, we're always happy to answer your questions whenever you're ready.
+
+The right time is when you feel ready to invest in your own confidence.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-URG-03,mkt_l5_ven_urg_confidence_v1,Library 5,Confidence Starts With One Decision,Marketing,Veneers,No Urgency,No Response After Message 2,Day 8,Image,Blank,"""Confidence isn't something most people plan for. It begins the day they decide.""
+
+Hi {{4}},
+
+Taking time before making a cosmetic decision is completely natural.
+
+Whenever you feel ready to discuss your smile again, we'll be here to help you explore the options available for you.
+
+The journey to a more confident smile begins with a single conversation.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-VEN-URG-02,"{{1}}, {{2}}, {{3}}, {{4}}",End the journey by inviting conversation rather than creating urgency.,• Never create guilt or pressure.• Keep tone aspirational.• CTA only to encourage discussion.,"Creative should show natural smiles in everyday life, not glamour shots.",,,"""Confidence isn't something most people plan for. It begins the day they decide.""
+
+Hi {{1}},
+
+Taking time before making a cosmetic decision is completely natural.
+
+Whenever you feel ready to discuss your smile again, we'll be here to help you explore the options available for you.
+
+The journey to a more confident smile begins with a single conversation.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-SO-01,mkt_l5_ven_so_clinic_v1,Library 5,Choosing the Right Clinic,Marketing,Veneers,Second Opinion,Primary Objection = Second Opinion,Day 2,Image,Blank,"""How do I know which clinic is right for my smile?""
+
+Hi {{4}},
+
+That's one of the most important questions to ask before choosing Veneers.
+
+If you'd like another opinion before deciding, we completely respect that.
+
+As you compare clinics, try to understand how each dentist approaches smile design, listens to your expectations and plans a result that's right for you.
+
+The right dentist doesn't just improve your smile, they understand the smile you want.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-VEN-SO-01,"{{1}}, {{2}}, {{4}}",Encourage meaningful comparison beyond price or photos.,• Respect second opinions.• Stay patient-centric.• Avoid competitor comparisons.,Creative focused on consultation and smile planning.,,,"""How do I know which clinic is right for my smile?""
+
+Hi {{1}},
+
+That's one of the most important questions to ask before choosing Veneers.
+
+If you'd like another opinion before deciding, we completely respect that.
+
+As you compare clinics, try to understand how each dentist approaches smile design, listens to your expectations and plans a result that's right for you.
+
+The right dentist doesn't just improve your smile, they understand the smile you want.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-SO-02,mkt_l5_ven_so_design_v1,Library 5,Why Smile Designs Differ,Marketing,Veneers,Second Opinion,No Response After Message 1,Day 5,Video,Blank,"""Why do the same Veneers look so different from one clinic to another?""
+
+Hi {{4}},
+
+Even when the treatment is the same, every dentist has a different approach to smile design.
+
+That's why it's important to understand how your facial features, smile and expectations are considered before treatment begins.
+
+The planning behind a smile is just as important as the treatment itself.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-VEN-MASTER-SO,"{{1}}, {{2}}, {{4}}",Explain why cosmetic results vary between providers.,• Focus on planning rather than promoting the clinic.• Educational tone.,Video on smile design philosophy.,,,"""Why do the same Veneers look so different from one clinic to another?""
+
+Hi {{1}},
+
+Even when the treatment is the same, every dentist has a different approach to smile design.
+
+That's why it's important to understand how your facial features, smile and expectations are considered before treatment begins.
+
+The planning behind a smile is just as important as the treatment itself.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-VEN-SO-03,mkt_l5_ven_so_authentic_v1,Library 5,Choose Your Smile,Marketing,Veneers,Second Opinion,No Response After Message 2,Day 8,Image,Blank,"""Choose the smile you'll love seeing every morning, not the one that's trending today.""
+
+Hi {{4}},
+
+Whether you choose {{1}} or another clinic, our hope is that your decision is based on a smile that feels natural, suits your personality and gives you confidence for years to come.
+
+Thank you for giving us the opportunity to be part of your smile journey.
+
+The best smile is the one that feels authentically yours.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-VEN-SO-02,"{{1}}, {{2}}, {{4}}",End the journey by reinforcing authenticity over trends.,• Never pressure the patient.• Respect all choices.• Maintain premium cosmetic positioning.,"Creative showing natural, timeless smiles rather than exaggerated makeovers.",,,"""Choose the smile you'll love seeing every morning, not the one that's trending today.""
+
+Hi {{1}},
+
+Whether you choose {{2}} or another clinic, our hope is that your decision is based on a smile that feels natural, suits your personality and gives you confidence for years to come.
+
+Thank you for giving us the opportunity to be part of your smile journey.
+
+The best smile is the one that feels authentically yours.
+
+Team {{3}}
+Dr. {{4}}","[4,1,1,2]"
+MKT-L5-GEN-COST-01,mkt_l5_gen_cost_value_v1,Library 5,Treat Small Problems Early,Marketing,General Dentistry,Cost,Primary Objection = Cost,Day 2,Image,Blank,"""It's a small dental problem... is treatment really worth it?""
+
+Hi {{4}},
+
+That's a completely understandable question.
+
+Many dental problems seem minor in the beginning, which makes it easy to postpone treatment.
+
+Dr. {{2}} recommended {{5}} because treating a concern at the right time can often help maintain your oral health more comfortably.
+
+Looking after a small concern today can help avoid a bigger one tomorrow.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-GEN-COST-01,"{{1}}, {{2}}, {{4}}, {{5}}",Shift focus from immediate cost to long-term oral health value.,• Mention patient name.• Mention {{5}} naturally.• Never discuss pricing.• Never exaggerate disease progression.• Premium conversational tone.,Creative should show a small untreated dental issue progressing over time in a simple educational illustration.,,,"""It's a small dental problem... is treatment really worth it?""
+
+Hi {{1}},
+
+That's a completely understandable question.
+
+Many dental problems seem minor in the beginning, which makes it easy to postpone treatment.
+
+Dr. {{2}} recommended {{3}} because treating a concern at the right time can often help maintain your oral health more comfortably.
+
+Looking after a small concern today can help avoid a bigger one tomorrow.
+
+Team {{4}}
+Dr. {{5}}","[4,2,5,1,2]"
+MKT-L5-GEN-COST-02,mkt_l5_gen_cost_payment_v1,Library 5,Planning Your Treatment,Marketing,General Dentistry,Cost,No Response After Message 1,Day 5,Video,Blank,"""I wasn't planning for any dental expense right now.""
+
+Hi {{4}},
+
+Many patients feel the same way.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{1}}, so you can choose what feels comfortable for you.
+
+Call us on {{3}} whenever you'd like to know more.
+
+Our goal is to help you take care of your oral health, not to rush your decision.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-GEN-MASTER-COST,"{{1}}, {{2}}, {{3}}, {{4}}",Normalize financial hesitation while maintaining premium positioning.,• Mention payment options only if available.• Never mention discounts or offers.• Maintain supportive tone.,Video should explain why timely care often keeps treatment simpler.,,,"""I wasn't planning for any dental expense right now.""
+
+Hi {{1}},
+
+Many patients feel the same way.
+
+If finances are making the decision difficult, we'd be happy to discuss the payment options available at {{2}}, so you can choose what feels comfortable for you.
+
+Call us on {{3}} whenever you'd like to know more.
+
+Our goal is to help you take care of your oral health, not to rush your decision.
+
+Team {{4}}
+Dr. {{5}}","[4,1,3,1,2]"
+MKT-L5-GEN-COST-03,mkt_l5_gen_cost_prevention_v1,Library 5,Prevention Matters,Marketing,General Dentistry,Cost,No Response After Message 2,Day 8,Image,Blank,"""Taking care of a small problem early is often simpler than treating a bigger one later.""
+
+Hi {{4}},
+
+Taking time before making a decision is completely understandable.
+
+If you'd like to better understand why {{5}} has been recommended, we'd be happy to explain your treatment plan again.
+
+The right treatment at the right time often keeps dental care simpler.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-GEN-COST-02,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Reinforce value through prevention rather than urgency.,• Educational tone.• No fear tactics.• Invite discussion if unsure.,Creative comparing early care vs delayed treatment in a simple visual timeline.,,,"""Taking care of a small problem early is often simpler than treating a bigger one later.""
+
+Hi {{1}},
+
+Taking time before making a decision is completely understandable.
+
+If you'd like to better understand why {{2}} has been recommended, we'd be happy to explain your treatment plan again.
+
+The right treatment at the right time often keeps dental care simpler.
+
+Team {{3}}
+Dr. {{4}}","[4,5,1,2]"
+MKT-L5-GEN-TRUST-01,mkt_l5_gen_trust_necessity_v1,Library 5,Why This Treatment?,Marketing,General Dentistry,Trust,Primary Objection = Trust,Day 2,Image,Blank,"""How do I know this treatment is actually necessary?""
+
+Hi {{4}},
+
+It's completely reasonable to ask that question.
+
+At {{1}}, treatment is recommended only after assessing your dental condition and discussing the findings with you.
+
+During your consultation, Dr. {{2}} explained:
+
+{{8}}
+
+Our goal is to recommend the treatment your teeth need, not more, and not less.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-GEN-TRUST-01,"{{1}}, {{2}}, {{4}}, {{8}}",Build confidence that the recommendation is based on clinical findings rather than unnecessary treatment.,• Always include {{8}}.• Never add unsupported clinical claims.• Never compare competitors.• Keep explanation concise.,Creative should show dentist explaining findings using an X-ray or intraoral image.,,,"""How do I know this treatment is actually necessary?""
+
+Hi {{1}},
+
+It's completely reasonable to ask that question.
+
+At {{2}}, treatment is recommended only after assessing your dental condition and discussing the findings with you.
+
+During your consultation, Dr. {{3}} explained:
+
+{{4}}
+
+Our goal is to recommend the treatment your teeth need, not more, and not less.
+
+Team {{5}}
+Dr. {{6}}","[4,1,2,8,1,2]"
+MKT-L5-GEN-TRUST-02,mkt_l5_gen_trust_process_v1,Library 5,How Treatment Is Decided,Marketing,General Dentistry,Trust,No Response After Message 1,Day 5,Video,Blank,"""How is the right treatment decided?""
+
+Hi {{4}},
+
+Every patient's dental condition is different.
+
+That's why Dr. {{2}} explains the findings, discusses suitable treatment options and answers your questions before you decide.
+
+The right treatment begins with understanding your individual needs.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-GEN-MASTER-TRUST,"{{1}}, {{2}}, {{4}}",Build trust through transparency and education.,• Focus on consultation process.• Never imply there is only one treatment option.• Stay educational.,Doctor explaining diagnosis and treatment planning.,,,"""How is the right treatment decided?""
+
+Hi {{1}},
+
+Every patient's dental condition is different.
+
+That's why Dr. {{2}} explains the findings, discusses suitable treatment options and answers your questions before you decide.
+
+The right treatment begins with understanding your individual needs.
+
+Team {{3}}
+Dr. {{4}}","[4,2,1,2]"
+MKT-L5-GEN-TRUST-03,mkt_l5_gen_trust_secondopinion_v1,Library 5,Ask Before You Decide,Marketing,General Dentistry,Trust,No Response After Message 2,Day 8,Image,Blank,"""It's okay to ask questions before saying yes to treatment.""
+
+Hi {{4}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing recommendations, try to understand why the treatment has been suggested and how it supports your long-term oral health.
+
+An informed decision is always the right decision.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-GEN-TRUST-02,"{{1}}, {{2}}, {{4}}","Reinforce ethical, patient-first care.",• Respect second opinions.• Never pressure the patient.• Maintain an ethical tone.,Creative focused on patient education and trust.,,,"""It's okay to ask questions before saying yes to treatment.""
+
+Hi {{1}},
+
+If another opinion helps you feel more confident, we completely respect that.
+
+When comparing recommendations, try to understand why the treatment has been suggested and how it supports your long-term oral health.
+
+An informed decision is always the right decision.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-GEN-FEAR-01,mkt_l5_gen_fear_expectation_v1,Library 5,Knowing What to Expect,Marketing,General Dentistry,Fear,Primary Objection = Fear,Day 2,Image,Blank,"""What should I expect during {{5}}?""
+
+Hi {{4}},
+
+Not knowing what to expect is one of the most common reasons patients postpone treatment.
+
+Before beginning {{5}}, Dr. {{2}} will explain the procedure, answer your questions and ensure you're comfortable with the treatment plan.
+
+Understanding the process often makes the decision much easier.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-GEN-FEAR-01,"{{1}}, {{2}}, {{4}}, {{5}}",Reduce anxiety by explaining the treatment journey.,• Never promise painless treatment.• Use reassuring language.• Avoid technical jargon.,Creative should show a calm consultation before treatment.,,,"""What should I expect during {{1}}?""
+
+Hi {{2}},
+
+Not knowing what to expect is one of the most common reasons patients postpone treatment.
+
+Before beginning {{3}}, Dr. {{4}} will explain the procedure, answer your questions and ensure you're comfortable with the treatment plan.
+
+Understanding the process often makes the decision much easier.
+
+Team {{5}}
+Dr. {{6}}","[5,4,5,2,1,2]"
+MKT-L5-GEN-FEAR-02,mkt_l5_gen_fear_anxiety_v1,Library 5,Feeling Nervous Is Normal,Marketing,General Dentistry,Fear,No Response After Message 1,Day 5,Video,Blank,"""What if I am feeling nervous about dental treatment?""
+
+Hi {{4}},
+
+Feeling nervous before any dental treatment is completely normal.
+
+Knowing what will happen during your visit often helps patients feel much more relaxed and confident.
+
+Sometimes a simple conversation is all it takes to feel comfortable.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-GEN-MASTER-FEAR,"{{1}}, {{2}}, {{4}}",Normalize dental anxiety and reduce uncertainty.,• Never dismiss patient fears.• Encourage questions.• Supportive tone.,Doctor speaking about helping anxious patients.,,,"""What if I am feeling nervous about dental treatment?""
+
+Hi {{1}},
+
+Feeling nervous before any dental treatment is completely normal.
+
+Knowing what will happen during your visit often helps patients feel much more relaxed and confident.
+
+Sometimes a simple conversation is all it takes to feel comfortable.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-GEN-FEAR-03,mkt_l5_gen_fear_confidence_v1,Library 5,More Comfortable Than Expected,Marketing,General Dentistry,Fear,No Response After Message 2,Day 8,Image,Blank,"""Most patients feel much more comfortable than they expected.""
+
+Hi {{4}},
+
+Almost everyone feels a little uncertain before treatment.
+
+Many patients later tell us that the experience was easier than they had imagined because they knew what to expect beforehand.
+
+If you still have questions, we'd be happy to answer them.
+
+Confidence often begins with understanding.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-GEN-FEAR-02,"{{1}}, {{2}}, {{3}}, {{4}}",End fear journey with reassurance and an invitation to discuss concerns.,• Never guarantee a pain-free experience.• Encourage communication.• Warm tone.,Creative should show a relaxed patient after treatment.,,,"""Most patients feel much more comfortable than they expected.""
+
+Hi {{1}},
+
+Almost everyone feels a little uncertain before treatment.
+
+Many patients later tell us that the experience was easier than they had imagined because they knew what to expect beforehand.
+
+If you still have questions, we'd be happy to answer them.
+
+Confidence often begins with understanding.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-GEN-URG-01,mkt_l5_gen_urg_wait_v1,Library 5,Can It Wait?,Marketing,General Dentistry,No Urgency,Primary Objection = No Urgency,Day 2,Image,Blank,"""It's not bothering me much... can I wait?""
+
+Hi {{4}},
+
+Many dental problems don't cause continuous discomfort in the beginning.
+
+However, waiting until symptoms become more noticeable may sometimes increase the treatment needed later.
+
+Taking care of a concern early often keeps treatment simpler.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-GEN-URG-01,"{{1}}, {{2}}, {{4}}",Explain why absence of pain doesn't always mean treatment can be delayed.,• Never use fear tactics.• Educational tone.• Keep message balanced.,Educational progression graphic.,,,"""It's not bothering me much... can I wait?""
+
+Hi {{1}},
+
+Many dental problems don't cause continuous discomfort in the beginning.
+
+However, waiting until symptoms become more noticeable may sometimes increase the treatment needed later.
+
+Taking care of a concern early often keeps treatment simpler.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-GEN-URG-02,mkt_l5_gen_urg_timing_v1,Library 5,Does Timing Matter?,Marketing,General Dentistry,No Urgency,No Response After Message 1,Day 5,Video,Blank,"""Does waiting a few months really make a difference?""
+
+Hi {{4}},
+
+Depending on your dental condition, delaying treatment may sometimes allow the problem to progress.
+
+If you're unsure about the recommended timing, we'd be happy to discuss it with you.
+
+The right timing often helps preserve your natural teeth and gums.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-GEN-MASTER-URG,"{{1}}, {{2}}, {{3}}, {{4}}",Explain the importance of timely treatment without pressure.,• Stay educational.• Never exaggerate progression.• Invite discussion.,Doctor explaining why timing matters.,,,"""Does waiting a few months really make a difference?""
+
+Hi {{1}},
+
+Depending on your dental condition, delaying treatment may sometimes allow the problem to progress.
+
+If you're unsure about the recommended timing, we'd be happy to discuss it with you.
+
+The right timing often helps preserve your natural teeth and gums.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-GEN-URG-03,mkt_l5_gen_urg_prevention_v1,Library 5,Healthy Smiles Start Early,Marketing,General Dentistry,No Urgency,No Response After Message 2,Day 8,Image,Blank,"""Healthy smiles are usually protected one small step at a time.""
+
+Hi {{4}},
+
+Whenever you're ready to review your treatment plan or ask more questions, we're here to help.
+
+Small decisions today often help prevent bigger dental concerns tomorrow.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Image,IMG-GEN-URG-02,"{{1}}, {{2}}, {{3}}, {{4}}",End the journey with prevention-focused encouragement.,• Avoid guilt or pressure.• Keep tone aspirational and supportive.,Creative should emphasize preventive dental care.,,,"""Healthy smiles are usually protected one small step at a time.""
+
+Hi {{1}},
+
+Whenever you're ready to review your treatment plan or ask more questions, we're here to help.
+
+Small decisions today often help prevent bigger dental concerns tomorrow.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-GEN-SO-01,mkt_l5_gen_so_compare_v1,Library 5,Comparing Recommendations,Marketing,General Dentistry,Second Opinion,Primary Objection = Second Opinion,Day 2,Image,Blank,"""How do I compare different treatment recommendations?""
+
+Hi {{4}},
+
+That's a thoughtful question.
+
+If you'd like another opinion before deciding, we completely respect that.
+
+When comparing recommendations, try to understand the reason behind the treatment, not just the treatment itself.
+
+The best decisions are based on understanding, not uncertainty.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-GEN-SO-01,"{{1}}, {{2}}, {{4}}",Encourage informed comparison rather than price-based comparison.,• Respect second opinions.• Stay neutral.• No competitor references.,Educational comparison creative.,,,"""How do I compare different treatment recommendations?""
+
+Hi {{1}},
+
+That's a thoughtful question.
+
+If you'd like another opinion before deciding, we completely respect that.
+
+When comparing recommendations, try to understand the reason behind the treatment, not just the treatment itself.
+
+The best decisions are based on understanding, not uncertainty.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L5-GEN-SO-02,mkt_l5_gen_so_difference_v1,Library 5,Why Recommendations Differ,Marketing,General Dentistry,Second Opinion,No Response After Message 1,Day 5,Video,Blank,"""Why have different dentists suggested different treatments?""
+
+Hi {{4}},
+
+Different dentists may recommend different approaches depending on their clinical findings and your individual dental condition.
+
+Don't hesitate to ask why {{5}} has been recommended and how it compares with other suitable options.
+
+Understanding the reason behind a recommendation is just as important as understanding the treatment itself.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Video,VID-GEN-MASTER-SO,"{{1}}, {{2}}, {{4}}, {{5}}",Explain why recommendations can legitimately vary.,• Educational tone.• Never imply others are wrong.• Mention {{5}} naturally.,Doctor discussing individualized treatment planning.,,,"""Why have different dentists suggested different treatments?""
+
+Hi {{1}},
+
+Different dentists may recommend different approaches depending on their clinical findings and your individual dental condition.
+
+Don't hesitate to ask why {{2}} has been recommended and how it compares with other suitable options.
+
+Understanding the reason behind a recommendation is just as important as understanding the treatment itself.
+
+Team {{3}}
+Dr. {{4}}","[4,5,1,2]"
+MKT-L5-GEN-SO-03,mkt_l5_gen_so_decision_v1,Library 5,Make an Informed Decision,Marketing,General Dentistry,Second Opinion,No Response After Message 2,Day 8,Image,Blank,"""Choose the treatment that's right for your oral health, and not simply the quickest option.""
+
+Hi {{4}},
+
+Whether you choose {{1}} or another clinic, our hope is that you make a decision based on what's best for your long-term oral health.
+
+Thank you for giving us the opportunity to be part of your care.
+
+A healthy smile begins with informed decisions.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,Image,IMG-GEN-SO-02,"{{1}}, {{2}}, {{4}}",End the journey with confidence and respect for patient choice.,• Never pressure the patient.• Respect their decision.• Premium ethical tone.,Creative showing doctor-patient discussion and informed choice.,,,"""Choose the treatment that's right for your oral health, and not simply the quickest option.""
+
+Hi {{1}},
+
+Whether you choose {{2}} or another clinic, our hope is that you make a decision based on what's best for your long-term oral health.
+
+Thank you for giving us the opportunity to be part of your care.
+
+A healthy smile begins with informed decisions.
+
+Team {{3}}
+Dr. {{4}}","[4,1,1,2]"
+MKT-L6-RCT-01,mkt_l6_rct_education_v1,Library 6,Root Canal Education Video,Utility,Root Canal Treatment,NA,Doctor recommends Root Canal Treatment,Day 0,Video,Blank,"One tooth. One treatment. Hundreds of misconceptions.
+
+Hi {{4}},
+
+During your consultation, Dr. {{2}} recommended {{5}}.
+
+To help you better understand the treatment, Dr. {{2}} has shared a short educational video. We hope it gives you greater clarity and helps you make a confident, informed decision.
+
+If you have any questions after watching it, simply reply to this message or call us on {{3}}.
+
+We're always happy to help.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-L6-RCT,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Educate patients and improve understanding of Root Canal Treatment before the next follow-up.,"Mention treatment naturally. Do not mention objections, pricing or urgency. Maintain educational tone.",Educational video introducing Root Canal Treatment.,,,"One tooth. One treatment. Hundreds of misconceptions.
+
+Hi {{1}},
+
+During your consultation, Dr. {{2}} recommended {{3}}.
+
+To help you better understand the treatment, Dr. {{4}} has shared a short educational video. We hope it gives you greater clarity and helps you make a confident, informed decision.
+
+If you have any questions after watching it, simply reply to this message or call us on {{5}}.
+
+We're always happy to help.
+
+Team {{6}}
+Dr. {{7}}","[4,2,5,2,3,1,2]"
+MKT-L6-IMP-01,mkt_l6_imp_education_v1,Library 6,Implant Education Video,Utility,Dental Implant,NA,Doctor recommends Implant,Day 0,Video,Blank,"A missing tooth changes more than your smile. It changes how your mouth works.
+
+Hi {{4}},
+
+During your consultation, Dr. {{2}} recommended {{5}}.
+
+To help you better understand the treatment, Dr. {{2}} has shared a short educational video. We hope it helps you make a confident and informed decision.
+
+If you have any questions afterwards, simply reply to this message or call us on {{3}}.
+
+We are here whenever you need us.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-L6-IMP,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Improve patient understanding of implant treatment.,Educational tone only. Never create urgency.,Implant educational video.,,,"A missing tooth changes more than your smile. It changes how your mouth works.
+
+Hi {{1}},
+
+During your consultation, Dr. {{2}} recommended {{3}}.
+
+To help you better understand the treatment, Dr. {{4}} has shared a short educational video. We hope it helps you make a confident and informed decision.
+
+If you have any questions afterwards, simply reply to this message or call us on {{5}}.
+
+We are here whenever you need us.
+
+Team {{6}}
+Dr. {{7}}","[4,2,5,2,3,1,2]"
+MKT-L6-ORT-01,mkt_l6_ort_education_v1,Library 6,Braces / Aligners Education Video,Utility,Braces / Aligners,NA,Doctor recommends Braces / Aligners,Day 0,Video,Blank,"Your smile changes little by little, but the confidence often comes much sooner.
+
+Hi {{4}},
+
+During your consultation, Dr. {{2}} recommended {{5}}.
+
+To help you better understand the treatment, Dr. {{2}} has shared a short educational video. We hope it helps you feel informed and confident about your smile journey.
+
+If anything comes to mind after watching it, simply reply to this message or call us on {{3}}.
+
+We are always happy to guide you.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-L6-ORT,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Increase confidence by educating patients about orthodontic treatment.,Keep optimistic tone. Avoid promising timelines or outcomes.,Orthodontic education video.,,,"Your smile changes little by little, but the confidence often comes much sooner.
+
+Hi {{1}},
+
+During your consultation, Dr. {{2}} recommended {{3}}.
+
+To help you better understand the treatment, Dr. {{4}} has shared a short educational video. We hope it helps you feel informed and confident about your smile journey.
+
+If anything comes to mind after watching it, simply reply to this message or call us on {{5}}.
+
+We are always happy to guide you.
+
+Team {{6}}
+Dr. {{7}}","[4,2,5,2,3,1,2]"
+MKT-L6-CB-01,mkt_l6_cb_education_v1,Library 6,Crowns & Bridges Education Video,Utility,Crowns & Bridges,NA,Doctor recommends Crown / Bridge,Day 0,Video,Blank,"Many people don't realise why a damaged tooth often needs more than just a filling.
+
+Hi {{4}},
+
+During your consultation, Dr. {{2}} recommended {{5}}.
+
+To help you better understand the treatment, Dr. {{2}} has shared a short educational video. We hope it gives you greater clarity before making your decision.
+
+If you'd like to discuss your treatment afterwards, simply reply to this message or call us on {{3}}.
+
+We are here to support you at every step.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-L6-CB,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Help patients understand restorative treatment.,Educational only. Avoid assuming previous RCT or other treatment.,Crown & Bridge education video.,,,"Many people don't realise why a damaged tooth often needs more than just a filling.
+
+Hi {{1}},
+
+During your consultation, Dr. {{2}} recommended {{3}}.
+
+To help you better understand the treatment, Dr. {{4}} has shared a short educational video. We hope it gives you greater clarity before making your decision.
+
+If you'd like to discuss your treatment afterwards, simply reply to this message or call us on {{5}}.
+
+We are here to support you at every step.
+
+Team {{6}}
+Dr. {{7}}","[4,2,5,2,3,1,2]"
+MKT-L6-VEN-01,mkt_l6_ven_education_v1,Library 6,Veneers Education Video,Utility,Veneers,NA,Doctor recommends Veneers,Day 0,Video,Blank,"The best smile transformations are the ones that still look completely natural.
+
+Hi {{4}},
+
+During your consultation, Dr. {{2}} recommended {{5}}.
+
+To help you better understand the treatment, Dr. {{2}} has shared a short educational video. We hope it helps you make a confident and informed decision about your smile.
+
+If you have any questions afterwards, simply reply to this message or call us on {{3}}.
+
+We will be happy to help you choose what's right for your smile.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-L6-VEN,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Educate cosmetic patients before they decide.,Never promise cosmetic perfection. Keep premium and educational.,Veneers education video.,,,"The best smile transformations are the ones that still look completely natural.
+
+Hi {{1}},
+
+During your consultation, Dr. {{2}} recommended {{3}}.
+
+To help you better understand the treatment, Dr. {{4}} has shared a short educational video. We hope it helps you make a confident and informed decision about your smile.
+
+If you have any questions afterwards, simply reply to this message or call us on {{5}}.
+
+We will be happy to help you choose what's right for your smile.
+
+Team {{6}}
+Dr. {{7}}","[4,2,5,2,3,1,2]"
+MKT-L6-GEN-01,mkt_l6_gen_education_v1,Library 6,General Dentistry Education Video,Utility,General Dentistry,NA,Doctor recommends General Dental Treatment,Day 0,Video,Blank,"Your teeth often give small warning signs long before bigger problems appear.
+
+Hi {{4}},
+
+During your consultation, Dr. {{2}} recommended {{5}}.
+
+To help you better understand the treatment, Dr. {{2}} has shared a short educational video. We hope it helps you make an informed decision about your oral health.
+
+If you have any questions after watching it, simply reply to this message or call us on {{3}}.
+
+We are always here if you need any guidance.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,VID-L6-GEN,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Improve understanding of commonly recommended dental treatments.,Educational and reassuring tone. Avoid creating unnecessary concern.,General dentistry education video.,,,"Your teeth often give small warning signs long before bigger problems appear.
+
+Hi {{1}},
+
+During your consultation, Dr. {{2}} recommended {{3}}.
+
+To help you better understand the treatment, Dr. {{4}} has shared a short educational video. We hope it helps you make an informed decision about your oral health.
+
+If you have any questions after watching it, simply reply to this message or call us on {{5}}.
+
+We are always here if you need any guidance.
+
+Team {{6}}
+Dr. {{7}}","[4,2,5,2,3,1,2]"
+MKT-L7-001,mkt_l7_patient_experience_v1,Library 7,Patient Experience Video,Trust Building,All Treatments,Dynamic,Scheduled Trust Building,Dynamic,Video,Blank,"Every treatment has a story, and sometimes hearing someone else's journey brings the clarity you're looking for.
+
+Hi {{4}},
+
+During your consultation, Dr. {{2}} recommended {{5}}.
+
+To help you better understand what the treatment journey can look like, Dr. {{2}} has shared a short patient experience related to {{5}}.
+
+We hope it gives you greater clarity and confidence as you consider your treatment options.
+
+If you have any questions after watching it, simply reply to this message or call us on {{3}}.
+
+We are always here if you need any guidance.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Video,Dynamic,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Build trust by sharing a relevant patient experience that helps the patient better understand the treatment journey and make a more informed decision.,"Based on {{5}}, automatically select the corresponding patient experience video. Always refer to it as a ""patient experience"" or ""treatment journey""—never as a testimonial. The message should remain educational, supportive and authentic. Never imply that another patient's outcome guarantees similar results.","Make.com should automatically map the appropriate patient experience video according to the recommended treatment. This single template replaces separate templates for individual treatments, reducing Meta template count while maintaining personalization.",,,"Every treatment has a story, and sometimes hearing someone else's journey brings the clarity you're looking for.
+
+Hi {{1}},
+
+During your consultation, Dr. {{2}} recommended {{3}}.
+
+To help you better understand what the treatment journey can look like, Dr. {{4}} has shared a short patient experience related to {{5}}.
+
+We hope it gives you greater clarity and confidence as you consider your treatment options.
+
+If you have any questions after watching it, simply reply to this message or call us on {{6}}.
+
+We are always here if you need any guidance.
+
+Team {{7}}
+Dr. {{8}}","[4,2,5,2,5,3,1,2]"
+MKT-L10-001,mkt_l10_appointment_confirmation_v1,Library 10,Appointment Confirmation Reminder,Appointment Reminder,All Treatments,NA,Appointment Booked,Day 0,None,Blank,"Your appointment is confirmed, and we look forward to welcoming you.
+
+Hi {{4}},
+
+Your appointment with Dr. {{2}} at {{1}} has been successfully scheduled.
+📅 Date: {{10}}
+🕒 Time: {{11}}
+
+If you need to reschedule or have any questions before your visit, simply reply to this message or call us on {{3}}.
+
+Thank you for choosing {{1}}. 
+
+We will do our best to make your visit comfortable and smooth.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},None,NA,"{{1}}, {{2}}, {{3}}, {{4}}, {{10}}, {{11}}",Confirm the patient's appointment and reduce uncertainty immediately after booking.,"Always include patient name, appointment date and time. Never include treatment details unless specifically required. Keep the tone warm, professional and reassuring.",Triggered immediately after appointment booking is confirmed.,,,"Your appointment is confirmed, and we look forward to welcoming you.
+
+Hi {{1}},
+
+Your appointment with Dr. {{2}} at {{3}} has been successfully scheduled.
+📅 Date: {{4}}
+🕒 Time: {{5}}
+
+If you need to reschedule or have any questions before your visit, simply reply to this message or call us on {{6}}.
+
+Thank you for choosing {{7}}. 
+
+We will do our best to make your visit comfortable and smooth.
+
+Team {{8}}
+Dr. {{9}}","[4,2,1,10,11,3,1,1,2]"
+MKT-L10-002,mkt_l10_nextday_reminder_v1,Library 10,Next-Day Appointment Reminder,Appointment Reminder,All Treatments,NA,One Day Before Appointment,1 Day Before Appointment,None,Blank,"Just a quick reminder. We are looking forward to seeing you tomorrow.
+
+Hi {{4}},
+
+This is a friendly reminder about your appointment with Dr. {{2}} at {{1}} tomorrow.
+📅 Date: {{10}}
+🕒 Time: {{11}}
+
+If you need any assistance before your visit or expect to be delayed, please let us know on {{3}}.
+
+We look forward to welcoming you and wish you a safe journey to the clinic.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},None,NA,"{{1}}, {{2}}, {{3}}, {{4}}, {{10}}, {{11}}",Reduce no-shows by reminding patients about their upcoming appointment while providing an easy way to communicate changes.,"Always include patient name, appointment date and time. Keep the message concise and courteous. Never create urgency or pressure.",Automatically triggered one day before the scheduled appointment.,,,"Just a quick reminder. We are looking forward to seeing you tomorrow.
+
+Hi {{1}},
+
+This is a friendly reminder about your appointment with Dr. {{2}} at {{3}} tomorrow.
+📅 Date: {{4}}
+🕒 Time: {{5}}
+
+If you need any assistance before your visit or expect to be delayed, please let us know on {{6}}.
+
+We look forward to welcoming you and wish you a safe journey to the clinic.
+
+Team {{7}}
+Dr. {{8}}","[4,2,1,10,11,3,1,2]"
+MKT-L11-001,mkt_l11_aftercare_pdf_v1,Library 11,Treatment Completion & After Care,Utility,All Treatments,NA,Treatment Completed,Day 0,Document,Blank,"Your treatment is complete. Now it's time to focus on a smooth recovery.
+
+Hi {{4}},
+
+Thank you for visiting {{1}} today. Dr. {{2}} has shared an After care guide for your {{5}} to help you recover comfortably over the next few days.
+
+Please keep it handy and follow the instructions carefully.
+
+If anything doesn't feel right or you have any questions, simply reply to this message or call us on {{3}}.
+
+Wishing you a comfortable and speedy recovery.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},Document (PDF),Dynamic,"{{1}}, {{2}}, {{3}}, {{4}}, {{5}}",Deliver the correct after-care guide immediately after treatment and reduce unnecessary emergency calls.,Automatically attach the treatment-specific after-care PDF based on {{5}}. Never include treatment instructions inside the message itself. Keep the tone reassuring and supportive.,"Make.com should dynamically map the correct PDF (RCT, Implant, Extraction, Crown, Veneers, Braces, General Dentistry, etc.).",,,"Your treatment is complete. Now it's time to focus on a smooth recovery.
+
+Hi {{1}},
+
+Thank you for visiting {{2}} today. Dr. {{3}} has shared an After care guide for your {{4}} to help you recover comfortably over the next few days.
+
+Please keep it handy and follow the instructions carefully.
+
+If anything doesn't feel right or you have any questions, simply reply to this message or call us on {{5}}.
+
+Wishing you a comfortable and speedy recovery.
+
+Team {{6}}
+Dr. {{7}}","[4,1,2,5,3,1,2]"
+MKT-L11-002,mkt_l11_google_review_v1,Library 11,Google Review & SmileCare Family Benefits,Reputation Management,All Treatments,NA,5–7 Days After Treatment,Day 7,None,Blank,"Your experience could help someone else make the right decision for their smile.
+
+Hi {{4}},
+
+We hope you are recovering well and had a comfortable experience at {{1}}.
+
+If you have a minute, we'd truly appreciate it if you could share your honest experience on Google. Your feedback helps other patients make informed decisions and motivates our team to continue providing the highest standard of care.
+
+As a token of appreciation, we'll enrol you in our SmileCare Family Benefits program, which includes complimentary dental consultations for you and up to 4 immediate family members for the next 3 months.
+
+Share your experience here: {{18}}
+
+Thank you once again for your trust and support.
+
+Team {{1}}
+Dr. {{2}}",URL,{{18}},None,NA,"{{1}}, {{2}}, {{4}}, {{18}}",Encourage authentic Google reviews while rewarding patient engagement through a branded family benefit.,"Never ask for a positive review—always ask for an honest experience. Mention SmileCare Family Benefits exactly once. If the clinic doesn't offer the benefit, use an alternative template.","The benefit is unlocked after the patient submits a Google review, irrespective of its sentiment. Clinic staff should verify submission before activating the benefit.",,,"Your experience could help someone else make the right decision for their smile.
+
+Hi {{1}},
+
+We hope you are recovering well and had a comfortable experience at {{2}}.
+
+If you have a minute, we'd truly appreciate it if you could share your honest experience on Google. Your feedback helps other patients make informed decisions and motivates our team to continue providing the highest standard of care.
+
+As a token of appreciation, we'll enrol you in our SmileCare Family Benefits program, which includes complimentary dental consultations for you and up to 4 immediate family members for the next 3 months.
+
+Share your experience here: {{3}}
+
+Thank you once again for your trust and support.
+
+Team {{4}}
+Dr. {{5}}","[4,1,18,1,2]"
+MKT-L11-003,mkt_l11_nps_v1,Library 11,Patient Feedback & Benefit Extension,Patient Experience,All Treatments,NA,2–3 Days After Review Request,Day 10,None,Blank,"Every suggestion helps us care for every patient a little better.
+
+Hi {{4}},
+
+Thank you once again for choosing {{1}}.
+
+We would be grateful if you could spare a minute to complete our short patient feedback survey. Your feedback helps us improve the experience we provide to every patient.
+
+If you've already shared your Google experience, completing this survey will extend your SmileCare Family Benefits from 3 months to 6 months, covering you and up to 4 immediate family members.
+
+Share your feedback here: {{19}}
+
+Thank you for helping us improve every day.
+
+Team {{1}}
+Dr. {{2}}",URL,{{19}},None,NA,"{{1}}, {{2}}, {{4}}, {{19}}",Collect actionable patient feedback while encouraging completion through a benefit extension.,Mention the benefit extension only if the Google review request has already been sent. Never imply that positive feedback is required. Keep the survey request short and appreciation-focused.,Automation should extend the SmileCare Family Benefits only after both actions (Google review submission and NPS completion) are completed.,,,"Every suggestion helps us care for every patient a little better.
+
+Hi {{1}},
+
+Thank you once again for choosing {{2}}.
+
+We would be grateful if you could spare a minute to complete our short patient feedback survey. Your feedback helps us improve the experience we provide to every patient.
+
+If you've already shared your Google experience, completing this survey will extend your SmileCare Family Benefits from 3 months to 6 months, covering you and up to 4 immediate family members.
+
+Share your feedback here: {{3}}
+
+Thank you for helping us improve every day.
+
+Team {{4}}
+Dr. {{5}}","[4,1,19,1,2]"
+MKT-L12-001,mkt_l12_smile_fact_v1,Library 12,Smile Fact – Saliva,Patient Engagement,All Patients,NA,2 Months After Last Interaction,Month 2,None,Blank,"🦷 Smile Fact: Your saliva repairs your teeth every day, but only to a certain limit.
+
+Hi {{4}},
+
+Your saliva is constantly working to protect your teeth by repairing the earliest microscopic damage caused by acids from food and drinks.
+
+However, once that damage progresses beyond a certain point, your teeth can't repair themselves naturally.
+
+That's why maintaining good oral hygiene every day plays such an important role in keeping your smile healthy.
+
+Small daily habits often make the biggest difference over time.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,None,NA,"{{1}}, {{2}}, {{4}}",Deliver interesting oral health facts that keep the clinic top of mind without promoting appointments.,Educational only. No CTA.,First engagement message after treatment.,,,"🦷 Smile Fact: Your saliva repairs your teeth every day, but only to a certain limit.
+
+Hi {{1}},
+
+Your saliva is constantly working to protect your teeth by repairing the earliest microscopic damage caused by acids from food and drinks.
+
+However, once that damage progresses beyond a certain point, your teeth can't repair themselves naturally.
+
+That's why maintaining good oral hygiene every day plays such an important role in keeping your smile healthy.
+
+Small daily habits often make the biggest difference over time.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L12-002,mkt_l12_plaque_fact_v1,Library 12,Plaque Education,Patient Engagement,All Patients,NA,4 Months After Last Interaction,Month 4,None,Blank,"Did you know why plaque keeps coming back even after brushing twice a day?
+
+Hi {{4}},
+
+Plaque begins forming on your teeth within hours after brushing. While brushing removes most of it, some deposits gradually harden over time and cannot be removed with a toothbrush alone.
+
+Professional dental scaling helps remove these deposits and supports healthier teeth and gums.
+
+Healthy smiles are built through everyday habits.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,None,NA,"{{1}}, {{2}}, {{4}}",Educate patients about plaque while creating awareness about affordable preventive care.,Mention the starting price only if the clinic offers scaling from ₹600. No appointment CTA in this message.,Educational message with soft service awareness.,,,"Did you know why plaque keeps coming back even after brushing twice a day?
+
+Hi {{1}},
+
+Plaque begins forming on your teeth within hours after brushing. While brushing removes most of it, some deposits gradually harden over time and cannot be removed with a toothbrush alone.
+
+Professional dental scaling helps remove these deposits and supports healthier teeth and gums.
+
+Healthy smiles are built through everyday habits.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L12-003,mkt_l12_midyear_checkup_v1,Library 12,Mid-Year Smile Check,Recall,All Patients,NA,6 Months After Last Interaction,Month 6,None,Blank,"You service your car regularly, but when was the last time you checked your smile?
+
+Hi {{4}},
+
+We often remember to maintain the things we use every day, but our teeth quietly work for us every single meal without asking for attention.
+
+A routine dental check-up helps identify small concerns before they become bigger ones.
+
+As part of our SmileCare Family Benefits, we'd be happy to offer you a complimentary dental consultation. Simply reply to this message or call us on {{3}} to schedule a convenient appointment.
+
+Healthy smiles stay healthy through regular care, and not just treatment.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},None,NA,"{{1}}, {{2}}, {{3}}, {{4}}",Encourage preventive check-ups through a patient appreciation benefit.,"Position the complimentary consultation as a benefit, not a discount.",Mid-year preventive recall.,,,"You service your car regularly, but when was the last time you checked your smile?
+
+Hi {{1}},
+
+We often remember to maintain the things we use every day, but our teeth quietly work for us every single meal without asking for attention.
+
+A routine dental check-up helps identify small concerns before they become bigger ones.
+
+As part of our SmileCare Family Benefits, we'd be happy to offer you a complimentary dental consultation. Simply reply to this message or call us on {{2}} to schedule a convenient appointment.
+
+Healthy smiles stay healthy through regular care, and not just treatment.
+
+Team {{3}}
+Dr. {{4}}","[4,3,1,2]"
+MKT-L12-004,mkt_l12_gum_fact_v1,Library 12,Gum Health Awareness,Patient Engagement,All Patients,NA,8 Months After Last Interaction,Month 8,None,Blank,"Your gums do one important job every second of the day, and most people never notice it.
+
+Hi {{4}},
+
+Your gums do much more than hold your teeth in place. They help protect the tissues and bone that support your entire smile.
+
+Keeping your gums healthy is just as important as taking care of your teeth.
+
+A healthy smile always begins with a healthy foundation.
+
+Team {{1}}
+Dr. {{2}}",None,Blank,None,NA,"{{1}}, {{2}}, {{4}}",Increase awareness about gum health without prompting a clinic visit.,Educational only. No CTA.,Reinforces preventive care mindset.,,,"Your gums do one important job every second of the day, and most people never notice it.
+
+Hi {{1}},
+
+Your gums do much more than hold your teeth in place. They help protect the tissues and bone that support your entire smile.
+
+Keeping your gums healthy is just as important as taking care of your teeth.
+
+A healthy smile always begins with a healthy foundation.
+
+Team {{2}}
+Dr. {{3}}","[4,1,2]"
+MKT-L12-005,mkt_l12_early_detection_v1,Library 12,Early Detection Reminder,Recall,All Patients,NA,10 Months After Last Interaction,Month 10,None,Blank,"Ignoring a tiny problem is easy, until it stops being tiny.
+
+Hi {{4}},
+
+Many dental problems start quietly and may not cause any discomfort in the beginning.
+
+Identifying them early often means simpler treatment and better long-term oral health.
+
+As part of our SmileCare Family Benefits, we'd be happy to offer you a complimentary dental consultation. Simply reply to this message or call us on {{3}} to book your visit.
+
+Looking after small concerns today can help prevent bigger ones tomorrow.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},None,NA,"{{1}}, {{2}}, {{3}}, {{4}}",Encourage timely dental check-ups while reinforcing patient benefits.,Mention complimentary consultation as a benefit. Avoid urgency or fear.,Preventive recall.,,,"Ignoring a tiny problem is easy, until it stops being tiny.
+
+Hi {{1}},
+
+Many dental problems start quietly and may not cause any discomfort in the beginning.
+
+Identifying them early often means simpler treatment and better long-term oral health.
+
+As part of our SmileCare Family Benefits, we'd be happy to offer you a complimentary dental consultation. Simply reply to this message or call us on {{2}} to book your visit.
+
+Looking after small concerns today can help prevent bigger ones tomorrow.
+
+Team {{3}}
+Dr. {{4}}","[4,3,1,2]"
+MKT-L12-006,mkt_l12_annual_review_v1,Library 12,Annual Smile Review,Annual Recall,All Patients,NA,12 Months After Last Interaction,Month 12,None,Blank,"Your smile has looked after you all year. This is a good time to return the favour.
+
+Hi {{4}},
+
+Thank you for trusting {{1}} with your oral health over the past year.
+
+To help you begin another year with confidence, we'd be delighted to offer you a complimentary dental consultation under our SmileCare Family Benefits program.
+
+Simply reply to this message or call us on {{3}} to schedule your annual oral health review at a time that's convenient for you.
+
+Here's to another year of healthy smiles.
+
+Team {{1}}
+Dr. {{2}}",Phone,{{3}},None,NA,"{{1}}, {{2}}, {{3}}, {{4}}",Encourage an annual dental review while rewarding long-term patient loyalty.,Position the complimentary consultation as a patient appreciation benefit.,Annual patient retention message.,,,"Your smile has looked after you all year. This is a good time to return the favour.
+
+Hi {{1}},
+
+Thank you for trusting {{2}} with your oral health over the past year.
+
+To help you begin another year with confidence, we'd be delighted to offer you a complimentary dental consultation under our SmileCare Family Benefits program.
+
+Simply reply to this message or call us on {{3}} to schedule your annual oral health review at a time that's convenient for you.
+
+Here's to another year of healthy smiles.
+
+Team {{4}}
+Dr. {{5}}","[4,1,3,1,2]"
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,
+"Purple colour means need to get the media, change the template name to 2nd row, and add CTA button also approved along with the template, after template is approved.",,,,,,,,,,,,,,,,,,,,,,,

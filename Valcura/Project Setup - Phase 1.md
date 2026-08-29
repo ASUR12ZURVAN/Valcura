@@ -124,3 +124,7 @@ Further additions
 27th -- first working prototype 
 29th -- for Optimized workflow
 31th -- Final Deployment
+
+
+by 27th -- Complete whatsapp, workflow tested and trained
+

@@ -84,6 +84,13 @@ def macrodroid_webhook(request):
     # ELSE: Payload represents an OUTBOUND MISSED CALL TRIGGER
     template_id = payload.get('template_id', 'UTL-L1-01')
     variables = payload.get('variables', {})
+    if isinstance(variables, str):
+        try:
+            variables = json.loads(variables)
+        except json.JSONDecodeError:
+            variables = {}
+    if not isinstance(variables, dict):
+        return JsonResponse({'detail': 'variables must be an object'}, status=400)
 
     if not variables and isinstance(payload, dict):
         sim_operator = payload.get('sim_operator_name', 'Valcura')
@@ -97,6 +104,17 @@ def macrodroid_webhook(request):
         }
 
     template_service = TemplateService()
+    variables = template_service.normalize_variables(template_id, variables)
+    required_variables = template_service.required_variables(template_id)
+    missing_variables = sorted(
+        variable for variable in required_variables
+        if str(variables.get(variable, '')).strip() == ''
+    )
+    if missing_variables:
+        return JsonResponse({
+            'detail': f'Missing variables for {template_id}: {", ".join(missing_variables)}',
+            'required_variables': sorted(required_variables),
+        }, status=400)
     message = template_service.get_message(template_id, variables)
 
     if not message:
@@ -105,16 +123,21 @@ def macrodroid_webhook(request):
     import re
     formatted_number = re.sub(r'\D', '', phone_number)
 
-    meta_template_name = payload.get('meta_template_name', 'clinical_reply')
-    # clinical_reply template expects 1 variable: the patient's name
-    patient_name = variables.get("4", "Valued Patient")
+    template = template_service.get_template(template_id)
+    meta_template_name = payload.get('meta_template_name') or template['name']
+    template_variables = template_service.meta_variables(template_id, variables)
+    template_components = template_service.meta_components(
+        template_id,
+        payload.get('media_id') or variables.get('media_id'),
+    )
     
     whatsapp_service = WhatsAppService()
     send_success = whatsapp_service.send_message(
         formatted_number, 
         message, 
         template_name=meta_template_name,
-        template_variables=[patient_name]
+        template_variables=template_variables,
+        template_components=template_components,
     )
 
     # Sync to Google Sheets

@@ -1,87 +1,83 @@
 import os
-from typing import Optional
+import re
+from typing import Any, Optional
 
 # pyrefly: ignore [missing-import]
 from .knowledge import retrieve_context
 from .google_sheets_service import GoogleSheetsService
-
-
-import re
+from .template_cache import TemplateCacheService
 
 class TemplateService:
-    TEMPLATES = {
-        "UTL-L1-01": (
-            "Thank you for reaching out to {{1}}.\n\n"
-            "We are sorry that we couldn't connect with you when you called us a little while ago.\n\n"
-            "If you are still looking for help with your dental concern, simply reply to this message or call us on {{3}}, whichever is more convenient for you.\n\n"
-            "We are here whenever you need us, and we will be happy to assist you.\n\n"
-            "Team {{1}}\n"
-            "Dr. {{2}}"
-        ),
-        "MKT-L1-02": (
-            "Thank you once again for reaching out to {{1}}.\n\n"
-            "Choosing a dental clinic is an important decision, and we believe every patient deserves honest advice and treatment that is genuinely needed.\n\n"
-            "That's why every advise at {{1}} is made with your long term oral health in mind, supported by experienced doctors, modern technology and the trust of many happy patients.\n\n"
-            "There's no pressure. Our role is simply to help you make the right decision for your oral health.\n\n"
-            "Team {{1}}\n"
-            "Dr. {{2}}"
-        ),
-        "MKT-L1-03": (
-            "Since you had reached out to us recently, we just wanted to check if your dental concern still needs attention.\n\n"
-            "If you have any questions or would simply like to understand your options better, we would be glad to help.You can call us on {{3}} whenever it's convenient for you.\n\n"
-            "Take your time, our role is simply to help you make an informed decision for your oral health.\n\n"
-            "Team {{1}}\n"
-            "Dr. {{2}}"
-        ),
-        "MKT-L1-04": (
-            "We thought we would check in one last time regarding your enquiry with {{1}}.\n\n"
-            "If your dental concern is still bothering you, we would be happy to help you understand the right treatment options whenever you're ready. You can simply reply to this message or call us on {{3}}.\n\n"
-            "Whether you choose us or not, we hope you don't ignore your oral health. Wishing you good oral health.\n\n"
-            "Team {{1}}\n"
-            "Dr. {{2}}"
-        ),
-        "UTL-L2-01": (
-            "Every treatment begins with understanding your concern.\n\n"
-            "Hi {{4}},\n\n"
-            "Thank you for speaking with our team today about {{6}}.\n\n"
-            "We hope your initial questions were answered. If anything else comes to mind, reply to this message, we will be happy to help.\n\n"
-            "We are here whenever you need us.\n\n"
-            "Team {{1}}\n"
-            "Dr. {{2}}"
-        ),
-        "MKT-L2-02": (
-            "The right advice is just as important as the right treatment.\n\n"
-            "Hi {{4}},\n\n"
-            "We understand your concern about {{6}}.\n\n"
-            "At {{1}}, every recommendation for {{5}} is made only when it's genuinely needed, using modern technology and a patient-first approach.\n\n"
-            "Call us on {{3}} if you would like to discuss your concern further.\n\n"
-            "The right decision begins with the right understanding.\n\n"
-            "Team {{1}}\n"
-            "Dr. {{2}}"
-        ),
-        "MKT-L2-03": (
-            "The more you understand your treatment, the more confident you'll feel.\n\n"
-            "Hi {{4}},\n\n"
-            "Based on what you shared about {{6}}, {{5}} may be one of the suitable treatment options.\n\n"
-            "We've attached a simple overview explaining what it is, how it helps and why timely care matters.\n\n"
-            "Call us on {{3}} if you'd like to know more.\n\n"
-            "Take your time, we arre here to answer your questions.\n\n"
-            "Team {{1}}\n"
-            "Dr. {{2}}"
-        ),
-        "MKT-L2-04": (
-            "A consultation isn't about starting treatment, it's about getting clarity.\n\n"
-            "Hi {{4}},\n\n"
-            "If {{6}} is still bothering you, we'd be happy to answer your questions and help you understand whether {{5}} is the right option.\n\n"
-            "Reply to this message or call us on {{3}} whenever you're ready.\n\n"
-            "Our goal is to help you decide with confidence.\n\n"
-            "Team {{1}}\n"
-            "Dr. {{2}}"
-        ),
-    }
+    """
+    Updated TemplateService that uses the cached database model instead of the hardcoded catalog.
+    Provides backward compatibility with existing code while leveraging the new caching system.
+    """
+    
+    @classmethod
+    def get_template(cls, template_id: str) -> Optional[dict[str, Any]]:
+        """Get template from cache with fallback to database."""
+        return TemplateCacheService.get_template(template_id)
+
+    @classmethod
+    def required_variables(cls, template_id: str) -> set[str]:
+        """Get required variable placeholders from template."""
+        template = cls.get_template(template_id)
+        if not template:
+            return set()
+        return set(re.findall(r"\{\{(\d+)\}\}", template["meta_approved_body"]))
+
+    @classmethod
+    def meta_variables(cls, template_id: str, variables: dict[str, Any]) -> list[str]:
+        """Get variables in Meta API order based on meta_mapping."""
+        template = cls.get_template(template_id)
+        if not template:
+            return []
+        return [str(variables.get(key, "")) for key in template["meta_mapping"]]
+
+    @classmethod
+    def normalize_variables(cls, template_id: str, variables: dict[str, Any]) -> dict[str, Any]:
+        """Normalize variable keys based on variable_mapping."""
+        template = cls.get_template(template_id)
+        if not template:
+            return variables
+
+        normalized = {str(key): value for key, value in variables.items()}
+        for number, label in re.findall(
+            r"\{\{(\d+)\}\}\s*=\s*(.*?)(?=\{\{\d+\}\}|$)",
+            template["variable_mapping"],
+        ):
+            key = re.sub(r"[^a-z0-9]+", "_", label.lower()).strip("_")
+            if key in variables and number not in normalized:
+                normalized[number] = variables[key]
+        return normalized
+
+    @classmethod
+    def meta_components(cls, template_id: str, media_id: Optional[str] = None) -> list[dict[str, Any]]:
+        """Build Meta API components for the template."""
+        template = cls.get_template(template_id)
+        if not template:
+            return []
+
+        components = []
+        header_type = template["header_type"]
+        if media_id and header_type in {"image", "video", "document"}:
+            components.append({
+                "type": "header",
+                "parameters": [{"type": header_type, header_type: {"id": str(media_id)}},],
+            })
+
+        if template["cta_type"] == "quick reply" and template["cta_value"]:
+            components.append({
+                "type": "button",
+                "sub_type": "quick_reply",
+                "index": "0",
+                "parameters": [{"type": "payload", "payload": template["cta_value"]}],
+            })
+        return components
 
     def get_message(self, template_id: str, variables: dict) -> str:
-        template = self.TEMPLATES.get(template_id)
+        """Render message by replacing placeholders with variable values."""
+        template = self.get_template(template_id)
         if not template:
             return ""
         
@@ -90,7 +86,24 @@ class TemplateService:
             var_key = match.group(1)
             return str(variables.get(var_key, f"{{{{{var_key}}}}}"))
             
-        return re.sub(r'\{\{(\d+)\}\}', replace_var, template)
+        return re.sub(r'\{\{(\d+)\}\}', replace_var, template["meta_approved_body"])
+    
+    @classmethod
+    def get_workflow_info(cls, template_id: str) -> dict[str, Any]:
+        """Get workflow-related information for a template."""
+        template = cls.get_template(template_id)
+        if not template:
+            return {}
+        
+        return {
+            "library": template["library"],
+            "trigger": template["trigger"],
+            "day": template["day"],
+            "category": template["category"],
+            "treatment": template["treatment"],
+            "objection": template["objection"],
+            "exit_condition": template["workflow_exit_condition"],
+        }
 
 
 class WhatsAppService:
@@ -99,7 +112,7 @@ class WhatsAppService:
         self.phone_number_id = os.getenv("WHATSAPP_PHONE_NUMBER_ID")
         self.api_version = os.getenv("WHATSAPP_API_VERSION", "v18.0")
 
-    def send_message(self, to_number: str, message: str, template_name: str = None, template_variables: list = None) -> bool:
+    def send_message(self, to_number: str, message: str, template_name: str = None, template_variables: list = None, template_components: list = None) -> bool:
         if not self.access_token or not self.phone_number_id:
             print("WhatsApp credentials not set. Cannot send message.")
             return False
@@ -119,14 +132,14 @@ class WhatsAppService:
                     "language": {"code": "en_US"}
                 }
                 
+                components = []
                 if template_variables:
                     parameters = [{"type": "text", "text": str(var)} for var in template_variables]
-                    template_data["components"] = [
-                        {
-                            "type": "body",
-                            "parameters": parameters
-                        }
-                    ]
+                    components.append({"type": "body", "parameters": parameters})
+                if template_components:
+                    components.extend(template_components)
+                if components:
+                    template_data["components"] = components
 
                 payload = {
                     "messaging_product": "whatsapp",
