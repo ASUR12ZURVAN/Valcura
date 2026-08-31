@@ -38,6 +38,7 @@ class TemplateCacheService:
         
         cache.set(cls.ALL_TEMPLATES_CACHE_KEY, template_dict, cls.CACHE_TIMEOUT)
         return template_dict
+
     
     @classmethod
     def get_templates_by_library(cls, library: str) -> List[Dict[str, Any]]:
@@ -140,9 +141,34 @@ class TemplateCacheService:
         cache_key = f"templates_library_{library}"
         cache.delete(cache_key)
         cache.delete(cls.ALL_TEMPLATES_CACHE_KEY)
-    
+        return None
+
     @classmethod
-    def invalidate_all(cls):
+    def get_template_from_system_config(cls, config_type: str, code: str, 
+                                       treatment: str = None, objection: str = None) -> Optional[Dict[str, Any]]:
+        """
+        Get template from System_Config based on parameters.
+        Returns cached template if available.
+        """
+        from django.db.models import Q
+        
+        query = Q(config_type=config_type, code=code, active_status=True)
+        
+        if treatment:
+            query &= Q(treatment=treatment)
+        if objection:
+            query &= Q(objection=objection)
+        
+        config = SystemConfig.objects.filter(query).first()
+        
+        if config:
+            return cls.get_template(config.meta_template_name)
+        
+        return None
+
+    @classmethod
+    def invalidate_cache(cls):
+        """Invalidate all template cache."""
         cache.delete(cls.ALL_TEMPLATES_CACHE_KEY)
     
     @classmethod
