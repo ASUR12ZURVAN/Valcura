@@ -172,6 +172,7 @@ DATABASES = {
 # ============================================================
 
 AUTH_USER_MODEL = 'user_request.HospitalUser'
+LOGIN_URL = 'login'
 
 # ============================================================
 # PASSWORD VALIDATION

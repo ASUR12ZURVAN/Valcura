@@ -1,3 +1,4 @@
+import hmac
 import json
 import os
 
@@ -6,6 +7,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.contrib import messages
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -193,9 +195,9 @@ def whatsapp_webhook(request):
         token = request.GET.get('hub.verify_token')
         challenge = request.GET.get('hub.challenge')
 
-        expected_token = os.getenv('WHATSAPP_VERIFY_TOKEN', 'valcura_secure_webhook_token_2026')
+        expected_token = os.getenv('WHATSAPP_VERIFY_TOKEN')
 
-        if mode == 'subscribe' and token == expected_token:
+        if expected_token and mode == 'subscribe' and hmac.compare_digest(token or '', expected_token):
             print("WhatsApp Webhook verified successfully.")
             return HttpResponse(challenge, status=200)
         else:
@@ -374,8 +376,6 @@ def hospital_register(request):
     if request.method == 'POST':
         form = HospitalRegistrationForm(request.POST)
         if form.is_valid():
-            clinic = form.save()
-            
             # Get admin user data
             admin_username = request.POST.get('admin_username')
             admin_email = request.POST.get('admin_email')
@@ -397,19 +397,20 @@ def hospital_register(request):
                     'form': form,
                     'error': 'Username already exists'
                 })
-            
-            # Create admin user for the clinic
+
             try:
-                admin_user = HospitalUser.objects.create_user(
-                    username=admin_username,
-                    email=admin_email,
-                    password=admin_password,
-                    first_name=admin_first_name,
-                    last_name=admin_last_name,
-                    clinic=clinic,
-                    role='admin',
-                    is_hospital_admin=True
-                )
+                with transaction.atomic():
+                    clinic = form.save()
+                    admin_user = HospitalUser.objects.create_user(
+                        username=admin_username,
+                        email=admin_email,
+                        password=admin_password,
+                        first_name=admin_first_name,
+                        last_name=admin_last_name,
+                        clinic=clinic,
+                        role='admin',
+                        is_hospital_admin=True
+                    )
                 # Auto-login the user after registration
                 login(request, admin_user)
                 messages.success(request, 'Registration Succeeded! Welcome to Valcura.')

@@ -29,7 +29,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # Hospital Authentication
+    path('register', hospital_register, name='hospital_register_no_slash'),
     path('register/', hospital_register, name='hospital_register'),
+    path('login', hospital_login, name='login_no_slash'),
     path('login/', hospital_login, name='login'),
     path('logout/', hospital_logout, name='logout'),
     path('hospital/dashboard/', hospital_dashboard, name='hospital_dashboard'),

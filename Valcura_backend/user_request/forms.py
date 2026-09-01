@@ -5,16 +5,14 @@ from .models import HospitalUser, ClinicProfile
 
 class HospitalRegistrationForm(forms.ModelForm):
     """Form for hospital/clinic registration"""
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
-    
+
     class Meta:
         model = ClinicProfile
         fields = [
             'clinic_name', 'city', 'locality', 'clinic_type', 
             'chair_count', 'primary_specialty', 'monthly_revenue_baseline_inr',
             'reception_team_size', 'crm_status', 'crm_name', 'crm_integration_mode',
-            'valcura_plan'
+            'valcura_plan', 'onboarding_date'
         ]
         widgets = {
             'monthly_revenue_baseline_inr': forms.NumberInput(attrs={'step': '0.01'}),
