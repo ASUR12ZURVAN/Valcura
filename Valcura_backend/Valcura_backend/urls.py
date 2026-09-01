@@ -16,12 +16,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
 
-from user_request.views import macrodroid_webhook, whatsapp_webhook, sync_sheets_view, message_list, dashboard
+from user_request.views import (
+    macrodroid_webhook, whatsapp_webhook, sync_sheets_view, message_list, dashboard,
+    hospital_register, hospital_login, hospital_logout, hospital_dashboard,
+    clinic_messages, create_hospital_user
+)
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # Hospital Authentication
+    path('register/', hospital_register, name='hospital_register'),
+    path('login/', hospital_login, name='login'),
+    path('logout/', hospital_logout, name='logout'),
+    path('hospital/dashboard/', hospital_dashboard, name='hospital_dashboard'),
+    path('hospital/messages/', clinic_messages, name='clinic_messages'),
+    path('hospital/create-user/', create_hospital_user, name='create_hospital_user'),
+    
+    # API Webhooks
     path('api/macrodroid/webhook/', macrodroid_webhook, name='macrodroid-webhook'),
     path('api/whatsapp/webhook/', whatsapp_webhook, name='whatsapp-webhook'),
     path('api/sheets/sync/', sync_sheets_view, name='sync-sheets'),

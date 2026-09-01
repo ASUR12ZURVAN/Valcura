@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ clinic.clinic_name }} Dashboard - Valcura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .navbar-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+        .navbar-menu a:hover {
+            opacity: 0.8;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .stat-card h3 {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .stat-card .value {
+            color: #333;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .section h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .filters input, .filters select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .filters button {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .filters button:hover {
+            background: #5568d3;
+        }
+        .message-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .message-item {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.3s;
+        }
+        .message-item:hover {
+            background: #f9f9f9;
+        }
+        .message-item:last-child {
+            border-bottom: none;
+        }
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .message-phone {
+            font-weight: 600;
+            color: #333;
+        }
+        .message-time {
+            color: #999;
+            font-size: 12px;
+        }
+        .message-type {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .message-type.missed {
+            background: #fee;
+            color: #c33;
+        }
+        .message-type.received {
+            background: #eef;
+            color: #667eea;
+        }
+        .message-content {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .message-content strong {
+            color: #333;
+        }
+        .opportunities-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .opportunities-table th,
+        .opportunities-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .opportunities-table th {
+            background: #f9f9f9;
+            color: #666;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .opportunities-table td {
+            color: #333;
+            font-size: 14px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-badge.active {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .status-badge.new {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        .status-badge.closed {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">Valcura</div>
+        <div class="navbar-menu">
+            <span>{{ clinic.clinic_name }}</span>
+            <a href="#">Settings</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="success-message" style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #c3e6cb;">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        <div class="header">
+            <h1>{{ clinic.clinic_name }} Dashboard</h1>
+            <p>{{ clinic.city }}, {{ clinic.locality }}</p>
+        </div>
+        
+        <!-- Analytics Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Messages</h3>
+                <div class="value">{{ analytics.total_messages }}</div>
+            </div>
+            <div class="stat-card">
+                <h3>Missed Calls</h3>
+                <div class="value">{{ analytics.missed_calls }}</div>
+            </div>
+            <div class="stat-card">
+                <h3>Active Opportunities</h3>
+                <div class="value">{{ analytics.active_opportunities }}</div>
+            </div>
+        </div>
+        
+        <!-- Messages Section -->
+        <div class="section">
+            <h2>Recent Messages</h2>
+            
+            <div class="filters">
+                <input type="text" id="search-input" placeholder="Search messages...">
+                <select id="type-filter">
+                    <option value="all">All Types</option>
+                    <option value="missed">Missed Calls</option>
+                    <option value="received">Received</option>
+                </select>
+                <input type="date" id="date-from">
+                <input type="date" id="date-to">
+                <button onclick="filterMessages()">Filter</button>
+            </div>
+            
+            <div class="message-list" id="message-list">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="message-item" data-type="{% if message.is_missed_call %}missed{% else %}received{% endif %}" data-date="{{ message.created_at|date:'Y-m-d' }}">
+                        <div class="message-header">
+                            <span class="message-phone">{{ message.phone_number }}</span>
+                            <span class="message-time">{{ message.created_at|date:'Y-m-d H:i:s' }}</span>
+                        </div>
+                        <span class="message-type {% if message.is_missed_call %}missed{% else %}received{% endif %}">
+                            {% if message.is_missed_call %}Missed Call{% else %}Received{% endif %}
+                        </span>
+                        <div class="message-content">
+                            <strong>Patient:</strong> {{ message.user_message|default:"N/A" }}<br>
+                            <strong>Response:</strong> {{ message.ai_response }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">
+                        <p>No messages found for your clinic.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Opportunities Section -->
+        <div class="section">
+            <h2>Recent Opportunities</h2>
+            {% if opportunities %}
+                <table class="opportunities-table">
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Treatment</th>
+                            <th>Status</th>
+                            <th>Value (INR)</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for opp in opportunities %}
+                        <tr>
+                            <td>{{ opp.patient.patient_name|default:opp.patient.phone_number }}</td>
+                            <td>{{ opp.treatment }}</td>
+                            <td>
+                                <span class="status-badge {% if opp.opportunity_status == 'New' %}new{% elif opp.opportunity_status == 'Active' %}active{% else %}closed{% endif %}">
+                                    {{ opp.opportunity_status }}
+                                </span>
+                            </td>
+                            <td>₹{{ opp.value_inr|default:"0" }}</td>
+                            <td>{{ opp.inquiry_date_time|date:'Y-m-d' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="empty-state">
+                    <p>No opportunities found for your clinic.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <script>
+        function filterMessages() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const typeFilter = document.getElementById('type-filter').value;
+            const dateFrom = document.getElementById('date-from').value;
+            const dateTo = document.getElementById('date-to').value;
+            
+            const messages = document.querySelectorAll('.message-item');
+            
+            messages.forEach(message => {
+                const messageType = message.dataset.type;
+                const messageDate = message.dataset.date;
+                const messageText = message.textContent.toLowerCase();
+                
+                let show = true;
+                
+                if (typeFilter !== 'all' && messageType !== typeFilter) {
+                    show = false;
+                }
+                
+                if (dateFrom && messageDate < dateFrom) {
+                    show = false;
+                }
+                
+                if (dateTo && messageDate > dateTo) {
+                    show = false;
+                }
+                
+                if (searchInput && !messageText.includes(searchInput)) {
+                    show = false;
+                }
+                
+                message.style.display = show ? 'block' : 'none';
+            });
+        }
+        
+        // Auto-filter on input change
+        document.getElementById('search-input').addEventListener('input', filterMessages);
+        document.getElementById('type-filter').addEventListener('change', filterMessages);
+        document.getElementById('date-from').addEventListener('change', filterMessages);
+        document.getElementById('date-to').addEventListener('change', filterMessages);
+    </script>
+</body>
+</html>
