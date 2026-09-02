@@ -1,6 +1,28 @@
 from django.db import models
-from django.core.cache import cache
 from django.utils import timezone
+from django.contrib.auth.models import AbstractUser
+
+
+class HospitalUser(AbstractUser):
+    """Custom user model for hospital/clinic staff"""
+    clinic = models.ForeignKey('ClinicProfile', on_delete=models.CASCADE, related_name='users', null=True, blank=True)
+    role = models.CharField(max_length=50, choices=[
+        ('admin', 'Admin'),
+        ('receptionist', 'Receptionist'),
+        ('doctor', 'Doctor'),
+        ('manager', 'Manager'),
+    ], default='receptionist')
+    phone_number = models.CharField(max_length=20, blank=True)
+    is_hospital_admin = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.username} - {self.clinic.clinic_name if self.clinic else 'No Clinic'} ({self.role})"
+
+    class Meta:
+        verbose_name = "Hospital User"
+        verbose_name_plural = "Hospital Users"
 
 
 class UserRequest(models.Model):
@@ -64,9 +86,6 @@ class MetaTemplate(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        # Invalidate cache when template is updated
-        cache.delete("all_templates")
-        cache.delete(f"template_{self.template_id}")
 
 
 # Excel Database Models based on Valcura Master Revenue Intelligence Database

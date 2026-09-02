@@ -4,6 +4,100 @@
 
 This system provides automated patient communication through WhatsApp, integrated with Google Sheets for patient management and a template-based workflow engine for personalized messaging.
 
+## Environment Variables Configuration
+
+A complete `.env` file has been created in the project root with all necessary environment variables for the Valcura Patient Automation System. Use `.env.example` as a template for new deployments.
+
+### Quick Setup
+
+1. Copy the example file:
+```bash
+cp .env.example .env
+```
+
+2. Edit `.env` with your actual values:
+```bash
+nano .env  # or use your preferred editor
+```
+
+3. Never commit `.env` to version control (it's in `.gitignore`)
+
+### Required Environment Variables
+
+**Django Settings**:
+```bash
+SECRET_KEY=your_django_secret_key_here
+DEBUG=False
+ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com
+```
+
+**Database (PostgreSQL)**:
+```bash
+DB_NAME=valcura_production
+DB_USER=valcura_user
+DB_PASSWORD=your_secure_password
+DB_HOST=localhost
+DB_PORT=5432
+# OR for Render/Heroku:
+DATABASE_URL=postgresql://valcura_user:password@localhost:5432/valcura_production
+```
+
+**Google Sheets API**:
+```bash
+GOOGLE_SHEETS_SPREADSHEET_ID=1PLPAP2W6iZHqo47KG60sqNmv1EHwE4PG4Eh1wUYyPdY
+GOOGLE_SERVICE_ACCOUNT_FILE=/path/to/service-account.json
+# OR for Render (recommended):
+GOOGLE_SERVICE_ACCOUNT_JSON='{"type": "service_account", ...}'
+GOOGLE_SHEETS_PATIENT_SHEET=Patient Status
+```
+
+**WhatsApp Business API**:
+```bash
+WHATSAPP_ACCESS_TOKEN=your_whatsapp_access_token
+WHATSAPP_PHONE_NUMBER_ID=your_whatsapp_phone_number_id
+WHATSAPP_API_VERSION=v18.0
+WHATSAPP_WEBHOOK_VERIFY_TOKEN=your_webhook_verify_token
+```
+
+**Automation Configuration**:
+```bash
+AUTOMATION_DATA_SOURCE=database  # or 'sheets' or 'both'
+EXCEL_FILE_PATH=Valcura - Master Revenue Intelligence Database.xlsx
+```
+
+### Optional Environment Variables
+
+**Email Notifications**:
+```bash
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=your_email@gmail.com
+EMAIL_HOST_PASSWORD=your_email_password
+```
+
+**Feature Flags**:
+```bash
+ENABLE_WHATSAPP_AUTOMATION=True
+ENABLE_GOOGLE_SHEETS_SYNC=True
+ENABLE_DATABASE_AUTOMATION=True
+ENABLE_APPOINTMENT_REMINDERS=True
+ENABLE_FOLLOWUP_AUTOMATION=True
+```
+
+**Monitoring**:
+```bash
+SENTRY_DSN=your_sentry_dsn
+LOG_LEVEL=INFO
+```
+
+### Security Notes
+
+- The `.env` file is in `.gitignore` to prevent accidental commits
+- For Render deployment, use environment variables in the Render dashboard instead
+- For production, rotate secrets regularly and use different values for dev/staging/prod
+- Store service account JSON as environment variable for cloud deployments
+
 ## Required API Keys and Services
 
 ### 1. Google Sheets API

@@ -141,7 +141,7 @@ ASGI_APPLICATION = 'Valcura_backend.asgi.application'
 # ------------------------------------------------------------
 # PRODUCTION — Neon PostgreSQL
 # ------------------------------------------------------------
-
+'''
 DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv('DATABASE_URL'),
@@ -149,8 +149,8 @@ DATABASES = {
         conn_health_checks=True,
         ssl_require=True,
     )
-}
-
+}  
+'''
 
 # ------------------------------------------------------------
 # LOCAL DEVELOPMENT — SQLite
@@ -159,13 +159,20 @@ DATABASES = {
 # Uncomment this and comment out the Neon configuration above
 # if you want to use SQLite locally.
 #
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+     }
+ }
 
+
+# ============================================================
+# AUTHENTICATION
+# ============================================================
+
+AUTH_USER_MODEL = 'user_request.HospitalUser'
+LOGIN_URL = 'login'
 
 # ============================================================
 # PASSWORD VALIDATION

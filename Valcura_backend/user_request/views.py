@@ -1,15 +1,21 @@
+import hmac
 import json
 import os
 
 from django.http import JsonResponse, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from django.contrib import messages
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from .models import MessageLog
+from .models import MessageLog, HospitalUser, ClinicProfile, InteractionLog, Opportunity
 from .services import TemplateService, WhatsAppService, GoogleSheetsService
+from .forms import HospitalRegistrationForm, HospitalUserForm
 
 @csrf_exempt
 def macrodroid_webhook(request):
@@ -189,9 +195,9 @@ def whatsapp_webhook(request):
         token = request.GET.get('hub.verify_token')
         challenge = request.GET.get('hub.challenge')
 
-        expected_token = os.getenv('WHATSAPP_VERIFY_TOKEN', 'valcura_secure_webhook_token_2026')
+        expected_token = os.getenv('WHATSAPP_VERIFY_TOKEN')
 
-        if mode == 'subscribe' and token == expected_token:
+        if expected_token and mode == 'subscribe' and hmac.compare_digest(token or '', expected_token):
             print("WhatsApp Webhook verified successfully.")
             return HttpResponse(challenge, status=200)
         else:
@@ -361,3 +367,211 @@ def message_list(request):
 
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+
+# Hospital Authentication Views
+
+def hospital_register(request):
+    """Register a new hospital/clinic"""
+    if request.method == 'POST':
+        form = HospitalRegistrationForm(request.POST)
+        if form.is_valid():
+            # Get admin user data
+            admin_username = request.POST.get('admin_username')
+            admin_email = request.POST.get('admin_email')
+            admin_password = request.POST.get('admin_password')
+            admin_password_confirm = request.POST.get('admin_password_confirm')
+            admin_first_name = request.POST.get('admin_first_name', '')
+            admin_last_name = request.POST.get('admin_last_name', '')
+            
+            # Validate passwords match
+            if admin_password != admin_password_confirm:
+                return render(request, 'hospital_register.html', {
+                    'form': form,
+                    'error': 'Passwords do not match'
+                })
+            
+            # Check if username already exists
+            if HospitalUser.objects.filter(username=admin_username).exists():
+                return render(request, 'hospital_register.html', {
+                    'form': form,
+                    'error': 'Username already exists'
+                })
+
+            try:
+                with transaction.atomic():
+                    clinic = form.save()
+                    admin_user = HospitalUser.objects.create_user(
+                        username=admin_username,
+                        email=admin_email,
+                        password=admin_password,
+                        first_name=admin_first_name,
+                        last_name=admin_last_name,
+                        clinic=clinic,
+                        role='admin',
+                        is_hospital_admin=True
+                    )
+                # Auto-login the user after registration
+                login(request, admin_user)
+                messages.success(request, 'Registration Succeeded! Welcome to Valcura.')
+                return redirect('hospital_dashboard')
+            except Exception as e:
+                return render(request, 'hospital_register.html', {
+                    'form': form,
+                    'error': f'Error creating user: {str(e)}'
+                })
+    else:
+        form = HospitalRegistrationForm()
+    
+    return render(request, 'hospital_register.html', {'form': form})
+
+
+def hospital_login(request):
+    """Login for hospital staff"""
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        from django.contrib.auth import authenticate
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None and isinstance(user, HospitalUser):
+            login(request, user)
+            return redirect('hospital_dashboard')
+        else:
+            return render(request, 'hospital_login.html', {'error': 'Invalid credentials'})
+    
+    return render(request, 'hospital_login.html')
+
+
+@login_required
+def hospital_logout(request):
+    """Logout for hospital staff"""
+    logout(request)
+    return redirect('login')
+
+
+@login_required
+def hospital_dashboard(request):
+    """Dashboard for hospital staff to view their messages"""
+    user = request.user
+    
+    # Get messages for this hospital's patients
+    if isinstance(user, HospitalUser) and user.clinic:
+        clinic = user.clinic
+        
+        # Get patients for this clinic
+        from .models import PatientContact
+        clinic_patients = PatientContact.objects.filter(clinic=clinic)
+        patient_phone_numbers = [p.phone_number for p in clinic_patients]
+        
+        # Get messages for these patients
+        messages = MessageLog.objects.filter(phone_number__in=patient_phone_numbers).order_by('-created_at')
+        
+        # Get interaction logs for this clinic
+        interactions = InteractionLog.objects.filter(clinic=clinic).order_by('-event_date_time')[:50]
+        
+        # Get opportunities for this clinic
+        opportunities = Opportunity.objects.filter(clinic=clinic).order_by('-inquiry_date_time')[:50]
+        
+        # Analytics
+        total_messages = messages.count()
+        missed_calls = messages.filter(is_missed_call=True).count()
+        active_opportunities = opportunities.filter(opportunity_status__in=['New', 'Inquiry', 'Active']).count()
+        
+        context = {
+            'clinic': clinic,
+            'messages': messages[:100],  # Last 100 messages
+            'interactions': interactions,
+            'opportunities': opportunities,
+            'analytics': {
+                'total_messages': total_messages,
+                'missed_calls': missed_calls,
+                'active_opportunities': active_opportunities,
+            }
+        }
+        
+        return render(request, 'hospital_dashboard.html', context)
+    else:
+        return redirect('login')
+
+
+@login_required
+def clinic_messages(request):
+    """API endpoint to get messages for the logged-in clinic"""
+    user = request.user
+    
+    if not isinstance(user, HospitalUser) or not user.clinic:
+        return JsonResponse({'error': 'Not authorized'}, status=403)
+    
+    clinic = user.clinic
+    
+    # Get patients for this clinic
+    from .models import PatientContact
+    clinic_patients = PatientContact.objects.filter(clinic=clinic)
+    patient_phone_numbers = [p.phone_number for p in clinic_patients]
+    
+    # Filter parameters
+    search_query = request.GET.get('search', '')
+    date_from = request.GET.get('date_from')
+    date_to = request.GET.get('date_to')
+    message_type = request.GET.get('type', 'all')
+    
+    messages = MessageLog.objects.filter(phone_number__in=patient_phone_numbers)
+    
+    # Apply filters
+    if search_query:
+        messages = messages.filter(
+            user_message__icontains=search_query
+        ) | messages.filter(
+            ai_response__icontains=search_query
+        )
+    
+    if date_from:
+        messages = messages.filter(created_at__gte=date_from)
+    
+    if date_to:
+        messages = messages.filter(created_at__lte=date_to)
+    
+    if message_type == 'missed':
+        messages = messages.filter(is_missed_call=True)
+    elif message_type == 'received':
+        messages = messages.filter(is_missed_call=False)
+    
+    messages = messages.order_by('-created_at')[:100]
+    
+    data = []
+    for msg in messages:
+        data.append({
+            'id': msg.id,
+            'phone_number': msg.phone_number,
+            'user_message': msg.user_message,
+            'ai_response': msg.ai_response,
+            'is_missed_call': msg.is_missed_call,
+            'source': getattr(msg, 'source', 'WhatsApp'),
+            'status': getattr(msg, 'status', 'Received'),
+            'created_at': msg.created_at.strftime('%Y-%m-%d %H:%M:%S')
+        })
+    
+    return JsonResponse({'messages': data})
+
+
+@login_required
+def create_hospital_user(request):
+    """Create a new user for the hospital (admin only)"""
+    user = request.user
+    
+    if not isinstance(user, HospitalUser) or not user.is_hospital_admin:
+        return JsonResponse({'error': 'Not authorized'}, status=403)
+    
+    if request.method == 'POST':
+        form = HospitalUserForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            return JsonResponse({'success': True, 'user_id': new_user.id})
+        else:
+            return JsonResponse({'success': False, 'errors': form.errors}, status=400)
+    else:
+        form = HospitalUserForm(initial={'clinic': user.clinic})
+    
+    return render(request, 'create_user.html', {'form': form})

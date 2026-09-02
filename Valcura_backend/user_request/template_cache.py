@@ -1,117 +1,59 @@
-from django.core.cache import cache
-from django.core.cache.backends.base import DEFAULT_TIMEOUT
 from typing import Optional, Dict, Any, List
-from .models import MetaTemplate
+from .models import MetaTemplate, SystemConfig
 
 
 class TemplateCacheService:
-    CACHE_TIMEOUT = 60 * 60 * 24  # 24 hours
-    ALL_TEMPLATES_CACHE_KEY = "all_templates_cache"
+    """
+    Simplified template service without caching.
+    Direct database queries for template retrieval.
+    """
     
     @classmethod
     def get_template(cls, template_id: str) -> Optional[Dict[str, Any]]:
-        cache_key = f"template_{template_id}"
-        cached_data = cache.get(cache_key)
-        
-        if cached_data is not None:
-            return cached_data
-        
+        """Get template by ID from database."""
         try:
             template = MetaTemplate.objects.get(template_id=template_id)
-            template_data = cls._serialize_template(template)
-            cache.set(cache_key, template_data, cls.CACHE_TIMEOUT)
-            return template_data
+            return cls._serialize_template(template)
         except MetaTemplate.DoesNotExist:
             return None
     
     @classmethod
     def get_all_templates(cls) -> Dict[str, Dict[str, Any]]:
-        cached_data = cache.get(cls.ALL_TEMPLATES_CACHE_KEY)
-        
-        if cached_data is not None:
-            return cached_data
-        
+        """Get all templates from database."""
         templates = MetaTemplate.objects.all()
         template_dict = {}
         for template in templates:
             template_dict[template.template_id] = cls._serialize_template(template)
-        
-        cache.set(cls.ALL_TEMPLATES_CACHE_KEY, template_dict, cls.CACHE_TIMEOUT)
         return template_dict
 
-    
     @classmethod
     def get_templates_by_library(cls, library: str) -> List[Dict[str, Any]]:
-        import hashlib
-        safe_library = hashlib.md5(library.encode()).hexdigest()
-        cache_key = f"templates_library_{safe_library}"
-        cached_data = cache.get(cache_key)
-        
-        if cached_data is not None:
-            return cached_data
-        
+        """Get templates by library from database."""
         templates = MetaTemplate.objects.filter(library=library)
-        template_list = [cls._serialize_template(template) for template in templates]
-        cache.set(cache_key, template_list, cls.CACHE_TIMEOUT)
-        return template_list
+        return [cls._serialize_template(template) for template in templates]
     
     @classmethod
     def get_templates_by_trigger(cls, trigger: str) -> List[Dict[str, Any]]:
-        import hashlib
-        safe_trigger = hashlib.md5(trigger.encode()).hexdigest()
-        cache_key = f"templates_trigger_{safe_trigger}"
-        cached_data = cache.get(cache_key)
-        
-        if cached_data is not None:
-            return cached_data
-        
+        """Get templates by trigger from database."""
         templates = MetaTemplate.objects.filter(trigger=trigger)
-        template_list = [cls._serialize_template(template) for template in templates]
-        cache.set(cache_key, template_list, cls.CACHE_TIMEOUT)
-        return template_list
+        return [cls._serialize_template(template) for template in templates]
     
     @classmethod
     def get_templates_by_treatment(cls, treatment: str) -> List[Dict[str, Any]]:
-        import hashlib
-        safe_treatment = hashlib.md5(treatment.encode()).hexdigest()
-        cache_key = f"templates_treatment_{safe_treatment}"
-        cached_data = cache.get(cache_key)
-        
-        if cached_data is not None:
-            return cached_data
-        
+        """Get templates by treatment from database."""
         templates = MetaTemplate.objects.filter(treatment=treatment)
-        template_list = [cls._serialize_template(template) for template in templates]
-        cache.set(cache_key, template_list, cls.CACHE_TIMEOUT)
-        return template_list
+        return [cls._serialize_template(template) for template in templates]
     
     @classmethod
     def get_templates_by_objection(cls, objection: str) -> List[Dict[str, Any]]:
-        import hashlib
-        safe_objection = hashlib.md5(objection.encode()).hexdigest()
-        cache_key = f"templates_objection_{safe_objection}"
-        cached_data = cache.get(cache_key)
-        
-        if cached_data is not None:
-            return cached_data
-        
+        """Get templates by objection from database."""
         templates = MetaTemplate.objects.filter(objection=objection)
-        template_list = [cls._serialize_template(template) for template in templates]
-        cache.set(cache_key, template_list, cls.CACHE_TIMEOUT)
-        return template_list
+        return [cls._serialize_template(template) for template in templates]
     
     @classmethod
     def find_template_by_situation(cls, library: str, trigger: str, 
                                    treatment: str = None, objection: str = None) -> Optional[Dict[str, Any]]:
-        import hashlib
-        situation_string = f"{library}_{trigger}_{treatment}_{objection}"
-        safe_situation = hashlib.md5(situation_string.encode()).hexdigest()
-        cache_key = f"situation_{safe_situation}"
-        cached_data = cache.get(cache_key)
-        
-        if cached_data is not None:
-            return cached_data
-        
+        """Find template by situation from database."""
         queryset = MetaTemplate.objects.filter(library=library, trigger=trigger)
         
         if treatment:
@@ -122,33 +64,17 @@ class TemplateCacheService:
         try:
             template = queryset.first()
             if template:
-                template_data = cls._serialize_template(template)
-                cache.set(cache_key, template_data, cls.CACHE_TIMEOUT)
-                return template_data
+                return cls._serialize_template(template)
         except MetaTemplate.DoesNotExist:
             pass
         
         return None
     
     @classmethod
-    def invalidate_template(cls, template_id: str):
-        cache_key = f"template_{template_id}"
-        cache.delete(cache_key)
-        cache.delete(cls.ALL_TEMPLATES_CACHE_KEY)
-    
-    @classmethod
-    def invalidate_library_cache(cls, library: str):
-        cache_key = f"templates_library_{library}"
-        cache.delete(cache_key)
-        cache.delete(cls.ALL_TEMPLATES_CACHE_KEY)
-        return None
-
-    @classmethod
     def get_template_from_system_config(cls, config_type: str, code: str, 
                                        treatment: str = None, objection: str = None) -> Optional[Dict[str, Any]]:
         """
         Get template from System_Config based on parameters.
-        Returns cached template if available.
         """
         from django.db.models import Q
         
@@ -165,14 +91,10 @@ class TemplateCacheService:
             return cls.get_template(config.meta_template_name)
         
         return None
-
-    @classmethod
-    def invalidate_cache(cls):
-        """Invalidate all template cache."""
-        cache.delete(cls.ALL_TEMPLATES_CACHE_KEY)
     
     @classmethod
     def _serialize_template(cls, template: MetaTemplate) -> Dict[str, Any]:
+        """Serialize template object to dictionary."""
         return {
             "template_id": template.template_id,
             "meta_template_name": template.meta_template_name,
