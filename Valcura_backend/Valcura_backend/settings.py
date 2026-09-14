@@ -141,7 +141,7 @@ ASGI_APPLICATION = 'Valcura_backend.asgi.application'
 # ------------------------------------------------------------
 # PRODUCTION — Neon PostgreSQL
 # ------------------------------------------------------------
-'''
+
 DATABASES = {
     'default': dj_database_url.config(
         default=os.getenv('DATABASE_URL'),
@@ -165,7 +165,7 @@ DATABASES = {
          'NAME': BASE_DIR / 'db.sqlite3',
      }
  }
-
+'''
 
 # ============================================================
 # AUTHENTICATION

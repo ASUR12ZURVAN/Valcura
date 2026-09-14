@@ -11,10 +11,10 @@ import requests
 LOCAL_URL = "http://127.0.0.1:8000/api/macrodroid/webhook/"
 
 # Replace this with the deployed endpoint for your production environment.
-PRODUCTION_URL = "https://your-production-domain.example.com/api/macrodroid/webhook/"
+PRODUCTION_URL = "https://valcura.onrender.com/api/macrodroid/webhook/"
 
 # Change this one variable when switching between local and production testing.
-url = LOCAL_URL
+url = PRODUCTION_URL
 
 # Default values for quick local testing.
 DEFAULT_PHONE_NUMBER = "+917978043970"
