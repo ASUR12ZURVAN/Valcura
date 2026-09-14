@@ -3,7 +3,7 @@ from datetime import date
 from django.test import TestCase
 from django.urls import reverse
 
-from .models import ClinicProfile, HospitalUser, MessageLog, PatientContact
+from user_request.models import ClinicProfile, HospitalUser, MessageLog, PatientContact
 
 
 class HospitalAuthTests(TestCase):
@@ -72,3 +72,16 @@ class HospitalAuthTests(TestCase):
     def test_auth_routes_work_without_trailing_slashes(self):
         self.assertEqual(self.client.get('/register').status_code, 200)
         self.assertEqual(self.client.get('/login').status_code, 200)
+
+    def test_empty_clinic_dashboard_shows_demo_messages_and_filters(self):
+        self.client.post(reverse('hospital_register'), self.registration_data())
+
+        dashboard = self.client.get(reverse('hospital_dashboard'))
+
+        self.assertContains(dashboard, 'Aarav Mehta')
+        self.assertContains(dashboard, 'Diya Shah')
+        self.assertContains(dashboard, 'patient-filter')
+        self.assertContains(dashboard, 'issue-filter')
+        self.assertContains(dashboard, 'Appointment')
+        self.assertContains(dashboard, 'Pricing')
+        self.assertNotContains(dashboard, "'phone_number':")

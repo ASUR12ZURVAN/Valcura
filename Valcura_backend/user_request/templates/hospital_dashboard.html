@@ -11,20 +11,21 @@
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #f5f7fa;
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #050505;
             min-height: 100vh;
+            color: #f5c542;
         }
         .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #080808;
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #806515;
         }
         .navbar-brand {
-            color: white;
+            color: #f5c542;
             font-size: 24px;
             font-weight: 700;
         }
@@ -34,7 +35,7 @@
             align-items: center;
         }
         .navbar-menu a {
-            color: white;
+            color: #f5c542;
             text-decoration: none;
             font-size: 14px;
             transition: opacity 0.3s;
@@ -51,12 +52,12 @@
             margin-bottom: 30px;
         }
         .header h1 {
-            color: #333;
+            color: #f7d66b;
             font-size: 32px;
             margin-bottom: 10px;
         }
         .header p {
-            color: #666;
+            color: #c9a936;
             font-size: 16px;
         }
         .stats-grid {
@@ -66,36 +67,36 @@
             margin-bottom: 40px;
         }
         .stat-card {
-            background: white;
+            background: #11100c;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #4e411b;
         }
         .stat-card h3 {
-            color: #666;
+            color: #c9a936;
             font-size: 14px;
             margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         .stat-card .value {
-            color: #333;
+            color: #f5c542;
             font-size: 36px;
             font-weight: 700;
         }
         .section {
-            background: white;
+            background: #11100c;
             border-radius: 12px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #4e411b;
         }
         .section h2 {
-            color: #333;
+            color: #f7d66b;
             font-size: 24px;
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid #806515;
         }
         .filters {
             display: flex;
@@ -105,21 +106,23 @@
         }
         .filters input, .filters select {
             padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            border: 1px solid #806515;
+            border-radius: 4px;
+            background: #050505;
+            color: #f7d66b;
             font-size: 14px;
         }
         .filters button {
             padding: 10px 20px;
-            background: #667eea;
-            color: white;
+            background: #d4a900;
+            color: #050505;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
         }
         .filters button:hover {
-            background: #5568d3;
+            background: #f5c542;
         }
         .message-list {
             max-height: 500px;
@@ -127,11 +130,11 @@
         }
         .message-item {
             padding: 20px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid #332b12;
             transition: background 0.3s;
         }
         .message-item:hover {
-            background: #f9f9f9;
+            background: #1b180d;
         }
         .message-item:last-child {
             border-bottom: none;
@@ -143,10 +146,10 @@
         }
         .message-phone {
             font-weight: 600;
-            color: #333;
+            color: #f7d66b;
         }
         .message-time {
-            color: #999;
+            color: #a88b2f;
             font-size: 12px;
         }
         .message-type {
@@ -157,20 +160,20 @@
             margin-bottom: 10px;
         }
         .message-type.missed {
-            background: #fee;
-            color: #c33;
+            background: #351616;
+            color: #f08b72;
         }
         .message-type.received {
-            background: #eef;
-            color: #667eea;
+            background: #332b12;
+            color: #f5c542;
         }
         .message-content {
-            color: #555;
+            color: #d8bd62;
             font-size: 14px;
             line-height: 1.6;
         }
         .message-content strong {
-            color: #333;
+            color: #f7d66b;
         }
         .opportunities-table {
             width: 100%;
@@ -180,16 +183,16 @@
         .opportunities-table td {
             padding: 12px;
             text-align: left;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid #332b12;
         }
         .opportunities-table th {
-            background: #f9f9f9;
-            color: #666;
+            background: #1b180d;
+            color: #c9a936;
             font-weight: 600;
             font-size: 14px;
         }
         .opportunities-table td {
-            color: #333;
+            color: #f7d66b;
             font-size: 14px;
         }
         .status-badge {
@@ -200,21 +203,49 @@
             font-weight: 600;
         }
         .status-badge.active {
-            background: #e8f5e9;
-            color: #2e7d32;
+            background: #263114;
+            color: #c9e26b;
         }
         .status-badge.new {
-            background: #e3f2fd;
-            color: #1565c0;
+            background: #332b12;
+            color: #f5c542;
         }
         .status-badge.closed {
-            background: #ffebee;
-            color: #c62828;
+            background: #351616;
+            color: #f08b72;
         }
         .empty-state {
             text-align: center;
             padding: 40px;
-            color: #999;
+            color: #a88b2f;
+        }
+        .patient-table-wrap {
+            overflow-x: auto;
+        }
+        .patient-table {
+            width: 100%;
+            min-width: 720px;
+            border-collapse: collapse;
+        }
+        .patient-table th,
+        .patient-table td {
+            padding: 13px 12px;
+            text-align: left;
+            border-bottom: 1px solid #332b12;
+        }
+        .patient-table th {
+            background: #1b180d;
+            color: #c9a936;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .patient-table td {
+            color: #f7d66b;
+            font-size: 14px;
+        }
+        .patient-id {
+            color: #f5c542;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -257,13 +288,51 @@
                 <div class="value">{{ analytics.active_opportunities }}</div>
             </div>
         </div>
+
+        <div class="section">
+            <h2>Patient Overview</h2>
+            {% if patient_overview %}
+                <div class="patient-table-wrap">
+                    <table class="patient-table">
+                        <thead>
+                            <tr>
+                                <th>Patient ID</th>
+                                <th>Patient</th>
+                                <th>ATS (INR)</th>
+                                <th>Last Consultation</th>
+                                <th>Last Communication</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for patient in patient_overview %}
+                            <tr>
+                                <td class="patient-id">{{ patient.patient_id }}</td>
+                                <td>{{ patient.patient_name }}<br>{{ patient.phone_number }}</td>
+                                <td>{{ patient.ats|default:"N/A" }}</td>
+                                <td>{{ patient.last_consultation|date:'Y-m-d H:i'|default:"N/A" }}</td>
+                                <td>{{ patient.last_communication|date:'Y-m-d H:i'|default:"N/A" }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="empty-state">No patients found for your clinic.</div>
+            {% endif %}
+        </div>
         
         <!-- Messages Section -->
         <div class="section">
             <h2>Recent Messages</h2>
             
             <div class="filters">
-                <input type="text" id="search-input" placeholder="Search messages...">
+                <input type="text" id="patient-filter" placeholder="Patient name...">
+                <select id="issue-filter">
+                    <option value="all">All Issues</option>
+                    {% for issue_type in issue_types %}
+                        <option value="{{ issue_type|lower }}">{{ issue_type }}</option>
+                    {% endfor %}
+                </select>
                 <select id="type-filter">
                     <option value="all">All Types</option>
                     <option value="missed">Missed Calls</option>
@@ -275,18 +344,20 @@
             </div>
             
             <div class="message-list" id="message-list">
-                {% if messages %}
-                    {% for message in messages %}
-                    <div class="message-item" data-type="{% if message.is_missed_call %}missed{% else %}received{% endif %}" data-date="{{ message.created_at|date:'Y-m-d' }}">
+                {% if clinic_messages %}
+                    {% for message in clinic_messages %}
+                    <div class="message-item" data-type="{% if message.is_missed_call %}missed{% else %}received{% endif %}" data-date="{{ message.created_at|date:'Y-m-d' }}" data-patient-name="{{ message.patient_name|lower }}" data-issue-type="{{ message.issue_type|lower }}">
                         <div class="message-header">
-                            <span class="message-phone">{{ message.phone_number }}</span>
+                            <span class="message-phone">{{ message.patient_name }} · {{ message.phone_number }}</span>
                             <span class="message-time">{{ message.created_at|date:'Y-m-d H:i:s' }}</span>
                         </div>
                         <span class="message-type {% if message.is_missed_call %}missed{% else %}received{% endif %}">
                             {% if message.is_missed_call %}Missed Call{% else %}Received{% endif %}
                         </span>
+                        <span class="message-type received">{{ message.issue_type }}</span>
+                        {% if message.is_demo %}<span class="message-type received">Demo</span>{% endif %}
                         <div class="message-content">
-                            <strong>Patient:</strong> {{ message.user_message|default:"N/A" }}<br>
+                            <strong>Patient message:</strong> {{ message.user_message|default:"N/A" }}<br>
                             <strong>Response:</strong> {{ message.ai_response }}
                         </div>
                     </div>
@@ -339,7 +410,8 @@
     
     <script>
         function filterMessages() {
-            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const patientFilter = document.getElementById('patient-filter').value.toLowerCase().trim();
+            const issueFilter = document.getElementById('issue-filter').value;
             const typeFilter = document.getElementById('type-filter').value;
             const dateFrom = document.getElementById('date-from').value;
             const dateTo = document.getElementById('date-to').value;
@@ -349,9 +421,18 @@
             messages.forEach(message => {
                 const messageType = message.dataset.type;
                 const messageDate = message.dataset.date;
-                const messageText = message.textContent.toLowerCase();
+                const patientName = message.dataset.patientName;
+                const issueType = message.dataset.issueType;
                 
                 let show = true;
+
+                if (patientFilter && !patientName.includes(patientFilter)) {
+                    show = false;
+                }
+
+                if (issueFilter !== 'all' && issueType !== issueFilter) {
+                    show = false;
+                }
                 
                 if (typeFilter !== 'all' && messageType !== typeFilter) {
                     show = false;
@@ -365,16 +446,13 @@
                     show = false;
                 }
                 
-                if (searchInput && !messageText.includes(searchInput)) {
-                    show = false;
-                }
-                
                 message.style.display = show ? 'block' : 'none';
             });
         }
         
         // Auto-filter on input change
-        document.getElementById('search-input').addEventListener('input', filterMessages);
+        document.getElementById('patient-filter').addEventListener('input', filterMessages);
+        document.getElementById('issue-filter').addEventListener('change', filterMessages);
         document.getElementById('type-filter').addEventListener('change', filterMessages);
         document.getElementById('date-from').addEventListener('change', filterMessages);
         document.getElementById('date-to').addEventListener('change', filterMessages);

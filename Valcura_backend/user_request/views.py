@@ -12,6 +12,7 @@ from django.contrib import messages
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from django.utils import timezone
 
 from .models import MessageLog, HospitalUser, ClinicProfile, InteractionLog, Opportunity
 from .services import TemplateService, WhatsAppService, GoogleSheetsService
@@ -130,7 +131,12 @@ def macrodroid_webhook(request):
     formatted_number = re.sub(r'\D', '', phone_number)
 
     template = template_service.get_template(template_id)
-    meta_template_name = payload.get('meta_template_name') or template['name']
+    meta_template_name = (
+        payload.get('meta_template_name')
+        or (template.get('meta_template_name') if template else None)
+        or (template.get('name') if template else None)
+        or template_id
+    )
     template_variables = template_service.meta_variables(template_id, variables)
     template_components = template_service.meta_components(
         template_id,
@@ -464,15 +470,95 @@ def hospital_dashboard(request):
         from .models import PatientContact
         clinic_patients = PatientContact.objects.filter(clinic=clinic)
         patient_phone_numbers = [p.phone_number for p in clinic_patients]
+        patients_by_phone = {p.phone_number: p for p in clinic_patients}
         
         # Get messages for these patients
         messages = MessageLog.objects.filter(phone_number__in=patient_phone_numbers).order_by('-created_at')
+
+        latest_issues = {}
+        for opportunity in Opportunity.objects.filter(
+            clinic=clinic,
+            patient__phone_number__in=patient_phone_numbers,
+        ).order_by('-inquiry_date_time'):
+            latest_issues.setdefault(opportunity.patient.phone_number, opportunity.treatment_concern)
+
+        display_messages = [
+            {
+                'phone_number': message.phone_number,
+                'patient_name': patients_by_phone.get(message.phone_number).patient_name
+                if patients_by_phone.get(message.phone_number) else 'Unknown patient',
+                'issue_type': latest_issues.get(message.phone_number, 'General enquiry'),
+                'user_message': message.user_message,
+                'ai_response': message.ai_response,
+                'is_missed_call': message.is_missed_call,
+                'created_at': message.created_at,
+                'is_demo': False,
+            }
+            for message in messages[:100]
+        ]
+
+        if not display_messages:
+            demo_time = timezone.now()
+            display_messages = [
+                {
+                    'phone_number': '+91 98765 43210',
+                    'patient_name': 'Aarav Mehta',
+                    'issue_type': 'Appointment',
+                    'user_message': 'I need to reschedule my consultation.',
+                    'ai_response': 'We can help you find a new consultation time.',
+                    'is_missed_call': False,
+                    'created_at': demo_time,
+                    'is_demo': True,
+                },
+                {
+                    'phone_number': '+91 98765 43211',
+                    'patient_name': 'Diya Shah',
+                    'issue_type': 'Pricing',
+                    'user_message': 'Could you share the treatment pricing?',
+                    'ai_response': 'Our care team will share the pricing details with you.',
+                    'is_missed_call': False,
+                    'created_at': demo_time,
+                    'is_demo': True,
+                },
+                {
+                    'phone_number': '+91 98765 43212',
+                    'patient_name': 'Kabir Rao',
+                    'issue_type': 'Follow-up',
+                    'user_message': None,
+                    'ai_response': 'A patient follow-up call was missed.',
+                    'is_missed_call': True,
+                    'created_at': demo_time,
+                    'is_demo': True,
+                },
+            ]
+
+        issue_types = sorted({message['issue_type'] for message in display_messages})
         
         # Get interaction logs for this clinic
         interactions = InteractionLog.objects.filter(clinic=clinic).order_by('-event_date_time')[:50]
         
         # Get opportunities for this clinic
-        opportunities = Opportunity.objects.filter(clinic=clinic).order_by('-inquiry_date_time')[:50]
+        opportunities = Opportunity.objects.filter(clinic=clinic).order_by('-inquiry_date_time')
+
+        latest_opportunities = {}
+        latest_consultations = {}
+        for opportunity in opportunities:
+            latest_opportunities.setdefault(opportunity.patient_id, opportunity)
+            if opportunity.consultation_date_time and opportunity.patient_id not in latest_consultations:
+                latest_consultations[opportunity.patient_id] = opportunity.consultation_date_time
+
+        patient_overview = []
+        for patient in clinic_patients.order_by('patient_name'):
+            last_communication = messages.filter(phone_number=patient.phone_number).first()
+            patient_opportunity = latest_opportunities.get(patient.patient_id)
+            patient_overview.append({
+                'patient_id': patient.patient_id,
+                'patient_name': patient.patient_name,
+                'phone_number': patient.phone_number,
+                'ats': patient_opportunity.ats_value_inr if patient_opportunity else None,
+                'last_consultation': latest_consultations.get(patient.patient_id),
+                'last_communication': last_communication.created_at if last_communication else None,
+            })
         
         # Analytics
         total_messages = messages.count()
@@ -481,9 +567,11 @@ def hospital_dashboard(request):
         
         context = {
             'clinic': clinic,
-            'messages': messages[:100],  # Last 100 messages
+            'clinic_messages': display_messages,
+            'issue_types': issue_types,
             'interactions': interactions,
-            'opportunities': opportunities,
+            'opportunities': opportunities[:50],
+            'patient_overview': patient_overview,
             'analytics': {
                 'total_messages': total_messages,
                 'missed_calls': missed_calls,

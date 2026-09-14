@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from unittest.mock import patch
 
-from .services import TemplateService
+from user_request.services import TemplateService
 
 
 class ChatRAGEndpointTests(TestCase):

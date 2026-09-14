@@ -118,7 +118,7 @@ class TemplateRetrievalService:
             trigger='Primary Objection = Fear',
             treatment=treatment
         )
-    
+        
     @staticmethod
     def get_templates_for_urgency_objection(treatment: str = 'Root Canal Treatment') -> Optional[Dict[str, Any]]:
         """
