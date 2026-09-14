@@ -111,10 +111,12 @@ class WhatsAppService:
         self.access_token = os.getenv("WHATSAPP_ACCESS_TOKEN")
         self.phone_number_id = os.getenv("WHATSAPP_PHONE_NUMBER_ID")
         self.api_version = os.getenv("WHATSAPP_API_VERSION", "v18.0")
+        self.last_error = ""
 
     def send_message(self, to_number: str, message: str, template_name: str = None, template_variables: list = None, template_components: list = None) -> bool:
         if not self.access_token or not self.phone_number_id:
-            print("WhatsApp credentials not set. Cannot send message.")
+            self.last_error = "WhatsApp credentials are not configured."
+            print(self.last_error)
             return False
 
         try:
@@ -159,10 +161,25 @@ class WhatsAppService:
             response.raise_for_status()
             return True
         except requests.exceptions.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else 'error'
+            detail = ""
+            if e.response is not None:
+                try:
+                    error_data = e.response.json().get("error", {})
+                    detail = error_data.get("message") or error_data.get("type") or ""
+                    error_code = error_data.get("code")
+                    if error_code:
+                        detail = f"{detail} (code {error_code})"
+                except (ValueError, AttributeError):
+                    pass
+            self.last_error = f"WhatsApp API returned HTTP {status_code}."
+            if detail:
+                self.last_error += f" {detail}"
             print(f"Failed to send WhatsApp message. HTTP Error: {e}")
             if e.response is not None:
                 print("WhatsApp API Error Response:", e.response.text)
             return False
         except Exception as e:
+            self.last_error = f"WhatsApp request failed: {e}"
             print(f"Failed to send WhatsApp message: {e}")
             return False

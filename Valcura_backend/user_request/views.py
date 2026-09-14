@@ -18,6 +18,11 @@ from .models import MessageLog, HospitalUser, ClinicProfile, InteractionLog, Opp
 from .services import TemplateService, WhatsAppService, GoogleSheetsService
 from .forms import HospitalRegistrationForm, HospitalUserForm
 
+
+def health_check(request):
+    return JsonResponse({'status': 'ok'})
+
+
 @csrf_exempt
 def macrodroid_webhook(request):
     """
@@ -183,9 +188,10 @@ def macrodroid_webhook(request):
         return JsonResponse({
             'status': 'error',
             'detail': 'Failed to send WhatsApp message',
+            'whatsapp_detail': whatsapp_service.last_error,
             'sheet_synced': synced_success,
             'sync_detail': sync_msg
-        }, status=500)
+        }, status=502)
 
 
 @csrf_exempt

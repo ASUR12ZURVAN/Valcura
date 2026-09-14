@@ -21,11 +21,13 @@ from django.contrib.auth import views as auth_views
 from user_request.views import (
     macrodroid_webhook, whatsapp_webhook, sync_sheets_view, message_list, dashboard,
     hospital_register, hospital_login, hospital_logout, hospital_dashboard,
-    clinic_messages, create_hospital_user
+    clinic_messages, create_hospital_user, health_check
 )
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
+    path('', health_check, name='health-check'),
+    path('health/', health_check, name='health-check-explicit'),
     path('admin/', admin.site.urls),
     
     # Hospital Authentication
