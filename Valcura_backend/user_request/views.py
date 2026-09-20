@@ -23,6 +23,10 @@ def health_check(request):
     return JsonResponse({'status': 'ok'})
 
 
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
+
+
 @csrf_exempt
 def macrodroid_webhook(request):
     """

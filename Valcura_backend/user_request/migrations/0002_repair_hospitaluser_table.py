@@ -15,10 +15,6 @@ class Migration(migrations.Migration):
         ('user_request', '0001_initial'),
     ]
 
-    run_before = [
-        ('admin', '0001_initial'),
-    ]
-
     operations = [
         migrations.RunPython(
             create_missing_hospital_user_table,

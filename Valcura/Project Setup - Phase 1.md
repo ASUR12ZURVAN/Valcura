@@ -128,3 +128,11 @@ Further additions
 
 by 27th -- Complete whatsapp, workflow tested and trained
 
+
+
+1. Multiple clinic names in variable - meta blocking issue due to spam, process of setting up the workflow for new clinic - onboarding. 
+2. Limitation up to 20 numbers, 
+3. Whatsapp business account - they should have the access to see their whatsapp business account
+4. Separate Vector DB for storing images, videos, and LLM integration for modifying those images.
+5. 
+
