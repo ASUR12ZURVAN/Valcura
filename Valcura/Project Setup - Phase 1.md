@@ -136,3 +136,15 @@ by 27th -- Complete whatsapp, workflow tested and trained
 4. Separate Vector DB for storing images, videos, and LLM integration for modifying those images.
 5. 
 
+
+
+Praharsh - More into database  -- Postgres, GraphQL, Maria DB
+
+Abhay - Visibility, elastisearch, systems, API
+
+
+
+
+
+1. Full onboarding process of the clinic, including every workflow.
+2. Tech stacks included in the documentation.
